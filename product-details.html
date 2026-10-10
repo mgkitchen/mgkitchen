@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - MG'S KITCHEN</title>
+    <style>
+        :root {
+            --primary-color: #d9381e;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-body {
+            padding: 30px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #111;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e6f4ea;
+            color: #137333;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .product-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .details-section {
+            margin-top: 25px;
+        }
+
+        .details-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .details-section p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 14px 0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-order:hover {
+            background-color: #b82c16;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="javascript:history.back()" class="back-btn">&larr; Back to Menu</a>
+
+    <div class="product-card" id="product-container">
+        <img id="item-image" class="product-image" src="" alt="Dish Image">
+        <div class="product-body">
+            <span class="tag">100% Vegetarian</span>
+            <div class="product-header">
+                <h1 id="item-title" class="product-title">Loading...</h1>
+                <span id="item-price" class="product-price">--</span>
+            </div>
+            <p id="item-description" class="product-desc"></p>
+            
+            <div class="details-section">
+                <h3>Ingredients & Dietary Information</h3>
+                <p id="item-details"></p>
+            </div>
+
+            <a href="#" class="btn-order">Add to Order</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Menu database mapped by slug
+    const menuData = {
+        "idli-coconut-chutney": {
+            title: "Idli + Coconut Chutney",
+            price: "$11.95",
+            image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+            description: "Classic South Indian soft, steamed rice cakes served with freshly grated coconut chutney blended with roasted chana dal and mild green chilies.",
+            details: "Gluten-Free, Dairy-Free, Vegan. Contains coconut and rice."
+        },
+        "rava-idly-bombay-sambar": {
+            title: "Rava Idly + Bombay Sambar",
+            price: "$11.95",
+            image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+            description: "Steamed semolina cakes tempered with mustard seeds, curry leaves, and cashews, paired with mild and tangy Bombay sambar.",
+            details: "Contains Wheat (Semolina), Nuts (Cashews), Dairy (Ghee)."
+        },
+        "ghee-podi-idli": {
+            title: "Ghee Podi Idli",
+            price: "$12.95",
+            image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+            description: "Bite-sized mini idlis tossed in pure clarified butter (ghee) and spicy gun-powder (podi) lentils mix.",
+            details: "Gluten-Free. Contains Dairy (Ghee) and Lentils."
+        },
+        "medu-vada": {
+            title: "Medu Vada",
+            price: "$8.95",
+            image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+            description: "Crispy on the outside, fluffy inside deep-fried savory lentil doughnuts served with fresh chutneys.",
+            details: "Gluten-Free, Vegan. Made with Black Gram (Urad Dal)."
+        },
+        "masala-vada": {
+            title: "Masala Vada",
+            price: "$8.95",
+            image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+            description: "Crunchy, golden fritters made from coarse chana dal, herbs, onions, and aromatic South Indian spices.",
+            details: "Gluten-Free, Vegan. Contains Chana Dal and Onions."
+        },
+        "kharabath-kesari-bath": {
+            title: "Kharabath + Kesari Bath",
+            price: "$12.50",
+            image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+            description: "The classic 'Chow Chow Bath' combo: savory roasted semolina upma with vegetables paired with rich, sweet saffron semolina halwa.",
+            details: "Contains Wheat, Dairy, and Nuts."
+        },
+        "khara-pongal-sweet-pongal": {
+            title: "Khara Pongal + Sweet Pongal",
+            price: "$11.95",
+            image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+            description: "A soothing pair of savory peppered rice mash tempered with cumin and ghee, alongside rich jaggery-sweetened pongal.",
+            details: "Gluten-Free. Contains Dairy (Ghee) and Nuts."
+        },
+        "lemon-rice": {
+            title: "Lemon Rice",
+            price: "$12.95",
+            image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80",
+            description: "Fragrant rice tempered with lemon juice, mustard seeds, crunchy peanuts, and curry leaves.",
+            details: "Gluten-Free, Vegan. Contains Peanuts."
+        },
+        "mango-rice": {
+            title: "Mango Rice",
+            price: "$12.95",
+            image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80",
+            description: "A seasonal classic prepared with tangy raw grated mangoes, tempered spices, and roasted lentils.",
+            details: "Gluten-Free, Vegan."
+        },
+        "curry-leaves-rice": {
+            title: "Curry Leaves Rice",
+            price: "$12.95",
+            image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80",
+            description: "Healthy and aromatic basmati rice cooked with fresh ground curry leaf blend and roasted spices.",
+            details: "Gluten-Free, Vegetarian."
+        },
+        "tomato-bath": {
+            title: "Tomato Bath",
+            price: "$11.95",
+            image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80",
+            description: "Flavorful rice cooked down with ripe tomatoes, onions, whole spices, and herbs.",
+            details: "Gluten-Free, Vegan."
+        },
+        "mushroom-biryani": {
+            title: "Mushroom Biryani",
+            price: "$16.95",
+            image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+            description: "Fragrant long-grain basmati rice slow-cooked with fresh button mushrooms, caramelised onions, and biryani spices.",
+            details: "Gluten-Free, Vegetarian."
+        },
+        "meals": {
+            title: "South Indian Meals",
+            price: "$16.95",
+            image: "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=800&q=80",
+            description: "Complete traditional thali platter featuring rice, sambar, rasam, vegetable poriyal, curd, papad, and dessert.",
+            details: "Contains Dairy and Lentils."
+        },
+        "maddur-vada": {
+            title: "Maddur Vada",
+            price: "$8.95",
+            image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+            description: "Specialty crispy fritters from Maddur, Karnataka, made with semolina, rice flour, onions, and curry leaves.",
+            details: "Contains Wheat and Onions."
+        },
+        "palav-green-pachadi": {
+            title: "Palav (Green) + Pachadi",
+            price: "$13.95",
+            image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80",
+            description: "Fragrant rice cooked with a green herb paste (mint, coriander, green chilies) served alongside chilled cucumber pachadi.",
+            details: "Gluten-Free. Contains Dairy (Pachadi)."
+        }
+    };
+
+    // Get item parameter from URL query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemKey = urlParams.get('item');
+
+    // Retrieve item data or default to Idli + Coconut Chutney
+    const itemData = menuData[itemKey] || menuData["idli-coconut-chutney"];
+
+    // Render data into the DOM
+    document.title = `${itemData.title} - MG'S KITCHEN`;
+    document.getElementById('item-title').textContent = itemData.title;
+    document.getElementById('item-price').textContent = itemData.price;
+    document.getElementById('item-image').src = itemData.image;
+    document.getElementById('item-image').alt = itemData.title;
+    document.getElementById('item-description').textContent = itemData.description;
+    document.getElementById('item-details').textContent = itemData.details;
+</script>
+
+</body>
+</html>

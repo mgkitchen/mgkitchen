@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="text-align: center; padding: 20px 0; border-bottom: 2px solid #ddd; margin-bottom: 20px;"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG'S KITCHEN THE FLAVOUR SPECIALIST - Menu</title>
+    <!-- Add your logo image here -->
+    
+    <style>
+        :root {
+            --primary-color: #d9381e;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        header p {
+            margin: 5px 0;
+            color: var(--text-muted);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e6f4ea;
+            color: #137333;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* Clickable Card Link Styling */
+        .menu-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .menu-card-link:hover .menu-card {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .item-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="logo.jpg" alt="MG's Kitchen Logo" style="max-height: 80px; width: auto; margin-bottom: 10px;">
+        <h1>MG'S KITCHEN THE FLAVOUR SPECIALIST</h1>
+        <p>20381 62 Ave, Langley, BC V2Y 1M2</p>
+        <span class="tag">100% Vegetarian Menu</span>
+    </header>
+
+    <!-- BREAKFAST SPECIALS -->
+    <section>
+        <h2>Breakfast Specials</h2>
+        <div class="menu-grid">
+            
+            <a href="product-details.html?item=rava-idly-bombay-sambar" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Rava Idly + Bombay Sambar">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Rava Idly + Bombay Sambar</h3>
+                            <span class="item-price">$11.95</span>
+                        </div>
+                        <p class="item-desc">Steamed semolina cakes served with flavorful Bombay sambar.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=idli-coconut-chutney" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Idli + Coconut Chutney">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Idli + Coconut Chutney</h3>
+                            <span class="item-price">$11.95</span>
+                        </div>
+                        <p class="item-desc">Classic soft steamed rice cakes served with fresh coconut chutney.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=ghee-podi-idli" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Ghee Podi Idli">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Ghee Podi Idli</h3>
+                            <span class="item-price">$12.95</span>
+                        </div>
+                        <p class="item-desc">Mini idlis tossed in aromatic clarified butter (ghee) and spiced podi powder.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=medu-vada" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Medu Vada">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Medu Vada</h3>
+                            <span class="item-price">$8.95</span>
+                        </div>
+                        <p class="item-desc">Crispy, deep-fried savory lentil doughnuts served with chutneys.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=masala-vada" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Masala Vada">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Masala Vada</h3>
+                            <span class="item-price">$8.95</span>
+                        </div>
+                        <p class="item-desc">Crunchy and spiced chana dal fritters.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=kharabath-kesari-bath" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Kharabath + Kesari Bath">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Kharabath + Kesari Bath</h3>
+                            <span class="item-price">$12.50</span>
+                        </div>
+                        <p class="item-desc">Classic South Indian combination of savory semolina upma and sweet kesari.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=khara-pongal-sweet-pongal" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Khara Pongal + Sweet Pongal">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Khara Pongal + Sweet Pongal</h3>
+                            <span class="item-price">$11.95</span>
+                        </div>
+                        <p class="item-desc">Comforting pair of savory peppered rice mash and rich jaggery sweet pongal.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- RICE SPECIALTIES -->
+    <section>
+        <h2>Rice Specialties</h2>
+        <div class="menu-grid">
+
+            <a href="product-details.html?item=lemon-rice" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Lemon Rice">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Lemon Rice</h3>
+                            <span class="item-price">$12.95</span>
+                        </div>
+                        <p class="item-desc">Tangy rice tempered with mustard seeds, curry leaves, and lemon juice.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=mango-rice" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Mango Rice">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Mango Rice</h3>
+                            <span class="item-price">$12.95</span>
+                        </div>
+                        <p class="item-desc">Flavorful rice prepared with seasoned raw mangoes and aromatic spices.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=curry-leaves-rice" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Curry Leaves Rice">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Curry Leaves Rice</h3>
+                            <span class="item-price">$12.95</span>
+                        </div>
+                        <p class="item-desc">Fragrant rice infused with fresh ground curry leaf powder and ghee.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=tomato-bath" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Tomato Bath">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Tomato Bath</h3>
+                            <span class="item-price">$11.95</span>
+                        </div>
+                        <p class="item-desc">Spiced, savory rice dish cooked with tangy tomatoes and herbs.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=mushroom-biryani" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Mushroom Biryani">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Mushroom Biryani</h3>
+                            <span class="item-price">$16.95</span>
+                        </div>
+                        <p class="item-desc">Aromatic basmati rice cooked with fresh mushrooms and biryani spices.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=meals" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=600&q=80" alt="Meals">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Meals</h3>
+                            <span class="item-price">$16.95</span>
+                        </div>
+                        <p class="item-desc">Traditional South Indian thali meal featuring rice, sambar, rasam, and sides.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- SIGNATURE SPECIALS -->
+    <section>
+        <h2>Signature Specials</h2>
+        <div class="menu-grid">
+
+            <a href="product-details.html?item=maddur-vada" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Maddur Vada">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Maddur Vada</h3>
+                            <span class="item-price">$8.95</span>
+                        </div>
+                        <p class="item-desc">Crispy, spiced onion fritters originating from Maddur, Karnataka.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="product-details.html?item=palav-green-pachadi" class="menu-card-link">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Palav (Green) + Pachadi">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="item-name">Palav (Green) + Pachadi</h3>
+                            <span class="item-price">$13.95</span>
+                        </div>
+                        <p class="item-desc">Herbal mint-coriander spiced rice pulao served with refreshing yogurt pachadi.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
