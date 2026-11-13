@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG's Kitchen | Authentic South Indian Culinary Provider in Langley, BC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .order-btn {
+            background-color: #d4af37;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/resources/hero-bg.jpg') no-repeat center center/cover;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 20px;
+        }
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .badge {
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .features, .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        .tag-badge {
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .action-link {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .action-link:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #1a1a1a;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <img src="/resources/logo.png" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+            <span style="font-size: 1.2rem; font-weight: bold; margin-left: 10px;">MG's Kitchen</span>
+        </div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#values">Our Values</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#visit">Visit Us</a>
+        </nav>
+        <a href="https://www.mgkitchen.ca" class="order-btn">ORDER ONLINE</a>
+    </header>
+
+    <div class="hero">
+        <p style="letter-spacing: 2px; color: #d4af37;">SOUTH INDIAN CULINARY PROVIDER • LANGLEY, BC</p>
+        <h1>Delicious & Authentic South Indian Flavors</h1>
+        <p>Experience the wholesome warmth of homemade South Indian meals prepared in small batches. Crafted with pure ingredients, traditional spices, and uncompromised craftsmanship.</p>
+        
+        <div class="badge-container">
+            <span class="badge">✔ 100% Pure Ingredients</span>
+            <span class="badge">✖ No Preservatives</span>
+            <span class="badge">✖ No Artificial Colors</span>
+            <span class="badge">♨ Fresh Small Batches</span>
+        </div>
+
+        <p style="margin-top: 30px;">
+            <a href="https://www.mgkitchen.ca" class="order-btn">ORDER ONLINE DIRECT</a> 
+            <a href="https://www.doordash.com" class="order-btn" style="background-color: #eb1c24; color: #fff; margin-left: 10px;">DOORDASH DELIVERY</a>
+        </p>
+    </div>
+
+    <section id="about">
+        <h2>Authentic Homemade Cooking Built on Tradition</h2>
+        <p><strong>MG's Kitchen</strong> is a dedicated South Indian culinary provider based in Langley, BC. We are passionate about bringing genuine, comforting regional flavors straight from our kitchen to your plate.</p>
+        <p>We focus on preparing healthy, fresh dishes in small batches to preserve peak taste and nutritional integrity. Every recipe is rooted in timeless heritage—tempered with care, using pure ingredients with zero added preservatives or artificial colors.</p>
+        <div style="text-align: center; margin-top: 30px;">
+            <img src="/resources/spices.jpg" alt="Assortment of fresh South Indian spices and herbs" style="max-width: 100%; border-radius: 8px;">
+        </div>
+    </section>
+
+    <section id="values">
+        <h2>Core Principles of Our Kitchen</h2>
+        <div class="features">
+            <div class="card" style="text-align: center;">
+                <h3>Authenticity</h3>
+                <p>Time-tested regional recipes crafted without shortcuts, maintaining traditional flavor profiles and techniques.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Freshness</h3>
+                <p>Made fresh to order in mindful small batches to deliver vibrant, rich taste with every single bite.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Purity</h3>
+                <p>Zero added preservatives, zero artificial food colors, and uncompromised wholesome ingredients.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Craftsmanship</h3>
+                <p>Meticulous slow roasting, hand-blended spice mixes (podi), and gentle tempering for aromatic depth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Our Specialty Dishes</h2>
+        <p>Explore our signature homemade South Indian offerings. Prepared with love, pure ghee, and freshly ground spices.</p>
+        <div class="menu-grid">
+            <div class="card">
+                <div>
+                    <img src="/resources/rava-idly.jpg" alt="Rava Idly + Bombay Sambar">
+                    <h3>Rava Idly + Bombay Sambar</h3>
+                    <p>Steamed semolina cakes tempered with mustard seeds, curry leaves, and cashews, paired with mild and tangy Bombay sambar.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">House Special</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">VIEW DETAILS &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/idli-chutney.jpg" alt="Idli + Coconut Chutney">
+                    <h3>Idli + Coconut Chutney</h3>
+                    <p>Classic South Indian soft, steamed rice cakes served with freshly grated coconut chutney blended with roasted chana dal and mild green chilies.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Breakfast Classic</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">VIEW DETAILS &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/podi-idli.jpg" alt="Idli Podi and Podi Idly">
+                    <h3>Idli Podi and Podi Idly</h3>
+                    <p>Mini steamed rice cakes tossed in authentic pure ghee and a robust, house-blended roasted lentil gunpowder spice mix (podi).</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Spiced Specialty</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/medu-vada.jpg" alt="Medu Vada">
+                    <h3>Medu Vada</h3>
+                    <p>Golden-brown, crispy split black gram (urad dal) donuts flavored with peppercorns, ginger, and fresh curry leaves. Crisp on the outside, soft on the inside.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Crispy Delight</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/masala-vada.jpg" alt="Masala Vada">
+                    <h3>Masala Vada</h3>
+                    <p>Deep-fried, coarsely ground split chickpea patties infused with onions, fresh green chilies, and hand-selected regional herbs.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Herb-Infused</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/kharabath-kesari.jpg" alt="Kharabath + Kesari Bath">
+                    <h3>Kharabath + Kesari Bath</h3>
+                    <p>The ultimate sweet-and-savory breakfast duo pairing a rich, spiced vegetable semolina upma with a sweet, aromatic ghee-laden pineapple halwa.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Sweet & Savory</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/pongal.jpg" alt="Khara Pongal + Sweet Pongal">
+                    <h3>Khara Pongal + Sweet Pongal</h3>
+                    <p>A comforting combo featuring a savory ghee-cooked peppercorn rice dish paired with a sweet jaggery and cardamom-infused dessert pudding.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Heritage Pair</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/kharabath-upma.jpg" alt="Kharabath (Upma)">
+                    <h3>Kharabath (Upma)</h3>
+                    <p>A flavorful, comforting South Indian semolina dish cooked with vegetables, aromatic spices, and a touch of ghee.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Comfort Dish</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/lemon-rice.jpg" alt="Lemon Rice">
+                    <h3>Lemon Rice</h3>
+                    <p>Light and bright aromatic basmati rice tempered with fresh lemon juice, mustard seeds, curry leaves, and crunchy roasted peanuts.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Zesty Delight</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/mango-rice.jpg" alt="Mango Rice">
+                    <h3>Mango Rice</h3>
+                    <p>Zesty seasonal rice tossed with freshly grated tangy raw mango, split lentils, green chilies, and aromatic oil tempering.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Seasonal Special</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/curry-leaves-rice.jpg" alt="Curry Leaves Rice">
+                    <h3>Curry Leaves Rice</h3>
+                    <p>Fluffy white rice sautéed in a deeply flavorful, earthy paste of slow-roasted curry leaves, aromatic garlic, black pepper, and toasted lentils.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Aromatic & Earthy</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/tomato-bath.jpg" alt="Tomato Bath">
+                    <h3>Tomato Bath</h3>
+                    <p>Fluffy, deeply seasoned semolina cooked with vine-ripened tomatoes, sweet peas, and a signature blend of South Indian warming spices.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Savory Classic</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/mushroom-biryani.jpg" alt="Mushroom Biryani">
+                    <h3>Mushroom Biryani</h3>
+                    <p>Aromatic basmati rice slow-layered and dum-cooked with earthy button mushrooms, mint, and whole ground spices.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Dum Cooked</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/vegetable-pulao.jpg" alt="Vegetable Pulao">
+                    <h3>Vegetable Pulao</h3>
+                    <p>Fragrant short-grain rice slow-cooked with a vibrant paste of fresh mint, cilantro, and seasonal garden vegetables. Served with a cooling yogurt raita.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Herbaceous</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/ghee-rice-kurma.jpg" alt="Ghee Rice + Veg Kurma">
+                    <h3>Ghee Rice + Veg Kurma</h3>
+                    <p>Fragrant rice delicately tossed in pure golden ghee, seasoned with mild whole spices, curry leaves, and crunchy cashews, served in traditional darshini style.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Darshini Style</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/masala-dosa.jpg" alt="Masala Dose">
+                    <h3>Masala Dose</h3>
+                    <p>Golden-brown crispy rice crepe lined with a fiery garlic-chili red chutney paste and stuffed with a seasoned, comforting mashed potato masala.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Iconic Dosa</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/onion-dosa.jpg" alt="Onion Dose">
+                    <h3>Onion Dose</h3>
+                    <p>A large, golden rice crepe generously sprinkled with finely chopped sweet red onions and fresh cilantro before searing.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Crispy Crepe</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/adai-dosa.jpg" alt="Adai Dose">
+                    <h3>Adai Dose</h3>
+                    <p>A savory, hearty regional crepe crafted from a thick, nutrition-rich batter of blended lentils and traditional aromatic spices, cooked to a perfect golden crisp.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Protein Rich</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="/resources/kesari-bath.jpg" alt="Kesari Bath">
+                    <h3>Kesari Bath</h3>
+                    <p>A sweet, rich South Indian semolina pudding slow-roasted in pure ghee, generously infused with fragrant cardamom, garnished with crunchy nuts and bright pineapple.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag-badge">Sweet Dessert</span>
+                    <a href="https://www.mgkitchen.ca" class="action-link">ORDER NOW &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit">
+        <h2>Hours & Location</h2>
+        <p>We look forward to preparing your freshly cooked South Indian meals in Langley, BC.</p>
+        <p><strong>Address:</strong> 20381 62 Ave, Langley, BC, V3A 5E6, CA</p>
+        <p><strong>Email:</strong> <a href="mailto:manasagkitchen@gmail.com" style="color: #f39c12; text-decoration: none;">manasagkitchen@gmail.com</a></p>
+        <p style="margin-top: 20px;">
+            <a href="https://www.mgkitchen.ca" class="order-btn">ORDER ONLINE FOR PICKUP</a>
+        </p>
+
+        <h3>Kitchen Hours</h3>
+        <table>
+            <tr><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday</td><td>Closed</td></tr>
+            <tr><td>Wednesday</td><td>Closed</td></tr>
+            <tr><td>Thursday</td><td>8:00 AM - 2:30 PM</td></tr>
+            <tr><td>Friday</td><td>8:00 AM - 2:30 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM - 2:30 PM</td></tr>
+            <tr><td>Sunday</td><td>8:00 AM - 2:30 PM</td></tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; MG's Kitchen. All rights reserved.</p>
+        <p>20381 62 Ave, Langley, BC, V3A 5E6, CA</p>
+    </footer>
+
+</body>
+</html>
