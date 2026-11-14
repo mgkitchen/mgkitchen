@@ -1010,8 +1010,10 @@
   <header class="site-header">
     <div class="header-inner">
       <button type="button" class="brand-trigger" onclick="navigateTo('home')" aria-label="MG's Kitchen Home">
-           <img src="/logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;">
+          
+          <img src="/806ac566-a13e-418c-b665-331d8ab5b77c.avif" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
         <!-- Bespoke SVG Brand Logo 
+          <img src="/logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;">
         <svg width="52" height="52" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M8 34C8 18 19 6 32 6C45 6 56 18 56 34V54C56 56.2 54.2 58 52 58H12C9.8 58 8 56.2 8 54V34Z" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2.2"/>
           <path d="M13 34C13 21.5 21.5 11.5 32 11.5C42.5 11.5 51 21.5 51 34V53H13V34Z" stroke="var(--secondary)" stroke-width="1.2" stroke-dasharray="2 2"/>
@@ -1042,9 +1044,9 @@
         <button type="button" class="nav-btn is-cta" data-nav="order" onclick="navigateTo('order')">
           <i data-lucide="shopping-bag" width="16" height="16"></i> Order Online
         </button>
-        <button type="button" class="nav-btn" data-nav="estimator" onclick="navigateTo('estimator')">
+       <!-- <button type="button" class="nav-btn" data-nav="estimator" onclick="navigateTo('estimator')">
           <i data-lucide="calculator" width="16" height="16"></i> Estimator
-        </button>
+        </button> -->
         <button type="button" class="nav-btn" data-nav="agreement" onclick="navigateTo('agreement')">
           <i data-lucide="file-text" width="16" height="16"></i> Agreement
         </button>
@@ -1055,8 +1057,8 @@
   <div class="status-strip">
     <div class="status-strip-inner">
       <div class="btn-row">
-        <span class="badge-emerald">Now Open · Since Oct 15, 2026</span>
-        <span><strong>Hours:</strong> Thu – Sun, 08:00 AM – 2:30 PM</span>
+        <!--<span >Now Open · Since Oct 15, 2026</span>-->
+        <span class="badge-emerald"><strong>Hours:</strong> Thu – Sun, 9:30 AM - 3:00 PM</span>
       </div>
       <div>
         <span><strong>20381 62 Ave #301, Langley, BC V3A 5E6</strong> · +1 (672) 975-1664</span>
@@ -1079,7 +1081,7 @@
           <span class="kicker"><i data-lucide="sparkles" width="14" height="14"></i> Small-Batch South Indian Tiffin &amp; Catering</span>
           <h1 class="title">Delicious &amp; Authentic <em>South Indian</em> Flavors</h1>
           <p class="lede">
-            Homemade meals crafted in small batches using pure, fresh ingredients — no added preservatives or artificial colors, ever. Fresh, healthy, and full of traditional warmth right here in Langley, BC.
+            Homemade meals crafted in small batches using pure, fresh ingredients; no added preservatives or artificial colors, ever. Fresh, healthy, and full of traditional warmth right here in Langley, BC.
           </p>
           <div class="btn-row">
             <button type="button" class="btn btn-primary" onclick="navigateTo('menu')">
@@ -1225,7 +1227,7 @@
             <span class="kicker">From South India to Langley, BC</span>
             <h2 class="section-heading">Warmth &amp; Comfort in Every <em>Small Batch</em></h2>
             <blockquote class="pull-quote">
-              “When I moved from South India to Vancouver, the thing I missed most was the warmth and comfort of home. What started as a personal quest to recreate the flavors I grew up with—from steaming idlis to spiced rice specialties—is now MG’s Kitchen.”
+              “When I moved from South India to Vancouver, the thing I missed most was the warmth and comfort of home. What started as a personal quest to recreate the flavors I grew up with from steaming idlis to spiced rice specialties is now MG’s Kitchen.”
             </blockquote>
             <p class="lede">
               Every dish is prepared fresh in small batches at our Langley kitchen (#301 – 20381 62 Ave), honoring traditional tempering, roasted spice blends, and pure ingredients with no artificial shortcuts.
@@ -1351,7 +1353,7 @@
           </div>
           <div class="btn-row">
             <button type="button" class="btn btn-primary" onclick="navigateTo('order')">Order Online Now</button>
-            <button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">Estimate Event Order</button>
+           <!-- <button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">Estimate Event Order</button>-->
           </div>
         </div>
       </div>
@@ -1365,7 +1367,7 @@
         <span class="kicker">Delivery &amp; Pickup · Langley, BC</span>
         <h1 class="title">Order <em>Online</em></h1>
         <p class="lede">
-          Order fresh small-batch South Indian dishes during operating hours (Thu – Sun, 08:00 AM – 2:30 PM) via our delivery &amp; pickup partners, or schedule a formal drop-off catering order.
+          Order fresh small-batch South Indian dishes during operating hours (Thu – Sun, 9:30 AM - 3:00 PM) via our delivery &amp; pickup partners, or schedule a formal drop-off catering order.
         </p>
       </div>
 
@@ -1374,7 +1376,7 @@
         <article class="platform-card is-primary-partner">
           <div style="display: grid; gap: var(--space-sm);">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-              <span class="badge-terracotta">Featured Partner · DashPass</span>
+              <span class="badge-terracotta">Featured Partner</span>
               <span class="badge-emerald">Virtual Brand</span>
             </div>
             <h2 class="section-heading" style="font-size: 1.875rem;">DoorDash</h2>
@@ -1387,10 +1389,14 @@
           </div>
 
           <div class="btn-row">
-            <button type="button" class="btn btn-primary" onclick="openPlatformHandoff('DoorDash', 'Order via DoorDash')">
-              <i data-lucide="external-link" width="16" height="16"></i> Order via DoorDash
+            <!--<button type="button" class="btn btn-primary" onclick="openPlatformHandoff('DoorDash', 'Order via DoorDash')">
+              <i data-lucide="external-link" width="16" height="16"></i> Order via DoorDash 
+            </button>-->
+            <button type="button" class="btn btn-primary" onclick="window.open('https://www.doordash.com/store/surrey-bc-52160213/122166385/?preview=1', '_blank')">
+             <i data-lucide="external-link" width="16" height="16"></i> Order via DoorDash
             </button>
-            <button type="button" class="btn btn-emerald" onclick="openPlatformHandoff('DoorDash', 'Order Online')">
+
+            <button type="button" class="btn btn-emerald" onclick="window.open('https://merchant-portal.doordash.com/merchant/storefront?store_id=52160213', '_blank')">
               <i data-lucide="shopping-bag" width="16" height="16"></i> Order Online
             </button>
           </div>
@@ -1399,14 +1405,15 @@
         <!-- SkipTheDishes Card -->
         <article class="platform-card">
           <div style="display: grid; gap: var(--space-sm);">
-            <span class="badge-emerald" style="width: fit-content;">Canadian Delivery Network</span>
+            <span class="badge-terracotta" style="width: fit-content;">Canadian Delivery Network</span>
+            <span class="badge-emerald" style="width: fit-content;">Virtual Brand</span>
             <h2 class="section-heading" style="font-size: 1.875rem;">SkipTheDishes</h2>
             <p class="dish-desc">
               Local Langley delivery and pickup ordering for MG’s Kitchen small-batch tiffins, rice bowls, and crisp masala vadas during Thursday–Sunday morning and midday service.
             </p>
           </div>
           <div class="btn-row">
-            <button type="button" class="btn btn-secondary" onclick="openPlatformHandoff('SkipTheDishes', 'Order via SkipTheDishes')">
+            <button type="button" class="btn btn-primary" onclick="openPlatformHandoff('SkipTheDishes', 'Order via SkipTheDishes')">
               <i data-lucide="truck" width="16" height="16"></i> Order via SkipTheDishes
             </button>
           </div>
@@ -1416,13 +1423,15 @@
         <article class="platform-card">
           <div style="display: grid; gap: var(--space-sm);">
             <span class="badge-terracotta" style="width: fit-content;">Courier &amp; Catering Dispatch</span>
+             
+            <span class="badge-emerald" style="width: fit-content;">Virtual Brand</span>
             <h2 class="section-heading" style="font-size: 1.875rem;">UberEats</h2>
             <p class="dish-desc">
               Order individual meals on UberEats, or book event catering where all drop-off orders are dispatched exclusively via prepaid round-trip Uber courier from our Langley kitchen.
             </p>
           </div>
           <div class="btn-row">
-            <button type="button" class="btn btn-secondary" onclick="openPlatformHandoff('UberEats', 'Order via UberEats')">
+            <button type="button" class="btn btn-primary" onclick="openPlatformHandoff('UberEats', 'Order via UberEats')">
               <i data-lucide="navigation" width="16" height="16"></i> Order via UberEats
             </button>
           </div>
@@ -1654,9 +1663,9 @@
           </p>
         </div>
         <div class="btn-row">
-          <button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">
+          <!--<button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">
             <i data-lucide="calculator" width="16" height="16"></i> Edit in Estimator
-          </button>
+          </button>-->
           <button type="button" class="btn btn-primary" onclick="downloadAgreementText()">
             <i data-lucide="download" width="16" height="16"></i> Download Agreement (.txt)
           </button>
@@ -1879,8 +1888,11 @@
        
         <div style="display: grid; gap: var(--space-sm);">
           <div style="display: flex; align-items: center; gap: var(--space-sm);">
-             <img src="/logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;">
-             <!-- Brand & Contact Info <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            
+              <img src="/806ac566-a13e-418c-b665-331d8ab5b77c.avif" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+             <!-- Brand & Contact Info 
+              <img src="/logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+             <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M8 34C8 18 19 6 32 6C45 6 56 18 56 34V54C56 56.2 54.2 58 52 58H12C9.8 58 8 56.2 8 54V34Z" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2.5"/>
               <path d="M18 42C24 35 37 32 47 36C44 43 34 47 22 46L18 42Z" fill="var(--food-leaf)"/>
               <path d="M23 35H41L38.5 41.5C37.5 43.2 35.2 44 32 44C28.8 44 26.5 43.2 25.5 41.5L23 35Z" fill="var(--food-brass)"/>
@@ -1890,10 +1902,11 @@
               <div class="brand-sub">The Flavour Specialist</div>
             </div>
           </div>
+           
           <p class="dish-desc" style="margin: 0;">
             20381 62 Ave #301, Langley, BC V3A 5E6 Canada<br>
             Phone: +1 (672) 975-1664<br>
-            Hours: Thu – Sun: 08:00 AM – 2:30 PM<br>
+            Hours: Thu – Sun: 9:30 AM - 3:00 PM<br>
             Web: www.mgkitchen.ca
           </p>
           <div class="btn-row" style="margin-top: 4px;">
@@ -1957,8 +1970,7 @@
       </div>
 
       <div class="disclaimer-bar">
-        <span>
-          <strong>Disclaimer:</strong> Homemade South Indian meals prepared in small batches with pure, fresh ingredients and zero preservatives or artificial colors. Menu prices on third-party delivery platforms are set directly by the Merchant. Drop-off catering orders are subject strictly to the Catering Service Agreement; verbal or phone modifications are not accepted.
+        <strong>Disclaimer:</strong> Homemade South Indian meals prepared in small batches with pure, fresh ingredients and zero preservatives or artificial colors. Menu prices on third-party delivery platforms are set directly by the Merchant. Drop-off catering orders are subject strictly to the Catering Service Agreement; verbal or phone modifications are not accepted.
         </span>
         <span>© 2026 MG’s Kitchen — The Flavour Specialist. All rights reserved.</span>
       </div>
@@ -2338,8 +2350,11 @@
     function buildDishCardHtml(item, isHomeFeatured) {
       const cardClass = item.featured ? 'dish-card is-featured' : 'dish-card';
       const actionBtn = item.price !== null
-        ? `<button type="button" class="btn btn-primary btn-sm" onclick="addDishToEstimator('${item.id}')">+ Add to Estimate</button>`
+        ? `<button type="button" class="btn btn-secondary btn-sm" onclick="navigateTo('order')">Order / Inquire</button>`
         : `<button type="button" class="btn btn-secondary btn-sm" onclick="navigateTo('order')">Order / Inquire</button>`;
+//const actionBtn = item.price !== null
+//        ? `<button type="button" class="btn btn-primary btn-sm" onclick="addDishToEstimator('${item.id}')">+ Add to Estimate</button>`
+//        : `<button type="button" class="btn btn-secondary btn-sm" onclick="navigateTo('order')">Order / Inquire</button>`;
 
       return `
         <article class="${cardClass}">
@@ -2603,7 +2618,7 @@
           } else {
             elTier.textContent = `<7 Days Tier: 0% refund · Rush rules apply`;
             elBadge.className = `badge-warning`;
-            elBadge.textContent = `Rush Order — 100% Upfront Required`;
+            elBadge.textContent = `Rush Order  100% Upfront Required`;
           }
         }
       }
@@ -2782,7 +2797,7 @@
       if (!status) return;
       const name = appState.estimator.clientName.trim();
       if (appState.agreement.agreed && name.length > 0) {
-        status.textContent = `Acknowledged by ${name} on ${appState.agreement.signedDate || 'today'} — ready to download.`;
+        status.textContent = `Acknowledged by ${name} on ${appState.agreement.signedDate || 'today'}  ready to download.`;
         status.style.color = `var(--positive)`;
       } else {
         status.textContent = `Complete Client Name and check the acknowledgment box to finalize your downloadable agreement summary.`;
@@ -2793,12 +2808,12 @@
     function downloadAgreementText() {
       const e = appState.estimator;
       const a = appState.agreement;
-      const summary = [
+       const summary2 = [
         `MG'S KITCHEN — THE FLAVOUR SPECIALIST`,
-        `CATERING SERVICE AGREEMENT SUMMARY`,
+        `CATERING SERVICE AGREEMENT SUMMARY \n`,
         `==================================================`,
         `Caterer / Provider: MG's Kitchen (20381 62 Ave #301, Langley, BC V3A 5E6)`,
-        `Phone: +1 (672) 975-1664 | Hours: Thu-Sun 08:00 AM - 2:30 PM`,
+        `Phone: +1 (672) 975-1664 | Hours: Thu-Sun 9:30 AM - 3:00 PM`,
         ``,
         `CONTRACT SCHEDULE & EVENT OVERVIEW`,
         `Client Name: ${e.clientName || 'Pending'}`,
@@ -2826,6 +2841,41 @@
         `Date Signed: ${a.signedDate || 'Pending'}`,
         `Terms Acknowledged: ${a.agreed ? 'YES' : 'NO'}`
       ].join('\n');
+
+const summary = [
+        `MG'S KITCHEN — THE FLAVOUR SPECIALIST`,
+        `CATERING SERVICE AGREEMENT SUMMARY \n`,
+        `==================================================`,
+        `Caterer / Provider: MG's Kitchen (20381 62 Ave #301, Langley, BC V3A 5E6)`,
+        `Phone: +1 (672) 975-1664 | Hours: Thu-Sun 9:30 AM - 3:00 PM`,
+        ``,
+        `CONTRACT SCHEDULE & EVENT OVERVIEW`,
+        `Client Name: ${e.clientName || 'Pending'}`,
+        `Event Date: ${e.eventDate || 'Pending'}`,
+        `Delivery Address: ${e.address || 'Pending'}`,
+        `Initial Estimated Headcount: ${e.guests} guests`,
+        `Specified Spice Level: ${e.spiceLevel}`,
+        `Dietary / Allergen Structure: ${e.dietarySplit}`,
+        `Payment Method: ${e.paymentMethod}`,
+        `Door Setup Labor: ${e.laborHours} hrs @ $20.00/hr`,
+        `Prepaid Round-Trip Uber Courier Estimate: $${Number(e.uberFee || 0).toFixed(2)}`,
+        ``,
+        `KEY BINDING TERMS`,
+        `- Drop-off catering only via prepaid round-trip Uber courier.`,
+        `- No discounts policy; rates are non-negotiable.`,
+        `- Payment: 50% non-refundable deposit on signing, 25% 7 days prior, 25% day-of prior to dispatch (100% upfront for rush orders <7 days).`,
+        `- Cancellation: 30+ days full refund less admin fees; 7-29 days 50% or reschedule; <7 days 0% refund.`,
+        `- Communication: Email only (no phone, text, or verbal changes); 3-day modification deadline.`,
+        `- Tastings: Non-sweet items available prior to event; sweets cannot be sampled in small test batches.`,
+        `- Food Safety: Client assumes liability 2 hours post-delivery.`,
+        ``,
+        `EXECUTION`,
+        `Caterer Representative: ${a.catererRep}`,
+        `Client Signatory: ${e.clientName || 'Unsigned'} (${a.clientRole})`,
+        `Date Signed: ${a.signedDate || 'Pending'}`,
+        `Terms Acknowledged: ${a.agreed ? 'YES' : 'NO'}`
+      ].join('\n');
+ 
 
       if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
         window.notebookAppApi.triggerFileDownload({
