@@ -1,0 +1,3486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="artifact-type" content="narrative">
+<meta name="design-style" content="terracotta">
+<title>MG's Kitchen — The Flavour Specialist | South Indian Tiffin &amp; Catering · Langley, BC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+<style>
+:root {
+  color-scheme: light;
+
+  /* 1. Terracotta style tokens */
+  --background: #f9f3eb;
+  --surface-container-low: #f3e9dc;
+  --surface-container: #ede0d0;
+  --surface-container-high: #e4d4c0;
+  --surface-card: #fcf8f2;
+
+  --on-surface: #261b15;
+  --on-surface-variant: #57483f;
+
+  --outline: #9e8a78;
+  --outline-variant: #dfd0be;
+  --outline-featured: #c98a6b;
+  --outline-emerald: #b5d6c9;
+  --outline-btn: #c4b29e;
+
+  --primary: #b84a24;
+  --primary-hover: #9c3c1b;
+  --on-primary: #ffffff;
+  --primary-container: #f7ebe0;
+  --on-primary-container: #7d2e12;
+  --secondary: #8f6524;
+  --tertiary: #1d6356;
+  --tertiary-container: #e1efe9;
+  --on-tertiary-container: #13473d;
+  --error: #b82929;
+  --error-container: #fae8e8;
+  --on-error: #ffffff;
+
+  --data-1: #b84a24;
+  --data-2: #1d6356;
+  --data-3: #b5893e;
+  --data-4: #8c3838;
+  --data-context: #a39384;
+
+  --font-headline: 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-label: 'Plus Jakarta Sans', sans-serif;
+
+  --rounded: 0.375rem;
+  --rounded-lg: 0.75rem;
+  --rounded-arch: 28px 28px 6px 6px;
+  --rounded-full: 9999px;
+
+  --soft-shadow: 0 4px 18px rgb(38 27 21 / 0.04);
+  --soft-shadow-raised: 0 8px 28px rgb(38 27 21 / 0.08);
+  --warm-hairline: 1px solid var(--outline-variant);
+  --brass-gradient: linear-gradient(90deg, #d8c3b0, #b5893e, #d8c3b0);
+
+  /* 2. Dish & Map illustration tokens */
+  --dish-bg: #f1e6d6;
+  --dish-leaf: #2f6b47;
+  --dish-leaf-rib: #45895f;
+  --dish-plate: #faf4ea;
+  --dish-plate-rim: #cbb69e;
+  --dish-copper: #b66c3e;
+  --dish-brass: #c99d4a;
+  --dish-idli: #fdfaf3;
+  --dish-idli-shadow: #e6dccb;
+  --dish-crisp: #c77b2a;
+  --dish-crisp-dark: #8e4c14;
+  --dish-gold: #e5a93b;
+  --dish-saffron: #ea8626;
+  --dish-tomato: #cf4e27;
+  --dish-podi: #a4341b;
+  --dish-sambar: #b8581f;
+  --dish-coconut: #f7f4ec;
+  --dish-chutney-red: #bf361c;
+  --dish-herb: #3d7741;
+  --dish-pea: #5c9944;
+  --dish-peanut: #b9824a;
+  --dish-cashew: #f2dfb3;
+  --dish-jaggery: #7a3e19;
+  --dish-mushroom: #7c5e4b;
+  --dish-onion: #a84e68;
+  --dish-map-road: #d4c3af;
+  --dish-map-highway: #b5893e;
+
+  /* 3. Shared foundation tokens */
+  --positive: #1d6356;
+  --warning: #8f6524;
+  --warning-container: #f8eed9;
+  --focus: #b84a24;
+
+  /* Type scale (Narrative + embedded tool balance) */
+  --display-size: clamp(2.4rem, 1.5rem + 3.4vw, 4rem);
+  --headline-size: clamp(1.75rem, 1.25rem + 1.8vw, 2.5rem);
+  --subhead-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+  --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --label-size: 0.75rem;
+
+  /* Spacing scale (4pt base) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5.5rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+}
+
+/* Base reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; margin: 0; padding: 0; }
+header { position: static !important; }
+
+body {
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Announcement Ribbon & Masthead Header */
+.top-notice {
+  background-color: var(--surface-container-high);
+  border-bottom: var(--warm-hairline);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.8125rem;
+  color: var(--on-surface-variant);
+}
+
+.top-notice-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.top-notice strong {
+  color: var(--on-surface);
+  font-weight: 600;
+}
+
+.notice-dismiss {
+  background: transparent;
+  border: 1px solid var(--outline-btn);
+  color: var(--on-surface-variant);
+  border-radius: var(--rounded-full);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 32px;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+
+.notice-dismiss:hover {
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+.site-header {
+  background-color: var(--background);
+  border-bottom: var(--warm-hairline);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--on-surface);
+}
+
+.brand-logo-wrap {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: var(--rounded-arch);
+  background-color: var(--primary-container);
+  border: 1px solid var(--outline-featured);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--soft-shadow);
+}
+
+.brand-wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--on-surface);
+}
+
+.brand-sub {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.primary-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--on-surface-variant);
+  border-radius: var(--rounded-full);
+  padding: 0.55rem 1rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+}
+
+.nav-btn:hover {
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+.nav-btn[aria-current="page"] {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--soft-shadow);
+}
+
+/* Main Page Container */
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+}
+
+.page-view {
+  display: none;
+  animation: fadeSlideIn var(--dur-long) var(--ease-out);
+}
+
+.page-view.is-active {
+  display: block;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography Helpers */
+.kicker {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.title-display {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: var(--display-size);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--on-surface);
+  margin: 0 0 var(--space-md);
+}
+
+.title-section {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: var(--headline-size);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--on-surface);
+  margin: 0 0 var(--space-sm);
+}
+
+.title-sub {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: var(--subhead-size);
+  line-height: 1.2;
+  color: var(--on-surface);
+  margin: 0 0 var(--space-xs);
+}
+
+.title-display em,
+.title-section em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.prose-lead {
+  max-width: 65ch;
+  color: var(--on-surface-variant);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin: 0 0 var(--space-lg);
+}
+
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block: var(--space-xl);
+  color: var(--secondary);
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ornament-rule::before,
+.ornament-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--brass-gradient);
+}
+
+/* Badges & Pills */
+.badge-emerald {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--tertiary-container);
+  color: var(--on-tertiary-container);
+  border: 1px solid var(--outline-emerald);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-terracotta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  border: 1px solid var(--outline-featured);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-brass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--warning-container);
+  color: var(--secondary);
+  border: 1px solid var(--outline-variant);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--error-container);
+  color: var(--error);
+  border: 1px solid var(--outline-featured);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--rounded-full);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--soft-shadow);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--soft-shadow-raised);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--outline-btn);
+  color: var(--on-surface);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-container-low);
+}
+
+.btn-emerald {
+  background-color: var(--tertiary);
+  color: var(--on-primary);
+  box-shadow: var(--soft-shadow);
+}
+
+.btn-emerald:hover {
+  background-color: var(--on-tertiary-container);
+}
+
+.btn-sm {
+  min-height: 38px;
+  padding: 0.45rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* Arch Cards & Panels */
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-md);
+  margin-block: var(--space-lg);
+}
+
+.arch-card {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-arch);
+  padding: 20px 18px 16px;
+  text-align: center;
+  box-shadow: var(--soft-shadow);
+  transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+
+.arch-card:hover {
+  box-shadow: var(--soft-shadow-raised);
+  transform: translateY(-2px);
+}
+
+.arch-card.is-featured {
+  background: var(--primary-container);
+  border-color: var(--outline-featured);
+}
+
+.arch-label {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  margin-bottom: var(--space-xs);
+}
+
+.arch-value {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  color: var(--on-surface);
+  margin-bottom: var(--space-xs);
+}
+
+.arch-caption {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tertiary);
+}
+
+.panel {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--soft-shadow);
+}
+
+.panel-tonal {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+}
+
+.band-plaster {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-xl);
+  margin-block: var(--space-xl);
+}
+
+/* Hero Split Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-showcase {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-featured);
+  border-radius: var(--rounded-arch);
+  padding: var(--space-lg);
+  box-shadow: var(--soft-shadow-raised);
+}
+
+.hero-showcase-caption {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: 0.8125rem;
+  color: var(--on-surface-variant);
+}
+
+/* Dish Photo / Illustration Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-lg);
+}
+
+.dish-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--soft-shadow);
+  transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+
+.dish-card:hover {
+  box-shadow: var(--soft-shadow-raised);
+  transform: translateY(-2px);
+}
+
+.dish-photo-frame {
+  background-color: var(--dish-bg);
+  border-bottom: 1px solid var(--outline-variant);
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.dish-photo-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dish-card-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.dish-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.dish-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.dish-title {
+  font-family: var(--font-headline);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.dish-price {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.dish-desc {
+  color: var(--on-surface-variant);
+  font-size: 0.9125rem;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+.dish-card-footer {
+  padding-top: var(--space-sm);
+  border-top: var(--warm-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: 0.78rem;
+  color: var(--on-surface-variant);
+}
+
+/* Menu Filter Bar */
+.filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.filter-pill {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  border-radius: var(--rounded-full);
+  padding: 0.45rem 0.9rem;
+  min-height: 40px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+
+.filter-pill:hover {
+  background-color: var(--surface-container);
+  color: var(--on-surface);
+}
+
+.filter-pill.is-active {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.field-label {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.field-input,
+.field-select {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline);
+  border-radius: var(--rounded);
+  padding: 0.6rem 0.85rem;
+  min-height: 44px;
+  color: var(--on-surface);
+  width: 100%;
+  transition: box-shadow var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+}
+
+.field-select {
+  padding-right: 2rem;
+}
+
+.field-input:focus,
+.field-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-container);
+}
+
+.field-help {
+  font-size: 0.78rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+/* Principles & Story Layout */
+.two-col-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.quote-callout {
+  background-color: var(--primary-container);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--rounded);
+  padding: var(--space-lg);
+  font-family: var(--font-headline);
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+/* Order Channels Grid */
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-lg);
+  margin-block: var(--space-lg);
+}
+
+.order-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--soft-shadow);
+}
+
+.order-card.is-featured {
+  border-color: var(--outline-featured);
+  background-color: var(--primary-container);
+}
+
+.tray-drawer {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-featured);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+/* Estimator Layout */
+.estimator-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.estimator-step {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--soft-shadow);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.slider-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+input[type="range"] {
+  accent-color: var(--primary);
+  width: 100%;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.portion-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-bottom: var(--warm-hairline);
+}
+
+.portion-row:last-of-type {
+  border-bottom: none;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-full);
+  padding: 2px;
+}
+
+.stepper-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--rounded-full);
+  border: none;
+  background: var(--surface-card);
+  color: var(--on-surface);
+  font-weight: 700;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color var(--dur-micro) var(--ease-out);
+}
+
+.stepper-btn:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.stepper-val {
+  min-width: 2.25rem;
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.radio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.radio-tile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.6rem 0.85rem;
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded);
+  cursor: pointer;
+  min-height: 44px;
+  font-size: 0.9rem;
+}
+
+.radio-tile input {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.summary-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-featured);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--soft-shadow-raised);
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.summary-hero {
+  background-color: var(--primary-container);
+  border: 1px solid var(--outline-featured);
+  border-radius: var(--rounded-arch);
+  padding: var(--space-lg);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.summary-total {
+  font-family: var(--font-headline);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--on-surface);
+  font-variant-numeric: tabular-nums;
+  margin: var(--space-xs) 0;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-block: var(--space-md);
+}
+
+.data-table th {
+  background-color: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.data-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--outline-variant);
+  vertical-align: top;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table td.num,
+.data-table th.num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Agreement Clauses */
+.clause-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-lg);
+  margin-block: var(--space-lg);
+}
+
+.clause-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--soft-shadow);
+}
+
+.clause-list {
+  margin: var(--space-sm) 0 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: 0.92rem;
+  color: var(--on-surface-variant);
+}
+
+.clause-list strong {
+  color: var(--on-surface);
+}
+
+.inline-feedback {
+  margin-top: var(--space-sm);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--rounded);
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: none;
+}
+
+.inline-feedback.is-visible {
+  display: block;
+}
+
+.inline-feedback.is-success {
+  background-color: var(--tertiary-container);
+  color: var(--on-tertiary-container);
+  border: 1px solid var(--outline-emerald);
+}
+
+.inline-feedback.is-error {
+  background-color: var(--error-container);
+  color: var(--error);
+  border: 1px solid var(--outline-featured);
+}
+
+/* Footer & Interactive Map */
+.site-footer {
+  background-color: var(--surface-container);
+  border-top: 1px solid var(--outline-variant);
+  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.8fr) minmax(0, 1.25fr);
+  gap: var(--space-xl);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-link-btn {
+  background: transparent;
+  border: none;
+  padding: 0.35rem 0;
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-link-btn:hover {
+  color: var(--primary);
+}
+
+.map-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-md);
+  box-shadow: var(--soft-shadow);
+}
+
+.schematic-map-box {
+  min-height: 220px;
+  height: 220px;
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded);
+  overflow: hidden;
+  position: relative;
+}
+
+.schematic-map-box svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.footer-disclaimer {
+  max-width: 1200px;
+  margin: var(--space-xl) auto 0;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--outline-variant);
+  font-size: 0.8125rem;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+}
+
+/* Responsive Rules */
+@media (max-width: 960px) {
+  .hero-grid,
+  .estimator-layout,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .two-col-split,
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .page-shell {
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+  }
+  .band-plaster {
+    padding: var(--space-lg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-notice" id="top-notice" role="region" aria-label="Kitchen hours and location notice">
+  <div class="top-notice-inner">
+    
+    <span>
+      <div class="btn-row">
+        <!--<span >Now Open · Since Oct 15, 2026</span>-->
+        <span class="badge-emerald"><strong>Hours:</strong> Thu – Sun, 9:30 AM - 3:00 PM</span>
+      </div>
+      <strong>20381 62 Ave #301, Langley, BC V3A 5E6</strong> · +1 (672) 975-1664
+    </span>
+    <button type="button" class="notice-dismiss" onclick="dismissTopNotice()">Dismiss</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button type="button" class="brand-lockup" onclick="navigateTo('home')" aria-label="MG's Kitchen Home">
+       <img src="./logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+       <!--<div class="brand-logo-wrap" aria-hidden="true">
+         
+        <svg viewBox="0 0 64 64" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2.2"/>
+          <path d="M16 42 Q32 22 48 42 Z" fill="var(--dish-leaf)" opacity="0.92"/>
+          <path d="M18 42 Q32 37 46 42" fill="none" stroke="var(--dish-leaf-rib)" stroke-width="1.5"/>
+          <circle cx="26" cy="32" r="5.5" fill="var(--dish-idli)" stroke="var(--secondary)" stroke-width="1.2"/>
+          <circle cx="38" cy="32" r="5.5" fill="var(--dish-idli)" stroke="var(--secondary)" stroke-width="1.2"/>
+          <circle cx="32" cy="24" r="5.5" fill="var(--dish-gold)" stroke="var(--primary)" stroke-width="1.2"/>
+          <path d="M25 14 Q26 10 25 7 M32 13 Q33 9 32 6 M39 14 Q40 10 39 7" fill="none" stroke="var(--primary)" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>-->
+      <div class="brand-wordmark">
+        <span class="brand-name">MG's Kitchen</span>
+        <span class="brand-sub">The Flavour Specialist · Langley, BC</span>
+      </div>
+    </button>
+
+    <nav class="primary-nav" aria-label="Primary pages">
+      <button type="button" class="nav-btn" data-nav="home" aria-current="page" onclick="navigateTo('home')">Home</button>
+      <button type="button" class="nav-btn" data-nav="menu" onclick="navigateTo('menu')">Menu</button>
+      <button type="button" class="nav-btn" data-nav="order" onclick="navigateTo('order')">Order Online</button>
+      <button type="button" class="nav-btn" data-nav="catering" onclick="navigateTo('catering')">Special Menu &amp; Catering</button>
+      <!--<button type="button" class="nav-btn" data-nav="estimator" onclick="navigateTo('estimator')">Catering Estimator</button>-->
+      <button type="button" class="nav-btn" data-nav="agreement" onclick="navigateTo('agreement')">Service Agreement</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page-shell">
+
+  <!-- ==================== PAGE 1: HOME ==================== -->
+  <section id="page-home" class="page-view is-active" aria-labelledby="home-heading">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">Small-Batch South Indian Tiffin &amp; Catering · Langley, BC</p>
+        <h1 id="home-heading" class="title-display">Delicious &amp; Authentic <em>South Indian</em> Flavors</h1>
+        <p class="prose-lead">
+          Experience the wholesome warmth of homemade South Indian meals prepared in mindful small batches.
+          Crafted with pure ghee, hand-ground lentil spice mixes, traditional tempering, zero preservatives,
+          and zero artificial colors.
+        </p>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="navigateTo('menu')">Explore Full Menu</button>
+          <button type="button" class="btn btn-secondary" onclick="navigateTo('order')">Order Online</button>
+          <button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">Catering Estimator</button>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="dish-photo-frame" id="hero-dish-art"></div>
+        <div class="hero-showcase-caption">
+          <span><strong>Signature Tiffin Spread</strong> · Tomato Bath, Ghee Podi Idli, Masala Vada &amp; Chutneys</span>
+          <span class="badge-emerald">100% Pure Ingredients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-grid" aria-label="Kitchen highlights">
+      <div class="arch-card is-featured">
+        <div class="arch-label">Pure Craft</div>
+        <div class="arch-value">100% Fresh</div>
+        <div class="arch-caption">No preservatives or artificial colors</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Kitchen Window</div>
+        <div class="arch-value">Thu – Sun</div>
+        <div class="arch-caption">8:00 AM – 2:30 PM (Online 9:30–3:00)</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Featured Tiffin</div>
+        <div class="arch-value">$7.99 – $12.95</div>
+        <div class="arch-caption">Verified small-batch daily classics</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Event Catering</div>
+        <div class="arch-value">Drop-Off</div>
+        <div class="arch-caption">Prepaid Uber dispatch &amp; custom spice</div>
+      </div>
+    </div>
+
+    <div class="ornament-rule" aria-hidden="true">◆ Our Heritage &amp; Core Principles ◆</div>
+
+    <div class="two-col-split">
+      <div>
+        <p class="kicker">From South India to Langley, BC</p>
+        <h2 class="title-section">Warmth &amp; Comfort in Every <em>Small Batch</em></h2>
+        <blockquote class="quote-callout">
+          “When I moved from South India to Vancouver, the thing I missed most was the warmth and comfort of home.
+          What started as a personal quest to recreate the flavors I grew up with—from steaming idlis to spiced rice
+          specialties—is now MG's Kitchen.”
+        </blockquote>
+        <p style="margin-top: var(--space-md); color: var(--on-surface-variant);">
+          Every dish is prepared fresh in small batches at our Langley kitchen (20381 62 Ave #301, Langley, BC V3A 5E6),
+          honoring slow roasting, hand-blended podi spice mixes, and pure ingredients without artificial shortcuts.
+        </p>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: var(--space-md);">
+        <div class="panel-tonal">
+          <span class="badge-terracotta">01 · Authenticity</span>
+          <h3 class="title-sub" style="margin-top: var(--space-sm);">Regional Heritage</h3>
+          <p class="field-help">Time-tested South Indian recipes crafted without shortcuts, preserving traditional flavor profiles.</p>
+        </div>
+        <div class="panel-tonal">
+          <span class="badge-emerald">02 · Freshness</span>
+          <h3 class="title-sub" style="margin-top: var(--space-sm);">Small-Batch Daily</h3>
+          <p class="field-help">Made fresh to order in mindful small batches to deliver vibrant aroma and nutritional integrity.</p>
+        </div>
+        <div class="panel-tonal">
+          <span class="badge-emerald">03 · Purity</span>
+          <h3 class="title-sub" style="margin-top: var(--space-sm);">Zero Additives</h3>
+          <p class="field-help">Pure ghee, whole spices, zero added preservatives, and zero artificial food colors, ever.</p>
+        </div>
+        <div class="panel-tonal">
+          <span class="badge-terracotta">04 · Craftsmanship</span>
+          <h3 class="title-sub" style="margin-top: var(--space-sm);">Hand-Roasted Podi</h3>
+          <p class="field-help">Meticulous slow roasting, freshly ground lentil spice blends, and gentle mustard-curry tempering.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ornament-rule" aria-hidden="true">◆ Featured Kitchen Classics ◆</div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-lg);">
+      <div>
+        <p class="kicker">Most Ordered Highlights</p>
+        <h2 class="title-section" style="margin-bottom: 0;">Featured <em>Kitchen</em> Classics</h2>
+      </div>
+      <button type="button" class="btn btn-secondary" onclick="navigateTo('menu')">View Unified Menu (All 19 Dishes)</button>
+    </div>
+
+    <div class="card-grid" id="home-featured-grid"></div>
+
+    <div class="band-plaster">
+      <div class="two-col-split" style="align-items: center;">
+        <div>
+          <p class="kicker">Events, Celebrations &amp; Corporate Drop-Off</p>
+          <h2 class="title-section">Special Menu &amp; <em>Catering</em> Services</h2>
+          <p class="prose-lead" style="margin-bottom: var(--space-md);">
+            Planning a family milestone, cultural celebration, or office luncheon? MG's Kitchen provides formal drop-off
+            catering dispatched exclusively via prepaid round-trip Uber courier, with 50% / 25% / 25% milestone billing
+            and written spice &amp; allergen customization.
+          </p>
+          <div class="btn-row">
+            <!--<button type="button" class="btn btn-primary" onclick="navigateTo('estimator')">Open Catering Estimator</button>-->
+            <button type="button" class="btn btn-secondary" onclick="navigateTo('agreement')">Review Service Agreement</button>
+            <button type="button" class="btn btn-secondary" onclick="navigateTo('catering')">Catering Guidelines</button>
+          </div>
+        </div>
+        <div class="arch-grid" style="margin: 0; grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="arch-card">
+            <div class="arch-label">Service Model</div>
+            <div class="arch-value">Drop-Off</div>
+            <div class="arch-caption">Optional setup $20.00/hr</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">RSVP Cutoff</div>
+            <div class="arch-value">5–10 Days</div>
+            <div class="arch-caption">Business days before event</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Dietary Split</div>
+            <div class="arch-value">100% / 50%</div>
+            <div class="arch-caption">Max half-volume split</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Email Policy</div>
+            <div class="arch-value">3+ Days</div>
+            <div class="arch-caption">Written email changes only</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2: UNIFIED MENU ==================== -->
+  <section id="page-menu" class="page-view" aria-labelledby="menu-heading">
+    <p class="kicker">Unified Kitchen Menu · Thu–Sun 8:00 AM – 2:30 PM (Online 9:30 AM – 3:00 PM)</p>
+    <h1 id="menu-heading" class="title-display">Menu &amp; Culinary <em>Gallery</em></h1>
+    <p class="prose-lead">
+      Explore all 19 handcrafted South Indian offerings across Featured &amp; Most Ordered, Breakfast Specials,
+      Rice Specialties, Signature Specials, Dosa &amp; Crepes, and Traditional Desserts.
+    </p>
+
+    <div class="filter-toolbar">
+      <div class="filter-pills" role="group" aria-label="Filter menu by category" id="menu-category-pills">
+        <button type="button" class="filter-pill is-active" data-cat="all" onclick="setMenuCategory('all')">All Dishes (19)</button>
+        <button type="button" class="filter-pill" data-cat="Featured & Most Ordered" onclick="setMenuCategory('Featured & Most Ordered')">Featured &amp; Most Ordered</button>
+        <button type="button" class="filter-pill" data-cat="Breakfast Specials" onclick="setMenuCategory('Breakfast Specials')">Breakfast Specials</button>
+        <button type="button" class="filter-pill" data-cat="Rice Specialties" onclick="setMenuCategory('Rice Specialties')">Rice Specialties</button>
+        <button type="button" class="filter-pill" data-cat="Signature Specials" onclick="setMenuCategory('Signature Specials')">Signature Specials</button>
+        <button type="button" class="filter-pill" data-cat="Dosa & Crepes" onclick="setMenuCategory('Dosa & Crepes')">Dosa &amp; Crepes</button>
+        <button type="button" class="filter-pill" data-cat="Desserts" onclick="setMenuCategory('Desserts')">Desserts</button>
+      </div>
+      <div class="field-group" style="min-width: 240px;">
+        <label class="field-label" for="menu-search">Search dishes or ingredients</label>
+        <input type="search" id="menu-search" class="field-input" placeholder="e.g. podi, dosa, ghee, mango..." oninput="setMenuSearch(this.value)">
+      </div>
+    </div>
+
+    <div id="menu-count-note" class="field-help" style="margin-bottom: var(--space-md);">Showing all 19 menu items.</div>
+    <div class="card-grid" id="unified-menu-grid"></div>
+
+    <div class="panel-tonal" style="margin-top: var(--space-xl); border-left: 4px solid var(--tertiary);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md);">
+        <div>
+          <span class="badge-emerald">Pre-Event Tasting Policy</span>
+          <h2 class="title-sub" style="margin-top: var(--space-xs);">Non-Sweet Tastings Available · No Sweet Sampling</h2>
+          <p class="field-help" style="max-width: 68ch;">
+            Non-sweet menu items are available for ordering and tasting prior to your catered event, with spice levels
+            calibrated to your preference. Sweets (such as Kesari Bath or Sweet Pongal) cannot be sampled in advance
+            because they cannot be prepared in small test batches. Menu prices on delivery apps are set directly by the Merchant.
+          </p>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="navigateTo('order')">Order Online Now</button>
+          <!--<button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">Estimate Catering</button>-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 3: ORDER ONLINE ==================== -->
+  <section id="page-order" class="page-view" aria-labelledby="order-heading">
+    <p class="kicker">Delivery &amp; Pickup · Langley, BC · Thu – Sun, 9:30 AM – 3:00 PM</p>
+    <h1 id="order-heading" class="title-display">Order <em>Online</em></h1>
+    <p class="prose-lead">
+      Order fresh small-batch South Indian dishes during operating hours through our delivery &amp; pickup partners,
+      or assemble a direct pickup / catering inquiry tray below.
+    </p>
+
+    <div class="order-grid">
+      <!-- DoorDash Card with DUAL buttons as requested -->
+      <article class="order-card is-featured">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-xs);">
+          <span class="badge-terracotta">Featured Partner</span>
+          <span class="badge-emerald">DashPass · Virtual Brand</span>
+        </div>
+        <div>
+          <h2 class="title-sub">DoorDash</h2>
+          <p style="margin: 0; font-size: 0.9375rem; color: var(--on-surface-variant);">
+            Storefront: <strong>MG'S KITCHEN THE FLAVOUR SPECIALIST — Langley, BC</strong>. Supports Delivery, Pickup,
+            and Group Orders across Featured Items ($7.99–$12.95), Breakfast Specials, Rice Specialties, Signature Specials,
+            Dosa &amp; Crepes, and Desserts.
+          </p>
+        </div>
+        <p class="field-help" style="background: var(--surface-card); padding: 0.6rem 0.75rem; border-radius: var(--rounded); border: var(--warm-hairline);">
+          <strong>Merchant Notice:</strong> Prices on the DoorDash menu are set directly by the Merchant.
+        </p>
+        <div class="btn-row" style="margin-top: auto;">
+          <button type="button" class="btn btn-primary" onclick="selectOrderChannel('DoorDash')">Order via DoorDash</button>
+          <button type="button" class="btn btn-secondary" onclick="selectOrderChannel('Direct Online Store')">Order Online</button>
+        </div>
+      </article>
+
+      <!-- SkipTheDishes Card -->
+      <article class="order-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-xs);">
+          <span class="badge-brass">Canadian Delivery Network</span>
+          <span class="badge-emerald">Local Langley</span>
+        </div>
+        <div>
+          <h2 class="title-sub">SkipTheDishes</h2>
+          <p style="margin: 0; font-size: 0.9375rem; color: var(--on-surface-variant);">
+            Local Langley delivery and pickup ordering for MG's Kitchen small-batch tiffins, aromatic rice bowls,
+            and crisp masala vadas during Thursday–Sunday morning and midday service.
+          </p>
+        </div>
+        <p class="field-help">Available Thu–Sun during active online delivery hours (9:30 AM – 3:00 PM).</p>
+        <div class="btn-row" style="margin-top: auto;">
+          <button type="button" class="btn btn-primary" onclick="selectOrderChannel('SkipTheDishes')">Order via SkipTheDishes</button>
+        </div>
+      </article>
+
+      <!-- UberEats Card -->
+      <article class="order-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-xs);">
+          <span class="badge-emerald">Courier &amp; Catering Dispatch</span>
+          <span class="badge-brass">Virtual Brand</span>
+        </div>
+        <div>
+          <h2 class="title-sub">UberEats</h2>
+          <p style="margin: 0; font-size: 0.9375rem; color: var(--on-surface-variant);">
+            Order individual meals on UberEats, or book event catering where all drop-off orders are dispatched
+            exclusively via prepaid round-trip Uber courier from our Langley kitchen.
+          </p>
+        </div>
+        <p class="field-help">Round-trip Uber catering transit fees are prepaid 100% prior to dispatch.</p>
+        <div class="btn-row" style="margin-top: auto;">
+          <button type="button" class="btn btn-primary" onclick="selectOrderChannel('UberEats')">Order via UberEats</button>
+          <!--<button type="button" class="btn btn-secondary" onclick="navigateTo('estimator')">Catering Dispatch</button>-->
+        </div>
+      </article>
+    </div>
+
+    <!-- Interactive Order Handoff & Tiffin Tray Builder 
+    <div class="tray-drawer" id="order-tray-panel" aria-live="polite">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-md);">
+        <div>
+          <span class="badge-emerald" id="selected-channel-badge">Selected Channel: DoorDash</span>
+          <h2 class="title-section" style="margin-top: var(--space-xs); margin-bottom: 0;">Storefront Handoff &amp; <em>Tiffin Tray</em> Builder</h2>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="copyStoreDetails()">Copy Store &amp; Address</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="navigateTo('menu')">Browse All 19 Dishes</button>
+        </div>
+      </div>
+
+      <p id="channel-instructions" class="prose-lead" style="margin-bottom: var(--space-md); font-size: 0.95rem;">
+        Search <strong>MG'S KITCHEN THE FLAVOUR SPECIALIST</strong> in DoorDash (Langley, BC) or build your tiffin tray below
+        to copy a ready-to-send order list for direct pickup or catering inquiry.
+      </p>
+
+      <div class="two-col-split">
+        <div class="panel">
+          <h3 class="title-sub">Quick-Add Featured Classics</h3>
+          <div id="order-quick-items"></div>
+        </div>
+        <div class="panel">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-sm);">
+            <h3 class="title-sub" style="margin: 0;">Your Tiffin Tray</h3>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="clearOrderTray()">Clear Tray</button>
+          </div>
+          <div id="order-tray-summary"></div>
+          <div class="btn-row" style="margin-top: var(--space-md);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="copyOrderTray()">Copy Order Summary</button>
+            <button type="button" class="btn btn-emerald btn-sm" onclick="transferTrayToEstimator()">Send to Catering Estimator</button>
+          </div>
+          <div id="order-feedback" class="inline-feedback" role="status"></div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top: var(--space-lg); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md);">
+        <div>
+          <p class="kicker" style="margin-bottom: 2px;">Direct Kitchen Pickup &amp; Written Inquiries</p>
+          <strong>20381 62 Ave #301, Langley, BC V3A 5E6 Canada</strong>
+          <div class="field-help">Kitchen: Thu – Sun 8:00 AM – 2:30 PM · Phone: +1 (672) 975-1664 · Email: manasagkitchen@gmail.com (Catering changes via email only)</div>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyKitchenAddress()">Copy Address</button>
+      </div>
+    </div>-->
+  </section>
+
+  <!-- ==================== PAGE 4: SPECIAL MENU & CATERING ==================== -->
+  <section id="page-catering" class="page-view" aria-labelledby="catering-heading">
+    <p class="kicker">Drop-Off Catering Overview · No Discounts Policy</p>
+    <h1 id="catering-heading" class="title-display">Special Menu &amp; <em>Catering</em></h1>
+    <p class="prose-lead">
+      MG's Kitchen brings authentic small-batch South Indian hospitality to family milestones, community gatherings,
+      and corporate luncheons across Langley and the Lower Mainland under clear, transparent drop-off terms.
+    </p>
+
+    <div class="arch-grid">
+      <div class="arch-card is-featured">
+        <div class="arch-label">Dispatch Mode</div>
+        <div class="arch-value">Prepaid Uber</div>
+        <div class="arch-caption">Round-trip courier settled upfront</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Door Setup Labor</div>
+        <div class="arch-value">$20.00 / hr</div>
+        <div class="arch-caption">Pre-agreed on-demand handling only</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Payment Split</div>
+        <div class="arch-value">50 / 25 / 25</div>
+        <div class="arch-caption">100% upfront for rush (&lt;7 days)</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-label">Food Safety Window</div>
+        <div class="arch-value">2 Hours</div>
+        <div class="arch-caption">Client liability post-delivery</div>
+      </div>
+    </div>
+
+    <div class="clause-grid">
+      <article class="clause-card">
+        <span class="badge-terracotta">Logistics &amp; Pricing</span>
+        <h2 class="title-sub" style="margin-top: var(--space-sm);">Drop-Off Service &amp; No Discounts Policy</h2>
+        <ul class="clause-list">
+          <li><strong>Drop-Off Only:</strong> Standard catering does not include waitstaff, table service, chafing dish arrangement, or room staging.</li>
+          <li><strong>Prepaid Round-Trip Uber:</strong> All orders ship via third-party Uber courier; round-trip transit charges must be prepaid in full before dispatch.</li>
+          <li><strong>Strictly Non-Negotiable:</strong> All listed menu rates, Uber transit charges, and $20.00/hr door setup fees are firm with no discounts or concessions.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-emerald">Customization &amp; Tastings</span>
+        <h2 class="title-sub" style="margin-top: var(--space-sm);">Dietary Splits, Spice &amp; Pre-Event Tastings</h2>
+        <ul class="clause-list">
+          <li><strong>Whole or 50% Volume Split:</strong> Custom dietary, religious, or allergen adjustments apply to 100% or 50% of the order—never individual single-serving plates.</li>
+          <li><strong>Spice Profile at Signing:</strong> Confirm Mild, Traditional Medium, or Authentic South Indian Spicy at contract execution.</li>
+          <li><strong>Tasting Rules:</strong> Non-sweet items may be ordered and tasted in advance; sweets cannot be sampled prior to events as they cannot be made in small test batches.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-brass">Deadlines &amp; Email Policy</span>
+        <h2 class="title-sub" style="margin-top: var(--space-sm);">Headcount &amp; Written Communication</h2>
+        <ul class="clause-list">
+          <li><strong>RSVP Guarantee:</strong> Submit final guest count 5–10 business days before the event; billing floor is the higher of guarantee or actual attendance.</li>
+          <li><strong>Email-Only Changes:</strong> Phone calls, texts, and verbal requests are not accepted. Send all updates to <strong>manasagkitchen@gmail.com</strong>.</li>
+          <li><strong>3-Day Cutoff:</strong> Menu updates and headcount reductions must arrive via email at least 3 business days prior; additions &gt;5 guests incur extra per-person charges.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="panel" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md);">
+      <div>
+        <h2 class="title-sub" style="margin: 0;">Ready to build your catering quote and agreement?</h2>
+        <p class="field-help">Calculate exact milestone dates and totals, then sync them directly into the Catering Service Agreement.</p>
+      </div>
+      <div class="btn-row">
+        <!--<button type="button" class="btn btn-primary" onclick="navigateTo('estimator')">Open Catering Estimator</button>-->
+        <button type="button" class="btn btn-secondary" onclick="navigateTo('agreement')">View Service Agreement</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 5: CATERING ESTIMATOR ==================== -->
+  <section id="page-estimator" class="page-view" aria-labelledby="estimator-heading">
+    <p class="kicker">Sections 2, 3 &amp; 4 Interactive Calculator · No Discounts Policy</p>
+    <h1 id="estimator-heading" class="title-display">Catering <em>Estimator</em></h1>
+    <p class="prose-lead">
+      Calculate food subtotals, optional $20.00/hr door setup labor, prepaid round-trip Uber courier fees,
+      cancellation eligibility, and exact 50% / 25% / 25% (or 100% rush) payment milestones &amp; email cutoff dates.
+    </p>
+
+    <div class="estimator-layout">
+      <div>
+        <!-- Step 1: Event Schedule & Headcount -->
+        <div class="estimator-step">
+          <h2 class="title-sub">1. Event Schedule &amp; Headcount</h2>
+          <div class="form-grid-2">
+            <div class="field-group">
+              <label class="field-label" for="est-client-name">Client / Host Name</label>
+              <input type="text" id="est-client-name" class="field-input" placeholder="e.g. Manasa Umesh" oninput="updateEstimatorField('clientName', this.value)">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="est-event-date">Event Date</label>
+              <input type="date" id="est-event-date" class="field-input" value="2026-12-12" oninput="updateEstimatorField('eventDate', this.value)">
+            </div>
+          </div>
+
+          <div class="field-group" style="margin-top: var(--space-md);">
+            <label class="field-label" for="est-delivery-address">Delivery Address (Uber Round-Trip Dispatch)</label>
+            <input type="text" id="est-delivery-address" class="field-input" placeholder="Full street address in Langley / Lower Mainland" oninput="updateEstimatorField('deliveryAddress', this.value)">
+          </div>
+
+          <div class="field-group" style="margin-top: var(--space-md);">
+            <label class="field-label" for="est-headcount-num">Initial Estimated Headcount (Guests)</label>
+            <div class="slider-pair">
+              <input type="range" id="est-headcount-slider" min="10" max="300" step="1" value="40" oninput="syncHeadcountFromSlider(this.value)" aria-label="Headcount slider">
+              <input type="number" id="est-headcount-num" class="field-input" min="1" max="1000" value="40" oninput="syncHeadcountFromNumber(this.value)">
+            </div>
+            <p class="field-help">RSVP guaranteed cutoff is 5–10 business days prior; billing floor is the higher of guarantee or actual attendance.</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Priced Menu Portions -->
+        <div class="estimator-step">
+          <h2 class="title-sub">2. Priced Menu Portions &amp; Catering Quote</h2>
+          <p class="field-help" style="margin-bottom: var(--space-sm);">
+            Select quantities from verified menu pricing, or enter a custom per-guest rate for Signature Specials, Rice Specialties, Dosa &amp; Crepes, or Desserts.
+          </p>
+          <div id="est-portions-list"></div>
+          <div class="field-group" style="margin-top: var(--space-md);">
+            <label class="field-label" for="est-package-rate">Additional Catering Package Rate ($ CAD per guest, optional)</label>
+            <input type="number" id="est-package-rate" class="field-input" min="0" step="0.5" value="0" oninput="updateEstimatorField('packageRate', this.value)">
+            <p class="field-help">Use only if quoting additional Signature Specials, Rice Specialties, Dosa &amp; Crepes, or Desserts per guest.</p>
+          </div>
+        </div>
+
+        <!-- Step 3: Logistics, Spice & Allergen Split -->
+        <div class="estimator-step">
+          <h2 class="title-sub">3. Logistics, Spice &amp; Allergen Split</h2>
+          <div class="form-grid-2">
+            <div class="field-group">
+              <label class="field-label" for="est-uber-fee">Prepaid Round-Trip Uber Courier ($ CAD)</label>
+              <input type="number" id="est-uber-fee" class="field-input" min="0" step="1" value="45" oninput="updateEstimatorField('uberFee', this.value)">
+              <p class="field-help">Client prepays 100% of to-and-fro Uber charges prior to dispatch.</p>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="est-labor-hours">Door Setup / On-Demand Labor (hrs @ $20/hr)</label>
+              <input type="number" id="est-labor-hours" class="field-input" min="0" step="0.5" value="0" oninput="updateEstimatorField('laborHours', this.value)">
+              <p class="field-help">Drop-off excludes staging/chafing setup unless pre-agreed at $20.00/hr.</p>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="margin-top: var(--space-md);">
+            <div class="field-group">
+              <span class="field-label">Specified Spice Level (Confirmed at Signing)</span>
+              <div class="radio-stack">
+                <label class="radio-tile"><input type="radio" name="spiceLevel" value="Mild" onchange="updateEstimatorField('spiceLevel', this.value)"> Mild</label>
+                <label class="radio-tile"><input type="radio" name="spiceLevel" value="Traditional Medium" checked onchange="updateEstimatorField('spiceLevel', this.value)"> Traditional Medium</label>
+                <label class="radio-tile"><input type="radio" name="spiceLevel" value="Authentic South Indian Spicy" onchange="updateEstimatorField('spiceLevel', this.value)"> Authentic South Indian Spicy</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <span class="field-label">Allergen / Dietary Accommodation</span>
+              <div class="radio-stack">
+                <label class="radio-tile"><input type="radio" name="dietarySplit" value="Entire Order Uniform" checked onchange="updateEstimatorField('dietarySplit', this.value)"> Entire Order Uniform</label>
+                <label class="radio-tile"><input type="radio" name="dietarySplit" value="50% Volume Split (Max allowed)" onchange="updateEstimatorField('dietarySplit', this.value)"> 50% Volume Split (Max allowed)</label>
+              </div>
+              <p class="field-help">Single-serving individual custom plates cannot be accommodated.</p>
+
+              <span class="field-label" style="margin-top: var(--space-sm);">Accepted Payment Method</span>
+              <div class="radio-stack">
+                <label class="radio-tile"><input type="radio" name="paymentMethod" value="Interac e-Transfer" checked onchange="updateEstimatorField('paymentMethod', this.value)"> Interac e-Transfer (No card surcharge)</label>
+                <label class="radio-tile"><input type="radio" name="paymentMethod" value="Credit / Debit Card" onchange="updateEstimatorField('paymentMethod', this.value)"> Credit / Debit Card (Merchant surcharge applies)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-row" style="margin-top: var(--space-lg);">
+            <button type="button" class="btn btn-secondary btn-sm" id="reset-estimator-btn" onclick="resetEstimator(this)">Reset Estimator</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Live Summary Card -->
+      <aside class="summary-card" aria-live="polite" aria-label="Estimated catering settlement summary">
+        <div class="summary-hero">
+          <div style="display: flex; justify-content: center; margin-bottom: var(--space-xs);">
+            <span class="badge-emerald" id="est-order-mode-badge">Standard Order (50 / 25 / 25)</span>
+          </div>
+          <div class="arch-label">Estimated Catering Settlement</div>
+          <div class="summary-total" id="est-total-balance">$677.40</div>
+          <div class="field-help" id="est-per-guest">$16.94 per guest (40 guests)</div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+          <strong id="est-days-until">28 days until event</strong>
+          <span class="badge-brass" id="est-cancel-tier">7–29 Days: 50% refund / reschedule</span>
+        </div>
+
+        <table class="data-table" aria-label="Cost breakdown">
+          <thead>
+            <tr><th>Cost Component</th><th class="num">Amount</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Menu Items &amp; Package Subtotal</td><td class="num" id="est-food-subtotal">$632.40</td></tr>
+            <tr><td>Prepaid Round-Trip Uber Courier</td><td class="num" id="est-uber-subtotal">$45.00</td></tr>
+            <tr><td>Door Setup / On-Demand Labor ($20/hr)</td><td class="num" id="est-labor-subtotal">$0.00</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="title-sub" style="margin-top: var(--space-md);">Required Payment Schedule</h3>
+        <table class="data-table" aria-label="Payment milestones">
+          <thead>
+            <tr><th>Milestone</th><th>Due Date</th><th class="num">Amount</th></tr>
+          </thead>
+          <tbody id="est-milestones-body"></tbody>
+        </table>
+
+        <div class="panel-tonal" style="padding: var(--space-md); margin-top: var(--space-md);">
+          <div class="field-label" style="margin-bottom: var(--space-xs);">Email &amp; Cutoff Checkpoints</div>
+          <ul class="clause-list" style="margin-top: 0; font-size: 0.83rem;">
+            <li><strong>RSVP Cutoff (5–10 business days):</strong> <span id="est-rsvp-window">—</span></li>
+            <li><strong>Email Modification &amp; Reduction Cutoff (3 business days):</strong> <span id="est-mod-cutoff">—</span> (email only)</li>
+            <li><strong>2-Hour Safe Consumption Liability:</strong> Client assumes food safety &amp; temperature responsibility 2 hrs post-delivery.</li>
+            <li><strong>Payment Note:</strong> <span id="est-payment-note">Interac e-Transfer selected (no card surcharge).</span></li>
+          </ul>
+        </div>
+
+        <div class="btn-row" style="margin-top: var(--space-md);">
+          <button type="button" class="btn btn-primary" style="flex: 1;" onclick="applyEstimatorToAgreement()">Apply to Service Agreement</button>
+          <button type="button" class="btn btn-secondary" onclick="viewBlankAgreement()">View Blank Agreement</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 6: CATERING SERVICE AGREEMENT ==================== -->
+  <section id="page-agreement" class="page-view" aria-labelledby="agreement-heading">
+    <div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-lg);">
+      <div>
+        <p class="kicker">Formal Terms &amp; Conditions · Drop-Off Catering</p>
+        <h1 id="agreement-heading" class="title-display" style="margin-bottom: var(--space-xs);">Catering Service <em>Agreement</em></h1>
+        <p class="prose-lead" style="margin-bottom: 0;">
+          Formal agreement governing drop-off catering services and event delivery between MG's Kitchen — The Flavour Specialist
+          (“Caterer”) and the Client.
+        </p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="navigateTo('estimator')">Edit in Estimator</button>
+        <button type="button" class="btn btn-primary" onclick="downloadAgreementTxt()">Download Agreement (.txt)</button>
+      </div>
+    </div>
+
+    <!-- Contract Schedule & Event Overview -->
+    <div class="panel" style="margin-bottom: var(--space-lg);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+        <h2 class="title-sub" style="margin: 0;">Contract Schedule &amp; Event Overview</h2>
+        <span class="badge-emerald" id="agr-sync-badge">Synced with Estimator</span>
+      </div>
+      <table class="data-table" aria-label="Contract schedule and event overview">
+        <thead>
+          <tr><th>Detail</th><th>Specification</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Caterer / Provider</strong></td><td>MG's Kitchen — The Flavour Specialist (20381 62 Ave #301, Langley, BC V3A 5E6)</td></tr>
+          <tr><td><strong>Client Name</strong></td><td id="agr-client-name">To be completed at signing</td></tr>
+          <tr><td><strong>Event Date</strong></td><td id="agr-event-date">2026-12-12</td></tr>
+          <tr><td><strong>Delivery Address</strong></td><td id="agr-delivery-address">To be confirmed (Uber Round-Trip Dispatch)</td></tr>
+          <tr><td><strong>Initial Estimated Headcount</strong></td><td id="agr-headcount">40 guests (Confirmed 5–10 business days prior per Section 2)</td></tr>
+          <tr><td><strong>Specified Spice Level</strong></td><td id="agr-spice-level">Traditional Medium (Confirmed at signing)</td></tr>
+          <tr><td><strong>Dietary / Allergen Structure</strong></td><td id="agr-dietary-split">Entire Order Uniform</td></tr>
+          <tr><td><strong>Total Estimated Settlement</strong></td><td id="agr-total-settlement">$677.40 CAD (via Interac e-Transfer)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sections 1 to 6 -->
+    <div class="clause-grid">
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 1</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Event &amp; Service Details</h3>
+        <ul class="clause-list">
+          <li><strong>Service Scope:</strong> Covers drop-off catering service only. Caterer does not provide on-site waitstaff, table service, or ongoing event management under standard terms.</li>
+          <li><strong>Delivery Logistics:</strong> Dispatched and delivered exclusively via third-party courier (Uber). Client must prepay all round-trip (to-and-fro) Uber delivery charges in full prior to order dispatch.</li>
+          <li><strong>On-Demand &amp; Door Setup Labor:</strong> Drop-off excludes room staging, food unpacking, chafing dish arrangement, or buffet setup. Pre-agreed door setup or handling is billed at <strong>$20.00 per hour</strong>.</li>
+          <li><strong>No Discounts Policy:</strong> All listed menu rates, delivery fees, and labor charges are strictly non-negotiable; no discounts, concessions, or reductions apply.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 2</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Guest Count &amp; Attendance Guarantees</h3>
+        <ul class="clause-list">
+          <li><strong>RSVP Cutoff:</strong> Client must submit the final guaranteed guest headcount between <strong>5 and 10 business days</strong> prior to the agreed event date.</li>
+          <li><strong>Billing Floor:</strong> Final invoicing is calculated based on the guaranteed minimum headcount submitted at cutoff or actual event attendance, whichever is higher.</li>
+          <li><strong>Headcount Reductions:</strong> Must be submitted in writing via <strong>email</strong> at least <strong>3 business days</strong> prior to the event. Late reductions cannot be accommodated.</li>
+          <li><strong>Late Additions:</strong> Additions exceeding <strong>5 attendees</strong> after the cutoff date incur supplementary per-person charges and depend on food supply availability.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 3</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Pricing, Invoicing &amp; Payment Terms</h3>
+        <table class="data-table" aria-label="Agreement payment schedule">
+          <thead>
+            <tr><th>Milestone</th><th>Due Date</th><th class="num">%</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Initial Deposit</td><td>Upon contract execution</td><td class="num"><strong>50% (Non-Refundable)</strong></td></tr>
+            <tr><td>Second Installment</td><td>7 days (1 week) prior</td><td class="num"><strong>25%</strong></td></tr>
+            <tr><td>Final Balance</td><td>Day of event, prior to dispatch</td><td class="num"><strong>25%</strong></td></tr>
+          </tbody>
+        </table>
+        <ul class="clause-list">
+          <li><strong>Strict Advance Settlement:</strong> 100% of total balance, including Uber transit fees and scheduled labor, must be settled prior to food leaving the kitchen. No late payments, deferred billing, net terms, or cash-on-delivery.</li>
+          <li><strong>Accepted Payment Methods:</strong> Interac e-Transfer or Credit/Debit Card (credit and debit card transactions are subject to standard applicable merchant processing surcharges).</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 4</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Cancellation, Rescheduling &amp; Rush Orders</h3>
+        <table class="data-table" aria-label="Cancellation refund terms">
+          <thead>
+            <tr><th>Timeline</th><th>Refund &amp; Rescheduling Terms</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>30+ Days Prior</strong></td><td>Full refund of monies paid, less minimal administrative &amp; processing charges.</td></tr>
+            <tr><td><strong>7 to 29 Days Prior</strong></td><td>50% refund issued, or option to reschedule date, time, and venue (subject to kitchen capacity &amp; approval).</td></tr>
+            <tr><td><strong>Under 7 Days Prior</strong></td><td><strong>0% refund.</strong> Total forfeiture of all funds paid.</td></tr>
+          </tbody>
+        </table>
+        <ul class="clause-list">
+          <li><strong>Immediate &amp; Rush Orders:</strong> Orders requested less than 7 days prior require immediate <strong>100% upfront payment</strong> upon confirmation and are accepted strictly subject to kitchen availability.</li>
+          <li><strong>Grocery &amp; Materials Policy:</strong> Under no circumstances—including cancellations, partial refunds, or rescheduling—will grocery receipts, raw goods, kitchen ingredient invoices, or wholesale food items be transferred or provided to the Client.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 5</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Food Safety, Allergens &amp; Liabilities</h3>
+        <ul class="clause-list">
+          <li><strong>Force Majeure:</strong> Neither party is liable for failure or delay caused by acts of God, extreme severe weather, transit blockades, public utility failures, government restrictions, or unforeseen events beyond reasonable control.</li>
+          <li><strong>Allergen Disclaimer &amp; Dietary Requests:</strong> Custom dietary, religious, or allergen adjustments are accepted exclusively for the <strong>entire order</strong> or a <strong>50% volume split</strong>. Individual custom allergen plates, separate packaging, or personalized single-serving alterations cannot be accommodated.</li>
+          <li><strong>Spice Level Specification:</strong> Required spice profile must be finalized at contract execution; post-signing modifications cannot be guaranteed.</li>
+          <li><strong>Safe Consumption Window:</strong> Caterer guarantees quality and food safety up to handover. Client assumes full legal and physical liability for temperature maintenance, hygiene, and safe consumption <strong>2 hours after delivery</strong>.</li>
+          <li><strong>Equipment Breakage &amp; Property Damage:</strong> Client assumes full financial liability for replacement costs of any lost, stolen, or damaged utensils, transport carriers, or display rentals caused by attendees.</li>
+        </ul>
+      </article>
+
+      <article class="clause-card">
+        <span class="badge-terracotta">Section 6</span>
+        <h3 class="title-sub" style="margin-top: var(--space-xs);">Menu Items, Customizations &amp; Communication</h3>
+        <ul class="clause-list">
+          <li><strong>Menu &amp; Headcount Details:</strong> All menu items, final headcount, spice preferences, and allergen specifications must be submitted in writing.</li>
+          <li><strong>Communication Policy:</strong> Phone calls, text messages, and verbal discussions are <strong>not accepted</strong>. All requests, changes, or updates must be submitted strictly via <strong>email</strong> (manasagkitchen@gmail.com).</li>
+          <li><strong>Modification Deadline:</strong> Any request to change or update the order must be emailed at least <strong>3 days</strong> prior to the event.</li>
+          <li><strong>Last-Minute Menu Changes:</strong> Menu alterations requested after the 3-day deadline are subject to ingredient availability and time approval, and will incur extra charges.</li>
+          <li><strong>Sweet Tastings:</strong> Sweets cannot be sampled before the event because they cannot be prepared in small test batches.</li>
+          <li><strong>Food Tastings &amp; Customization:</strong> Non-sweet menu items are available for ordering and tasting prior to the event, with adjustable spice levels.</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Execution & Digital Acknowledgment -->
+    <div class="panel" style="border-color: var(--outline-featured);">
+      <h2 class="title-section" style="margin-bottom: var(--space-xs);">Execution &amp; Digital Acknowledgment</h2>
+      <p class="field-help" style="margin-bottom: var(--space-lg);">
+        By signing below, the parties acknowledge that they have read, understood, and agreed to be bound by the terms,
+        cancellation schedules, and delivery protocols set forth in this Agreement.
+      </p>
+
+      <div class="form-grid-2">
+        <div class="field-group">
+          <label class="field-label" for="sig-caterer">Caterer Representative</label>
+          <input type="text" id="sig-caterer" class="field-input" value="MG's Kitchen Authorized Representative" readonly>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="sig-client-name">Client Signatory (Printed Name)</label>
+          <input type="text" id="sig-client-name" class="field-input" placeholder="Enter Event Host / Client full name" oninput="updateSignatureField('sigClientName', this.value)">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="sig-client-title">Client Title / Role</label>
+          <input type="text" id="sig-client-title" class="field-input" value="Event Host / Client" oninput="updateSignatureField('sigClientTitle', this.value)">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="sig-date">Date Signed</label>
+          <input type="date" id="sig-date" class="field-input" value="2026-11-14" oninput="updateSignatureField('sigDate', this.value)">
+        </div>
+      </div>
+
+      <label class="radio-tile" style="margin-top: var(--space-md);">
+        <input type="checkbox" id="sig-ack" onchange="updateSignatureField('sigAck', this.checked)">
+        <span>I confirm all requests and updates will be submitted strictly via email (manasagkitchen@gmail.com) and accept the 50% non-refundable initial deposit and 2-hour post-delivery food safety terms.</span>
+      </label>
+
+      <div class="btn-row" style="margin-top: var(--space-md);">
+        <button type="button" class="btn btn-primary" onclick="downloadAgreementTxt()">Finalize &amp; Download Agreement (.txt)</button>
+      </div>
+      <div id="agr-feedback" class="inline-feedback" role="status"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer" id="visit">
+  <div class="footer-inner">
+    <!-- Column 1: Brand, Hours, Contact & Social -->
+    <div>
+      <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+       <img src="./logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+       <!-- <div class="brand-logo-wrap" style="width: 42px; height: 42px;" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2.2"/>
+            <path d="M16 42 Q32 22 48 42 Z" fill="var(--dish-leaf)" opacity="0.92"/>
+            <circle cx="26" cy="32" r="5.5" fill="var(--dish-idli)" stroke="var(--secondary)" stroke-width="1.2"/>
+            <circle cx="38" cy="32" r="5.5" fill="var(--dish-idli)" stroke="var(--secondary)" stroke-width="1.2"/>
+            <circle cx="32" cy="24" r="5.5" fill="var(--dish-gold)" stroke="var(--primary)" stroke-width="1.2"/>
+          </svg>
+        </div>-->
+        <div>
+          <div class="brand-name" style="font-size: 1.35rem;">MG's Kitchen</div>
+          <div class="brand-sub">The Flavour Specialist</div>
+        </div>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--on-surface-variant); margin: 0 0 var(--space-md);">
+        South Indian culinary provider based in Langley, BC. Crafting healthy, fresh, small-batch dishes with pure
+        ingredients and traditional heritage recipes.
+      </p>
+
+      <div style="font-size: 0.875rem; display: flex; flex-direction: column; gap: 4px; margin-bottom: var(--space-md);">
+        <div><strong>Address:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6 Canada</div>
+        <div><strong>Phone:</strong> +1 (672) 975-1664</div>
+        <div><strong>Email:</strong> manasagkitchen@gmail.com</div>
+        <div><strong>Kitchen Hours:</strong> Thu – Sun: 8:00 AM – 2:30 PM (Mon – Wed: Closed)</div>
+        <div><strong>Online Delivery:</strong> Thu – Sun: 9:30 AM – 3:00 PM</div>
+        <div><strong>Website:</strong> www.mgkitchen.ca</div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyContactInfo('phone')">Copy Phone</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyContactInfo('email')">Copy Email</button>
+      </div>
+
+      <div style="margin-top: var(--space-md);">
+        <div class="field-label" style="margin-bottom: var(--space-xs);">Connect &amp; Follow</div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="showSocialHandle('Instagram')">Instagram</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="showSocialHandle('Facebook')">Facebook</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="showSocialHandle('YouTube')">YouTube</button>
+        </div>
+        <div id="footer-social-feedback" class="inline-feedback" role="status"></div>
+      </div>
+    </div>
+
+    <!-- Column 2: Navigation & Ordering Options -->
+    <div>
+      <div class="field-label">Navigation</div>
+      <ul class="footer-links">
+        <li><button type="button" class="footer-link-btn" onclick="navigateTo('home')">Home &amp; Heritage</button></li>
+        <li><button type="button" class="footer-link-btn" onclick="navigateTo('menu')">Unified Menu (19 Dishes)</button></li>
+        <li><button type="button" class="footer-link-btn" onclick="navigateTo('order')">Order Online Channels</button></li>
+        <li><button type="button" class="footer-link-btn" onclick="navigateTo('catering')">Special Menu &amp; Catering</button></li>
+        <!--<li><button type="button" class="footer-link-btn" onclick="navigateTo('estimator')">Catering Estimator</button></li>-->
+        <li><button type="button" class="footer-link-btn" onclick="navigateTo('agreement')">Catering Service Agreement</button></li>
+      </ul>
+
+      <div class="field-label" style="margin-top: var(--space-lg);">Ordering Options</div>
+      <ul class="footer-links">
+        <li><button type="button" class="footer-link-btn" onclick="openOrderWithChannel('DoorDash')">DoorDash · Langley Storefront</button></li>
+        <li><button type="button" class="footer-link-btn" onclick="openOrderWithChannel('Direct Online Store')">Direct Online Store (order.online)</button></li>
+        <li><button type="button" class="footer-link-btn" onclick="openOrderWithChannel('SkipTheDishes')">SkipTheDishes · Local Delivery</button></li>
+       <!-- <li><button type="button" class="footer-link-btn" onclick="openOrderWithChannel('UberEats')">UberEats &amp; Catering Dispatch</button></li>-->
+      </ul>
+    </div>
+
+    <!-- Column 3: Interactive Google Maps Directions Schematic -->
+    <div class="map-card">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+        <div>
+          <div class="field-label">Interactive Directions · Langley, BC</div>
+          <strong style="font-size: 0.95rem;">MG's Kitchen · #301 – 20381 62 Ave</strong>
+        </div>
+        <span class="badge-emerald" id="map-route-badge">0.0 km · Pickup Point</span>
+      </div>
+
+      <div class="field-group" style="margin-bottom: var(--space-sm);">
+        <label class="field-label" for="map-origin-select">Preview Route From</label>
+        <select id="map-origin-select" class="field-select" onchange="updateMapOrigin(this.value)">
+          <option value="langley-centre">Langley City Centre (Fraser Hwy &amp; 204 St)</option>
+          <option value="willowbrook">Willowbrook Shopping Centre (200 St &amp; 64 Ave)</option>
+          <option value="surrey-central">Surrey Central / Fleetwood Corridor</option>
+          <option value="maple-ridge">Maple Ridge (Haney Place)</option>
+          <option value="vancouver">Downtown Vancouver (via Hwy 1 East)</option>
+        </select>
+      </div>
+
+      <div class="schematic-map-box" id="schematic-map" aria-label="Langley neighborhood schematic map showing 20381 62 Ave #301"></div>
+
+      <div style="margin-top: var(--space-sm); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs);">
+        <span class="field-help" id="map-route-summary">Destination: 20381 62 Ave #301, Langley, BC V3A 5E6 (49.115° N, 122.658° W)</span>
+        <button type="button" class="btn btn-primary btn-sm" onclick="copyGoogleMapsDirections()">Copy Directions Query</button>
+      </div>
+      <div id="map-feedback" class="inline-feedback" role="status"></div>
+      <p class="field-help" style="margin-top: var(--space-xs);">
+        Note: An earlier coming-soon link pointed to Maple Ridge; active storefront pickup and Uber catering dispatch originate at <strong>20381 62 Ave #301, Langley, BC V3A 5E6</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-disclaimer">
+    <strong>Disclaimer:</strong> Homemade South Indian meals prepared in small batches with pure, fresh ingredients and zero preservatives or artificial colors.
+    Menu prices on third-party delivery platforms are set directly by the Merchant. Drop-off catering orders are subject strictly to the Catering Service Agreement;
+    verbal, text, or phone modifications are not accepted—all updates must be submitted via email to manasagkitchen@gmail.com.
+    Schematic corridor map uses approximate regional coordinates without raster map tiles. © 2026 MG's Kitchen — The Flavour Specialist. All rights reserved.
+  </div>
+</footer>
+
+<api-shim></api-shim>
+<script>
+const MENU_ITEMS = [
+  {
+    id: `tomato-bath`,
+    name: `Tomato Bath`,
+    category: `Featured & Most Ordered`,
+    secondaryCategory: `Rice Specialties`,
+    tag: `Most Ordered`,
+    spice: `Medium`,
+    price: 11.95,
+    priceLabel: `$11.95`,
+    featured: true,
+    tastingEligible: true,
+    description: `Fragrant South Indian spiced rice and semolina specialty simmered with vine-ripened tomatoes, sweet green peas, roasted cashews, mustard seeds, and aromatic curry leaves.`
+  },
+  {
+    id: `ghee-podi-idli`,
+    name: `Ghee Podi Idli (Idli Podi & Podi Idly)`,
+    category: `Featured & Most Ordered`,
+    secondaryCategory: `Signature Specials`,
+    tag: `Signature Tiffin`,
+    spice: `Spiced`,
+    price: 12.95,
+    priceLabel: `$12.95`,
+    featured: true,
+    tastingEligible: true,
+    description: `Soft, pillowy fermented mini steamed rice-lentil idlis tossed generously in authentic pure golden ghee and house-blended roasted lentil gunpowder spice mix (podi) with crispy curry leaves.`
+  },
+  {
+    id: `masala-vada`,
+    name: `Masala Vada`,
+    category: `Featured & Most Ordered`,
+    secondaryCategory: `Breakfast Specials`,
+    tag: `Crisp Fritters`,
+    spice: `Mild–Medium`,
+    price: 8.95,
+    priceLabel: `$8.95`,
+    featured: true,
+    tastingEligible: true,
+    description: `Deep-fried, coarsely ground split chickpea (chana dal) lentil patties infused with chopped onions, fresh ginger, green chilies, fennel, and hand-selected regional herbs. Served with house chutneys.`
+  },
+  {
+    id: `kharabath`,
+    name: `Kharabath (Upma)`,
+    category: `Featured & Most Ordered`,
+    secondaryCategory: `Breakfast Specials`,
+    tag: `Breakfast Classic`,
+    spice: `Mild`,
+    price: 7.99,
+    priceLabel: `$7.99`,
+    featured: true,
+    tastingEligible: true,
+    description: `Warm, comforting roasted semolina slow-cooked with garden vegetables, pure ghee, tempered mustard seeds, toasted cashews, aromatic spices, and fresh cilantro.`
+  },
+  {
+    id: `rava-idly-sambar`,
+    name: `Rava Idly + Bombay Sambar`,
+    category: `Breakfast Specials`,
+    secondaryCategory: ``,
+    tag: `House Special`,
+    spice: `Mild`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Steamed semolina cakes tempered with mustard seeds, curry leaves, and cashews, paired with mild and tangy Bombay sambar.`
+  },
+  {
+    id: `idli-coconut-chutney`,
+    name: `Idli + Coconut Chutney`,
+    category: `Breakfast Specials`,
+    secondaryCategory: ``,
+    tag: `Breakfast Classic`,
+    spice: `Mild`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Classic South Indian soft, steamed rice cakes served with freshly grated coconut chutney blended with roasted chana dal and mild green chilies.`
+  },
+  {
+    id: `medu-vada`,
+    name: `Medu Vada`,
+    category: `Breakfast Specials`,
+    secondaryCategory: ``,
+    tag: `Crispy Delight`,
+    spice: `Mild`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Golden-brown, crispy split black gram (urad dal) donuts flavored with peppercorns, ginger, and fresh curry leaves. Crisp on the outside, soft on the inside.`
+  },
+  {
+    id: `kharabath-kesari-bath`,
+    name: `Kharabath + Kesari Bath`,
+    category: `Breakfast Specials`,
+    secondaryCategory: `Desserts`,
+    tag: `Sweet & Savory`,
+    spice: `Mild / Sweet`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: false,
+    description: `The ultimate sweet-and-savory breakfast duo pairing a rich, spiced vegetable semolina upma with a sweet, aromatic ghee-laden pineapple halwa.`
+  },
+  {
+    id: `khara-pongal-sweet-pongal`,
+    name: `Khara Pongal + Sweet Pongal`,
+    category: `Signature Specials`,
+    secondaryCategory: `Desserts`,
+    tag: `Heritage Pair`,
+    spice: `Mild / Sweet`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: false,
+    description: `A comforting heritage combo featuring a savory ghee-cooked peppercorn rice dish paired with a sweet jaggery and cardamom-infused dessert pudding.`
+  },
+  {
+    id: `lemon-rice`,
+    name: `Lemon Rice`,
+    category: `Rice Specialties`,
+    secondaryCategory: ``,
+    tag: `Zesty Delight`,
+    spice: `Mild`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Light and bright aromatic basmati rice tempered with fresh lemon juice, mustard seeds, curry leaves, and crunchy roasted peanuts.`
+  },
+  {
+    id: `mango-rice`,
+    name: `Mango Rice`,
+    category: `Rice Specialties`,
+    secondaryCategory: ``,
+    tag: `Seasonal Special`,
+    spice: `Mild–Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Zesty seasonal rice tossed with freshly grated tangy raw mango, split lentils, green chilies, and aromatic oil tempering.`
+  },
+  {
+    id: `curry-leaves-rice`,
+    name: `Curry Leaves Rice`,
+    category: `Rice Specialties`,
+    secondaryCategory: ``,
+    tag: `Aromatic & Earthy`,
+    spice: `Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Fluffy white rice sautéed in a deeply flavorful, earthy paste of slow-roasted curry leaves, aromatic garlic, black pepper, and toasted lentils.`
+  },
+  {
+    id: `mushroom-biryani`,
+    name: `Mushroom Biryani`,
+    category: `Rice Specialties`,
+    secondaryCategory: `Signature Specials`,
+    tag: `Dum Cooked`,
+    spice: `Medium–Spiced`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Aromatic basmati rice slow-layered and dum-cooked with earthy button mushrooms, fresh mint, and whole ground spices.`
+  },
+  {
+    id: `vegetable-pulao`,
+    name: `Vegetable Pulao`,
+    category: `Rice Specialties`,
+    secondaryCategory: ``,
+    tag: `Herbaceous`,
+    spice: `Mild–Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Fragrant short-grain rice slow-cooked with a vibrant paste of fresh mint, cilantro, and seasonal garden vegetables. Served with a cooling yogurt raita.`
+  },
+  {
+    id: `ghee-rice-veg-kurma`,
+    name: `Ghee Rice + Veg Kurma`,
+    category: `Signature Specials`,
+    secondaryCategory: `Rice Specialties`,
+    tag: `Darshini Style`,
+    spice: `Mild`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Fragrant rice delicately tossed in pure golden ghee, seasoned with mild whole spices, curry leaves, and crunchy cashews, served in traditional darshini style.`
+  },
+  {
+    id: `masala-dose`,
+    name: `Masala Dose`,
+    category: `Dosa & Crepes`,
+    secondaryCategory: ``,
+    tag: `Iconic Dosa`,
+    spice: `Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `Golden-brown crispy rice crepe lined with a fiery garlic-chili red chutney paste and stuffed with a seasoned, comforting mashed potato masala.`
+  },
+  {
+    id: `onion-dose`,
+    name: `Onion Dose`,
+    category: `Dosa & Crepes`,
+    secondaryCategory: ``,
+    tag: `Crispy Crepe`,
+    spice: `Mild–Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `A large, golden rice crepe generously sprinkled with finely chopped sweet red onions and fresh cilantro before searing.`
+  },
+  {
+    id: `adai-dose`,
+    name: `Adai Dose`,
+    category: `Dosa & Crepes`,
+    secondaryCategory: ``,
+    tag: `Protein Rich`,
+    spice: `Medium`,
+    price: null,
+    priceLabel: `Daily Batch · See DoorDash`,
+    featured: false,
+    tastingEligible: true,
+    description: `A savory, hearty regional crepe crafted from a thick, nutrition-rich batter of blended lentils and traditional aromatic spices, cooked to a perfect golden crisp.`
+  },
+  {
+    id: `kesari-bath`,
+    name: `Kesari Bath`,
+    category: `Desserts`,
+    secondaryCategory: ``,
+    tag: `Sweet Dessert`,
+    spice: `Sweet`,
+    price: null,
+    priceLabel: `Batch Order · No Pre-Tasting`,
+    featured: false,
+    tastingEligible: false,
+    description: `A sweet, rich South Indian semolina pudding slow-roasted in pure ghee, generously infused with fragrant cardamom, garnished with crunchy nuts and bright pineapple.`
+  }
+];
+
+const ROUTE_ORIGINS = {
+  'langley-centre': {
+    label: `Langley City Centre (Fraser Hwy & 204 St)`,
+    distance: `1.8 km`,
+    driveTime: `~5 min drive / Uber`,
+    startX: 280,
+    startY: 165,
+    path: `M 280 165 L 250 165 L 250 112 L 210 112`
+  },
+  'willowbrook': {
+    label: `Willowbrook Shopping Centre (200 St & 64 Ave)`,
+    distance: `1.4 km`,
+    driveTime: `~4 min drive / Uber`,
+    startX: 118,
+    startY: 66,
+    path: `M 118 66 L 210 66 L 210 112`
+  },
+  'surrey-central': {
+    label: `Surrey Central / Fleetwood Corridor`,
+    distance: `15.6 km`,
+    driveTime: `~22 min via Fraser Hwy`,
+    startX: 40,
+    startY: 85,
+    path: `M 40 85 L 145 112 L 210 112`
+  },
+  'maple-ridge': {
+    label: `Maple Ridge (Haney Place)`,
+    distance: `17.2 km`,
+    driveTime: `~24 min via Golden Ears Way`,
+    startX: 295,
+    startY: 32,
+    path: `M 295 32 L 210 32 L 210 112`
+  },
+  'vancouver': {
+    label: `Downtown Vancouver (via Hwy 1 East)`,
+    distance: `44.0 km`,
+    driveTime: `~42 min via Hwy 1 & 200 St`,
+    startX: 35,
+    startY: 34,
+    path: `M 35 34 L 130 34 L 130 112 L 210 112`
+  }
+};
+
+const DEFAULT_STATE = {
+  activePage: `home`,
+  noticeDismissed: false,
+  menuCategory: `all`,
+  menuSearch: ``,
+  orderChannel: `DoorDash`,
+  tray: {
+    'tomato-bath': 1,
+    'ghee-podi-idli': 1,
+    'masala-vada': 1,
+    'kharabath': 0
+  },
+  estimator: {
+    clientName: ``,
+    eventDate: `2026-12-12`,
+    deliveryAddress: ``,
+    headcount: 40,
+    portions: {
+      'tomato-bath': 15,
+      'ghee-podi-idli': 15,
+      'masala-vada': 20,
+      'kharabath': 10
+    },
+    packageRate: 0,
+    uberFee: 45,
+    laborHours: 0,
+    spiceLevel: `Traditional Medium`,
+    dietarySplit: `Entire Order Uniform`,
+    paymentMethod: `Interac e-Transfer`
+  },
+  agreementSynced: true,
+  signature: {
+    sigClientName: ``,
+    sigClientTitle: `Event Host / Client`,
+    sigDate: `2026-11-14`,
+    sigAck: false
+  },
+  mapOrigin: `langley-centre`
+};
+
+let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+function saveAppState() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+    window.notebookAppApi.setAppState(appState).catch(() => {});
+  }
+}
+
+function renderDishArtwork(dishId) {
+  const leaf = `<ellipse cx="160" cy="108" rx="126" ry="74" fill="var(--dish-leaf)"/>
+    <path d="M40 108 Q160 104 280 108" fill="none" stroke="var(--dish-leaf-rib)" stroke-width="2.5"/>
+    <path d="M90 66 Q105 90 100 108 M140 50 Q152 80 150 106 M200 54 Q208 82 205 107 M95 148 Q110 125 108 108 M160 156 Q165 130 165 108 M220 144 Q224 122 222 108" fill="none" stroke="var(--dish-leaf-rib)" stroke-width="1.3" opacity="0.65"/>`;
+
+  const coconutBowl = (cx, cy, r) => `
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2"/>
+    <circle cx="${cx}" cy="${cy}" r="${r - 4}" fill="var(--dish-coconut)"/>
+    <circle cx="${cx - 4}" cy="${cy - 3}" r="1.8" fill="var(--on-surface)"/>
+    <circle cx="${cx + 5}" cy="${cy + 2}" r="1.5" fill="var(--on-surface)"/>
+    <path d="M${cx - 2} ${cy + 5} Q${cx + 4} ${cy + 1} ${cx + 7} ${cy + 6}" fill="none" stroke="var(--dish-herb)" stroke-width="1.8" stroke-linecap="round"/>`;
+
+  const sambarBowl = (cx, cy, r) => `
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2"/>
+    <circle cx="${cx}" cy="${cy}" r="${r - 4}" fill="var(--dish-sambar)"/>
+    <circle cx="${cx - 5}" cy="${cy - 4}" r="3" fill="var(--dish-tomato)" opacity="0.8"/>
+    <circle cx="${cx + 5}" cy="${cy + 3}" r="2.2" fill="var(--dish-herb)"/>`;
+
+  const redChutneyBowl = (cx, cy, r) => `
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2"/>
+    <circle cx="${cx}" cy="${cy}" r="${r - 4}" fill="var(--dish-chutney-red)"/>
+    <circle cx="${cx + 2}" cy="${cy - 2}" r="2" fill="var(--dish-cashew)" opacity="0.7"/>`;
+
+  let body = ``;
+  switch (dishId) {
+    case `tomato-bath`:
+      body = `${leaf}
+        <circle cx="145" cy="105" r="58" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="145" cy="105" r="46" fill="var(--dish-tomato)"/>
+        <circle cx="128" cy="92" r="5.5" fill="var(--dish-pea)"/>
+        <circle cx="162" cy="96" r="5" fill="var(--dish-pea)"/>
+        <circle cx="148" cy="124" r="5" fill="var(--dish-pea)"/>
+        <ellipse cx="136" cy="112" rx="7" ry="4" transform="rotate(-25 136 112)" fill="var(--dish-cashew)"/>
+        <ellipse cx="166" cy="112" rx="6.5" ry="3.5" transform="rotate(20 166 112)" fill="var(--dish-cashew)"/>
+        <circle cx="145" cy="84" r="4.5" fill="var(--dish-chutney-red)"/>
+        <path d="M142 100 Q152 88 160 95 Q150 105 142 100 Z" fill="var(--dish-herb)"/>
+        ${coconutBowl(235, 118, 25)}`;
+      break;
+    case `ghee-podi-idli`:
+      body = `${leaf}
+        <circle cx="150" cy="106" r="58" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="128" cy="88" r="16" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+        <circle cx="168" cy="86" r="16" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+        <circle cx="122" cy="120" r="16" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+        <circle cx="164" cy="122" r="16" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+        <circle cx="146" cy="104" r="17" fill="var(--dish-gold)" opacity="0.35"/>
+        <circle cx="146" cy="104" r="15" fill="var(--dish-podi)" opacity="0.72"/>
+        <circle cx="128" cy="88" r="8" fill="var(--dish-podi)" opacity="0.7"/>
+        <circle cx="168" cy="86" r="7" fill="var(--dish-podi)" opacity="0.7"/>
+        <circle cx="122" cy="120" r="8" fill="var(--dish-podi)" opacity="0.7"/>
+        <circle cx="164" cy="122" r="7" fill="var(--dish-podi)" opacity="0.7"/>
+        <path d="M140 98 Q152 90 156 102 Q146 108 140 98 Z" fill="var(--dish-herb)"/>
+        ${coconutBowl(238, 120, 24)}`;
+      break;
+    case `masala-vada`:
+      body = `${leaf}
+        <circle cx="118" cy="112" r="24" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+        <circle cx="164" cy="96" r="25" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+        <circle cx="152" cy="126" r="24" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+        <circle cx="114" cy="106" r="2.2" fill="var(--dish-herb)"/>
+        <circle cx="125" cy="118" r="2" fill="var(--dish-onion)"/>
+        <circle cx="158" cy="92" r="2.4" fill="var(--dish-herb)"/>
+        <circle cx="172" cy="100" r="2.2" fill="var(--dish-onion)"/>
+        <circle cx="148" cy="122" r="2.4" fill="var(--dish-herb)"/>
+        <circle cx="160" cy="130" r="2" fill="var(--dish-cashew)"/>
+        ${coconutBowl(235, 86, 22)}
+        ${redChutneyBowl(238, 136, 22)}`;
+      break;
+    case `kharabath`:
+      body = `${leaf}
+        <circle cx="145" cy="106" r="56" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="145" cy="106" r="44" fill="var(--dish-gold)"/>
+        <circle cx="132" cy="94" r="4.5" fill="var(--dish-pea)"/>
+        <circle cx="158" cy="118" r="4.5" fill="var(--dish-pea)"/>
+        <rect x="152" y="88" width="7" height="7" rx="1.5" fill="var(--dish-tomato)"/>
+        <rect x="124" y="114" width="7" height="7" rx="1.5" fill="var(--dish-tomato)"/>
+        <ellipse cx="144" cy="104" rx="7" ry="4" fill="var(--dish-cashew)"/>
+        <circle cx="140" cy="92" r="1.5" fill="var(--on-surface)"/>
+        <circle cx="164" cy="104" r="1.5" fill="var(--on-surface)"/>
+        ${coconutBowl(236, 118, 25)}`;
+      break;
+    case `rava-idly-sambar`:
+      body = `${leaf}
+        <circle cx="112" cy="96" r="28" fill="var(--dish-idli)" stroke="var(--dish-idli-shadow)" stroke-width="3"/>
+        <circle cx="112" cy="96" r="5" fill="var(--dish-cashew)"/>
+        <circle cx="118" cy="86" r="2.5" fill="var(--dish-herb)"/>
+        <circle cx="104" cy="104" r="1.8" fill="var(--on-surface)"/>
+        <circle cx="136" cy="132" r="28" fill="var(--dish-idli)" stroke="var(--dish-idli-shadow)" stroke-width="3"/>
+        <circle cx="136" cy="132" r="5" fill="var(--dish-cashew)"/>
+        <circle cx="144" cy="124" r="2.5" fill="var(--dish-herb)"/>
+        ${sambarBowl(218, 108, 38)}`;
+      break;
+    case `idli-coconut-chutney`:
+      body = `${leaf}
+        <circle cx="116" cy="92" r="26" fill="var(--dish-idli)" stroke="var(--dish-idli-shadow)" stroke-width="3"/>
+        <circle cx="158" cy="118" r="26" fill="var(--dish-idli)" stroke="var(--dish-idli-shadow)" stroke-width="3"/>
+        <circle cx="102" cy="132" r="26" fill="var(--dish-idli)" stroke="var(--dish-idli-shadow)" stroke-width="3"/>
+        ${coconutBowl(226, 112, 34)}`;
+      break;
+    case `medu-vada`:
+      body = `${leaf}
+        <g>
+          <circle cx="115" cy="96" r="25" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+          <circle cx="115" cy="96" r="8" fill="var(--dish-leaf)"/>
+          <circle cx="103" cy="88" r="1.6" fill="var(--on-surface)"/>
+          <circle cx="128" cy="102" r="1.6" fill="var(--on-surface)"/>
+        </g>
+        <g>
+          <circle cx="158" cy="122" r="25" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+          <circle cx="158" cy="122" r="8" fill="var(--dish-leaf)"/>
+          <circle cx="148" cy="114" r="1.6" fill="var(--on-surface)"/>
+          <circle cx="168" cy="128" r="1.6" fill="var(--on-surface)"/>
+        </g>
+        ${sambarBowl(232, 82, 23)}
+        ${coconutBowl(234, 134, 23)}`;
+      break;
+    case `kharabath-kesari-bath`:
+      body = `${leaf}
+        <circle cx="118" cy="108" r="38" fill="var(--dish-gold)" stroke="var(--dish-plate-rim)" stroke-width="2.5"/>
+        <circle cx="106" cy="98" r="4" fill="var(--dish-pea)"/>
+        <circle cx="128" cy="118" r="4" fill="var(--dish-pea)"/>
+        <circle cx="125" cy="96" r="4" fill="var(--dish-tomato)"/>
+        <circle cx="204" cy="108" r="38" fill="var(--dish-saffron)" stroke="var(--dish-brass)" stroke-width="2.5"/>
+        <ellipse cx="204" cy="96" rx="7" ry="4" fill="var(--dish-cashew)"/>
+        <rect x="190" y="114" width="8" height="8" rx="1.5" fill="var(--dish-gold)"/>
+        <circle cx="218" cy="116" r="3" fill="var(--dish-jaggery)"/>`;
+      break;
+    case `khara-pongal-sweet-pongal`:
+      body = `${leaf}
+        <circle cx="118" cy="108" r="38" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2.5"/>
+        <circle cx="118" cy="108" r="32" fill="var(--dish-idli)"/>
+        <ellipse cx="112" cy="102" rx="6" ry="3.5" fill="var(--dish-cashew)"/>
+        <circle cx="128" cy="114" r="2.2" fill="var(--on-surface)"/>
+        <circle cx="108" cy="118" r="2.2" fill="var(--on-surface)"/>
+        <circle cx="206" cy="108" r="38" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2.5"/>
+        <circle cx="206" cy="108" r="32" fill="var(--dish-jaggery)"/>
+        <ellipse cx="206" cy="102" rx="7" ry="4" fill="var(--dish-cashew)"/>
+        <ellipse cx="196" cy="118" rx="5" ry="3" fill="var(--dish-cashew)"/>`;
+      break;
+    case `lemon-rice`:
+      body = `${leaf}
+        <circle cx="152" cy="106" r="56" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="152" cy="106" r="46" fill="var(--dish-gold)"/>
+        <ellipse cx="136" cy="94" rx="5.5" ry="3.5" fill="var(--dish-peanut)"/>
+        <ellipse cx="168" cy="116" rx="5.5" ry="3.5" fill="var(--dish-peanut)"/>
+        <ellipse cx="142" cy="122" rx="5" ry="3" fill="var(--dish-peanut)"/>
+        <circle cx="162" cy="92" r="1.8" fill="var(--on-surface)"/>
+        <circle cx="148" cy="106" r="1.8" fill="var(--on-surface)"/>
+        <path d="M148 96 Q160 86 164 98 Q154 106 148 96 Z" fill="var(--dish-herb)"/>
+        <path d="M214 104 A24 24 0 0 1 248 126 Z" fill="var(--dish-gold)" stroke="var(--dish-herb)" stroke-width="3"/>`;
+      break;
+    case `mango-rice`:
+      body = `${leaf}
+        <circle cx="156" cy="106" r="56" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="156" cy="106" r="46" fill="var(--dish-saffron)" opacity="0.88"/>
+        <path d="M132 92 L152 86 M140 116 L162 112 M164 96 L180 106" stroke="var(--dish-pea)" stroke-width="3.5" stroke-linecap="round"/>
+        <ellipse cx="146" cy="104" rx="5" ry="3.2" fill="var(--dish-peanut)"/>
+        <ellipse cx="170" cy="122" rx="5" ry="3.2" fill="var(--dish-peanut)"/>
+        <circle cx="156" cy="88" r="2" fill="var(--on-surface)"/>
+        <path d="M134 128 Q144 120 150 130" fill="none" stroke="var(--dish-chutney-red)" stroke-width="3" stroke-linecap="round"/>`;
+      break;
+    case `curry-leaves-rice`:
+      body = `${leaf}
+        <circle cx="156" cy="106" r="56" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="156" cy="106" r="46" fill="var(--dish-herb)"/>
+        <circle cx="142" cy="94" r="3.5" fill="var(--dish-cashew)"/>
+        <circle cx="170" cy="116" r="3.5" fill="var(--dish-cashew)"/>
+        <circle cx="154" cy="112" r="2" fill="var(--on-surface)"/>
+        <circle cx="164" cy="96" r="2" fill="var(--on-surface)"/>
+        <path d="M148 98 Q158 84 166 96 Q156 106 148 98 Z" fill="var(--dish-leaf-rib)"/>
+        ${coconutBowl(240, 120, 22)}`;
+      break;
+    case `mushroom-biryani`:
+      body = `${leaf}
+        <circle cx="144" cy="106" r="54" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="3"/>
+        <circle cx="144" cy="106" r="45" fill="var(--dish-idli)"/>
+        <circle cx="144" cy="106" r="32" fill="var(--dish-saffron)" opacity="0.5"/>
+        <path d="M122 96 A10 10 0 0 1 138 96 L133 106 L127 106 Z" fill="var(--dish-mushroom)"/>
+        <path d="M150 112 A10 10 0 0 1 166 112 L161 122 L155 122 Z" fill="var(--dish-mushroom)"/>
+        <path d="M144 82 Q154 74 158 86 Q148 92 144 82 Z" fill="var(--dish-herb)"/>
+        ${coconutBowl(234, 118, 25)}`;
+      break;
+    case `vegetable-pulao`:
+      body = `${leaf}
+        <circle cx="144" cy="106" r="56" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>
+        <circle cx="144" cy="106" r="46" fill="var(--dish-leaf-rib)" opacity="0.45"/>
+        <circle cx="132" cy="96" r="4.5" fill="var(--dish-pea)"/>
+        <circle cx="158" cy="114" r="4.5" fill="var(--dish-pea)"/>
+        <rect x="148" y="88" width="7" height="7" rx="1.5" fill="var(--dish-tomato)"/>
+        <rect x="128" cy="116" y="116" width="7" height="7" rx="1.5" fill="var(--dish-tomato)"/>
+        <ellipse cx="144" cy="106" rx="6" ry="3.5" fill="var(--dish-cashew)"/>
+        ${coconutBowl(236, 118, 25)}`;
+      break;
+    case `ghee-rice-veg-kurma`:
+      body = `${leaf}
+        <circle cx="122" cy="108" r="42" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="2.5"/>
+        <circle cx="122" cy="108" r="34" fill="var(--dish-idli)"/>
+        <ellipse cx="114" cy="102" rx="6" ry="3.5" fill="var(--dish-cashew)"/>
+        <ellipse cx="132" cy="114" rx="6" ry="3.5" fill="var(--dish-cashew)"/>
+        <path d="M118 96 Q128 86 132 98" fill="none" stroke="var(--dish-crisp-dark)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="212" cy="108" r="36" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2.5"/>
+        <circle cx="212" cy="108" r="30" fill="var(--dish-gold)" opacity="0.85"/>
+        <circle cx="204" cy="102" r="4" fill="var(--dish-pea)"/>
+        <rect x="214" y="110" width="7" height="7" rx="1.5" fill="var(--dish-tomato)"/>`;
+      break;
+    case `masala-dose`:
+      body = `${leaf}
+        <path d="M68 134 L208 66 L224 128 Z" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M188 86 L216 98 L206 118 Z" fill="var(--dish-gold)"/>
+        <path d="M174 96 L196 92" stroke="var(--dish-chutney-red)" stroke-width="4" stroke-linecap="round"/>
+        ${sambarBowl(248, 82, 22)}
+        ${coconutBowl(248, 134, 22)}`;
+      break;
+    case `onion-dose`:
+      body = `${leaf}
+        <circle cx="138" cy="106" r="54" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="3"/>
+        <circle cx="138" cy="106" r="44" fill="var(--dish-gold)" opacity="0.5"/>
+        <circle cx="120" cy="90" r="3.5" fill="var(--dish-onion)"/>
+        <circle cx="154" cy="94" r="3.5" fill="var(--dish-onion)"/>
+        <circle cx="134" cy="112" r="3.5" fill="var(--dish-onion)"/>
+        <circle cx="158" cy="122" r="3.5" fill="var(--dish-onion)"/>
+        <circle cx="116" cy="120" r="3.5" fill="var(--dish-onion)"/>
+        <circle cx="142" cy="98" r="2.2" fill="var(--dish-herb)"/>
+        <circle cx="126" cy="106" r="2.2" fill="var(--dish-herb)"/>
+        ${coconutBowl(236, 90, 22)}
+        ${redChutneyBowl(236, 138, 22)}`;
+      break;
+    case `adai-dose`:
+      body = `${leaf}
+        <ellipse cx="140" cy="112" rx="54" ry="38" fill="var(--dish-crisp-dark)" opacity="0.25"/>
+        <circle cx="138" cy="104" r="48" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="3"/>
+        <circle cx="124" cy="96" r="14" fill="var(--dish-crisp-dark)" opacity="0.25"/>
+        <circle cx="152" cy="112" r="10" fill="var(--dish-crisp-dark)" opacity="0.22"/>
+        <circle cx="138" cy="104" r="9" fill="var(--dish-idli)"/>
+        ${redChutneyBowl(234, 114, 28)}`;
+      break;
+    case `kesari-bath`:
+      body = `${leaf}
+        <circle cx="160" cy="106" r="54" fill="var(--dish-plate)" stroke="var(--dish-brass)" stroke-width="3"/>
+        <circle cx="160" cy="106" r="42" fill="var(--dish-saffron)"/>
+        <ellipse cx="148" cy="96" rx="7" ry="4" transform="rotate(-20 148 96)" fill="var(--dish-cashew)"/>
+        <ellipse cx="174" cy="112" rx="7" ry="4" transform="rotate(25 174 112)" fill="var(--dish-cashew)"/>
+        <rect x="158" y="102" width="9" height="9" rx="2" fill="var(--dish-gold)"/>
+        <rect x="138" y="116" width="8" height="8" rx="2" fill="var(--dish-gold)"/>
+        <circle cx="172" cy="92" r="3" fill="var(--dish-jaggery)"/>
+        <circle cx="154" cy="124" r="2.5" fill="var(--dish-herb)"/>`;
+      break;
+    default:
+      body = `${leaf}
+        <circle cx="160" cy="106" r="50" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="3"/>`;
+  }
+  return `<svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${body}</svg>`;
+}
+
+function renderHeroSpreadArt() {
+  return `<svg viewBox="0 0 360 225" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="180" cy="114" rx="158" ry="92" fill="var(--dish-leaf)"/>
+    <path d="M28 114 Q180 108 332 114" fill="none" stroke="var(--dish-leaf-rib)" stroke-width="2.5"/>
+    <circle cx="114" cy="96" r="40" fill="var(--dish-plate)" stroke="var(--dish-plate-rim)" stroke-width="2.5"/>
+    <circle cx="114" cy="96" r="33" fill="var(--dish-tomato)"/>
+    <circle cx="104" cy="88" r="4" fill="var(--dish-pea)"/>
+    <circle cx="126" cy="106" r="4" fill="var(--dish-pea)"/>
+    <ellipse cx="118" cy="92" rx="5.5" ry="3.2" fill="var(--dish-cashew)"/>
+    <circle cx="212" cy="88" r="22" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+    <circle cx="212" cy="88" r="10" fill="var(--dish-podi)" opacity="0.72"/>
+    <circle cx="246" cy="118" r="22" fill="var(--dish-idli)" stroke="var(--dish-gold)" stroke-width="2.5"/>
+    <circle cx="246" cy="118" r="10" fill="var(--dish-podi)" opacity="0.72"/>
+    <circle cx="154" cy="154" r="23" fill="var(--dish-crisp)" stroke="var(--dish-crisp-dark)" stroke-width="2.5"/>
+    <circle cx="148" cy="148" r="2" fill="var(--dish-herb)"/>
+    <circle cx="288" cy="84" r="22" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2"/>
+    <circle cx="288" cy="84" r="18" fill="var(--dish-coconut)"/>
+    <circle cx="290" cy="138" r="22" fill="var(--dish-copper)" stroke="var(--dish-brass)" stroke-width="2"/>
+    <circle cx="290" cy="138" r="18" fill="var(--dish-sambar)"/>
+  </svg>`;
+}
+
+function dismissTopNotice() {
+  appState.noticeDismissed = true;
+  const notice = document.getElementById(`top-notice`);
+  if (notice) notice.style.display = `none`;
+  saveAppState();
+}
+
+function navigateTo(pageId) {
+  const validPages = [`home`, `menu`, `order`, `catering`, `estimator`, `agreement`];
+  const target = validPages.includes(pageId) ? pageId : `home`;
+  appState.activePage = target;
+
+  validPages.forEach(p => {
+    const view = document.getElementById(`page-` + p);
+    if (view) {
+      if (p === target) view.classList.add(`is-active`);
+      else view.classList.remove(`is-active`);
+    }
+  });
+
+  document.querySelectorAll(`.nav-btn`).forEach(btn => {
+    if (btn.dataset.nav === target) {
+      btn.setAttribute(`aria-current`, `page`);
+    } else {
+      btn.removeAttribute(`aria-current`);
+    }
+  });
+
+  if (target === `agreement`) {
+    renderAgreementSchedule();
+  }
+
+  saveAppState();
+  window.scrollTo({ top: 0, behavior: `smooth` });
+}
+
+function buildDishCardHTML(item) {
+  const tastingNote = item.tastingEligible
+    ? `Non-sweet pre-tasting eligible`
+    : `No pre-event sweet sampling`;
+  const actionBtn = item.price !== null
+    ? `<button type="button" class="btn btn-secondary btn-sm" onclick="openOrderWithChannel('DoorDash')">Order / Inquire</button>`
+    : `<button type="button" class="btn btn-secondary btn-sm" onclick="openOrderWithChannel('DoorDash')">Order / Inquire</button>`;
+ //const actionBtn = item.price !== null
+ //   ? `<button type="button" class="btn btn-primary btn-sm" onclick="quickAddAndOrder('${item.id}')">Add to Tiffin Tray</button>`
+ //   : `<button type="button" class="btn btn-secondary btn-sm" onclick="openOrderWithChannel('DoorDash')">Order / Inquire</button>`;
+
+  return `
+    <article class="dish-card">
+      <div class="dish-photo-frame">${renderDishArtwork(item.id)}</div>
+      <div class="dish-card-body">
+        <div class="dish-meta-row">
+          <span class="badge-terracotta">${item.tag}</span>
+          <span class="badge-emerald">Spice: ${item.spice}</span>
+        </div>
+        <div class="dish-title-row">
+          <h3 class="dish-title">${item.name}</h3>
+          <span class="dish-price">${item.priceLabel}</span>
+        </div>
+        <p class="dish-desc">${item.description}</p>
+        <div class="dish-card-footer">
+          <span>No Preservatives · ${tastingNote}</span>
+          ${actionBtn}
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderFeaturedHome() {
+  const container = document.getElementById(`home-featured-grid`);
+  if (!container) return;
+  const featured = MENU_ITEMS.filter(item => item.featured);
+  container.innerHTML = featured.map(buildDishCardHTML).join(``);
+}
+
+function setMenuCategory(cat) {
+  appState.menuCategory = cat;
+  document.querySelectorAll(`#menu-category-pills .filter-pill`).forEach(pill => {
+    if (pill.dataset.cat === cat) pill.classList.add(`is-active`);
+    else pill.classList.remove(`is-active`);
+  });
+  renderUnifiedMenu();
+  saveAppState();
+}
+
+function setMenuSearch(query) {
+  appState.menuSearch = query;
+  renderUnifiedMenu();
+  saveAppState();
+}
+
+function renderUnifiedMenu() {
+  const grid = document.getElementById(`unified-menu-grid`);
+  const note = document.getElementById(`menu-count-note`);
+  if (!grid) return;
+
+  const q = (appState.menuSearch || ``).trim().toLowerCase();
+  const cat = appState.menuCategory || `all`;
+
+  const filtered = MENU_ITEMS.filter(item => {
+    const matchesCat = cat === `all` || item.category === cat || item.secondaryCategory === cat;
+    const matchesSearch = !q || item.name.toLowerCase().includes(q) || item.description.toLowerCase().includes(q) || item.tag.toLowerCase().includes(q);
+    return matchesCat && matchesSearch;
+  });
+
+  if (note) {
+    note.textContent = filtered.length === 0
+      ? `No dishes matched your filter. Try clearing the search box or choosing All Dishes.`
+      : `Showing ${filtered.length} of ${MENU_ITEMS.length} authentic small-batch dishes.`;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="panel-tonal" style="grid-column: 1 / -1; text-align: center;">
+      <p style="margin: 0 0 var(--space-sm);">No dishes matched “${q}”.</p>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="resetMenuFilters()">Show All 19 Dishes</button>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(buildDishCardHTML).join(``);
+}
+
+function resetMenuFilters() {
+  appState.menuCategory = `all`;
+  appState.menuSearch = ``;
+  const input = document.getElementById(`menu-search`);
+  if (input) input.value = ``;
+  setMenuCategory(`all`);
+}
+
+/* ==================== ORDER ONLINE & TRAY LOGIC ==================== */
+function openOrderWithChannel(channel) {
+  navigateTo(`order`);
+  selectOrderChannel(channel);
+}
+
+function selectOrderChannel(channel) {
+  appState.orderChannel = channel;
+  const badge = document.getElementById(`selected-channel-badge`);
+  const instr = document.getElementById(`channel-instructions`);
+  if (badge) badge.textContent = `Selected Channel: ` + channel;
+
+  const messages = {
+    'DoorDash': `Storefront: <strong>MG'S KITCHEN THE FLAVOUR SPECIALIST — Langley, BC</strong> on DoorDash (DashPass). Supports Delivery, Pickup &amp; Group Orders. Merchant Notice: Prices on DoorDash are set directly by the Merchant.`,
+    'Direct Online Store': `Direct Online Store (<strong>order.online/store/-52160213</strong>) for pickup at 20381 62 Ave #301, Langley, BC during Thu–Sun hours (8:00 AM – 2:30 PM).`,
+    'SkipTheDishes': `Search <strong>MG's Kitchen — The Flavour Specialist</strong> on SkipTheDishes for local Langley delivery &amp; pickup during Thu–Sun (9:30 AM – 3:00 PM).`,
+    'UberEats': `Order single tiffins on UberEats, or use the Catering Estimator for formal drop-off catering dispatched exclusively via prepaid round-trip Uber courier.`
+  };
+
+  if (instr) instr.innerHTML = messages[channel] || messages[`DoorDash`];
+  saveAppState();
+}
+
+function quickAddAndOrder(itemId) {
+  appState.tray[itemId] = (appState.tray[itemId] || 0) + 1;
+  renderOrderQuickItems();
+  renderOrderTraySummary();
+  navigateTo(`order`);
+  showInlineMessage(`order-feedback`, `Added ${MENU_ITEMS.find(i => i.id === itemId)?.name || `item`} to your Tiffin Tray.`, `success`);
+  saveAppState();
+}
+
+function updateTrayQty(itemId, delta) {
+  const next = Math.max(0, (appState.tray[itemId] || 0) + delta);
+  appState.tray[itemId] = next;
+  renderOrderQuickItems();
+  renderOrderTraySummary();
+  saveAppState();
+}
+
+function clearOrderTray() {
+  Object.keys(appState.tray).forEach(k => { appState.tray[k] = 0; });
+  renderOrderQuickItems();
+  renderOrderTraySummary();
+  showInlineMessage(`order-feedback`, `Tiffin tray cleared. Add items on the left to build a new order.`, `success`);
+  saveAppState();
+}
+
+function renderOrderQuickItems() {
+  const container = document.getElementById(`order-quick-items`);
+  if (!container) return;
+  const priced = MENU_ITEMS.filter(i => i.price !== null);
+  container.innerHTML = priced.map(item => {
+    const qty = appState.tray[item.id] || 0;
+    return `
+      <div class="portion-row">
+        <div>
+          <strong>${item.name}</strong>
+          <div class="field-help">${item.priceLabel} per portion · Spice: ${item.spice}</div>
+        </div>
+        <div class="stepper">
+          <button type="button" class="stepper-btn" aria-label="Decrease ${item.name}" onclick="updateTrayQty('${item.id}', -1)">−</button>
+          <span class="stepper-val">${qty}</span>
+          <button type="button" class="stepper-btn" aria-label="Increase ${item.name}" onclick="updateTrayQty('${item.id}', 1)">+</button>
+        </div>
+      </div>`;
+  }).join(``);
+}
+
+function renderOrderTraySummary() {
+  const container = document.getElementById(`order-tray-summary`);
+  if (!container) return;
+  const priced = MENU_ITEMS.filter(i => i.price !== null);
+  const lines = priced.filter(i => (appState.tray[i.id] || 0) > 0);
+  if (lines.length === 0) {
+    container.innerHTML = `<p class="field-help">Your Tiffin Tray is empty. Use the + buttons on the left to add dishes.</p>`;
+    return;
+  }
+  let total = 0;
+  const rows = lines.map(i => {
+    const q = appState.tray[i.id];
+    const sub = q * i.price;
+    total += sub;
+    return `<tr><td>${q} × ${i.name}</td><td class="num">$${sub.toFixed(2)}</td></tr>`;
+  }).join(``);
+
+  container.innerHTML = `
+    <table class="data-table" style="margin-top: 0;">
+      <thead><tr><th>Selected Dish</th><th class="num">Subtotal</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><td><strong>Estimated Tray Subtotal</strong></td><td class="num"><strong>$${total.toFixed(2)}</strong></td></tr></tfoot>
+    </table>`;
+}
+
+function copyTextSafe(text, feedbackId, successMsg) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showInlineMessage(feedbackId, successMsg, `success`);
+    }).catch(() => {
+      showInlineMessage(feedbackId, successMsg + ` (` + text + `)`, `success`);
+    });
+  } else {
+    showInlineMessage(feedbackId, successMsg + ` (` + text + `)`, `success`);
+  }
+}
+
+function copyStoreDetails() {
+  const text = `MG'S KITCHEN THE FLAVOUR SPECIALIST — 20381 62 Ave #301, Langley, BC V3A 5E6 Canada · +1 (672) 975-1664 · Channel: ${appState.orderChannel}`;
+  copyTextSafe(text, `order-feedback`, `Copied storefront details for ${appState.orderChannel}.`);
+}
+
+function copyKitchenAddress() {
+  copyTextSafe(`20381 62 Ave #301, Langley, BC V3A 5E6 Canada`, `order-feedback`, `Copied Langley kitchen address to clipboard.`);
+}
+
+function copyOrderTray() {
+  const priced = MENU_ITEMS.filter(i => i.price !== null && (appState.tray[i.id] || 0) > 0);
+  if (priced.length === 0) {
+    showInlineMessage(`order-feedback`, `Add at least one item to your Tiffin Tray before copying.`, `error`);
+    return;
+  }
+  let total = 0;
+  const lines = priced.map(i => {
+    const q = appState.tray[i.id];
+    total += q * i.price;
+    return `- ${q}x ${i.name} ($${(q * i.price).toFixed(2)})`;
+  });
+  const summary = `MG's Kitchen Order (${appState.orderChannel}):\n${lines.join(`\n`)}\nSubtotal: $${total.toFixed(2)} CAD`;
+  copyTextSafe(summary, `order-feedback`, `Order tray summary copied to clipboard.`);
+}
+
+function transferTrayToEstimator() {
+  const priced = MENU_ITEMS.filter(i => i.price !== null);
+  priced.forEach(i => {
+    const q = appState.tray[i.id] || 0;
+    if (q > 0) appState.estimator.portions[i.id] = q;
+  });
+  renderEstimatorPortions();
+  recalculateEstimator();
+  navigateTo(`estimator`);
+  saveAppState();
+}
+
+/* ==================== CATERING ESTIMATOR LOGIC ==================== */
+function syncHeadcountFromSlider(val) {
+  const num = Math.max(1, parseInt(val, 10) || 40);
+  appState.estimator.headcount = num;
+  const numInput = document.getElementById(`est-headcount-num`);
+  if (numInput) numInput.value = num;
+  recalculateEstimator();
+  saveAppState();
+}
+
+function syncHeadcountFromNumber(val) {
+  const num = Math.max(1, Math.min(1000, parseInt(val, 10) || 1));
+  appState.estimator.headcount = num;
+  const slider = document.getElementById(`est-headcount-slider`);
+  if (slider) slider.value = Math.min(300, Math.max(10, num));
+  recalculateEstimator();
+  saveAppState();
+}
+
+function updateEstimatorField(field, value) {
+  if (field === `packageRate` || field === `uberFee` || field === `laborHours`) {
+    appState.estimator[field] = Math.max(0, parseFloat(value) || 0);
+  } else {
+    appState.estimator[field] = value;
+  }
+  recalculateEstimator();
+  if (appState.agreementSynced) renderAgreementSchedule();
+  saveAppState();
+}
+
+function changeEstimatorPortion(itemId, delta) {
+  const current = appState.estimator.portions[itemId] || 0;
+  appState.estimator.portions[itemId] = Math.max(0, current + delta);
+  renderEstimatorPortions();
+  recalculateEstimator();
+  if (appState.agreementSynced) renderAgreementSchedule();
+  saveAppState();
+}
+
+function renderEstimatorPortions() {
+  const container = document.getElementById(`est-portions-list`);
+  if (!container) return;
+  const priced = MENU_ITEMS.filter(i => i.price !== null);
+  container.innerHTML = priced.map(item => {
+    const qty = appState.estimator.portions[item.id] || 0;
+    const sub = qty * item.price;
+    return `
+      <div class="portion-row">
+        <div>
+          <strong>${item.name}</strong>
+          <div class="field-help">${item.priceLabel} per portion · Subtotal: $${sub.toFixed(2)}</div>
+        </div>
+        <div class="stepper">
+          <button type="button" class="stepper-btn" aria-label="Decrease ${item.name} portions" onclick="changeEstimatorPortion('${item.id}', -1)">−</button>
+          <span class="stepper-val">${qty}</span>
+          <button type="button" class="stepper-btn" aria-label="Increase ${item.name} portions" onclick="changeEstimatorPortion('${item.id}', 1)">+</button>
+        </div>
+      </div>`;
+  }).join(``);
+}
+
+function formatDateNice(dateObj) {
+  return dateObj.toLocaleDateString(`en-US`, { month: `short`, day: `numeric`, year: `numeric` });
+}
+
+function subtractCalendarDays(dateStr, days) {
+  const parts = (dateStr || `2026-12-12`).split(`-`).map(Number);
+  const d = new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 1);
+  d.setDate(d.getDate() - days);
+  return d;
+}
+
+function subtractBusinessDays(dateStr, bizDays) {
+  const parts = (dateStr || `2026-12-12`).split(`-`).map(Number);
+  const d = new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 1);
+  let remaining = bizDays;
+  while (remaining > 0) {
+    d.setDate(d.getDate() - 1);
+    const day = d.getDay();
+    if (day !== 0 && day !== 6) remaining -= 1;
+  }
+  return d;
+}
+
+function computeEstimatorSummary() {
+  const est = appState.estimator;
+  const priced = MENU_ITEMS.filter(i => i.price !== null);
+  const itemsSubtotal = priced.reduce((acc, item) => acc + (est.portions[item.id] || 0) * item.price, 0);
+  const packageSubtotal = (est.packageRate || 0) * (est.headcount || 1);
+  const foodSubtotal = itemsSubtotal + packageSubtotal;
+  const uberSubtotal = est.uberFee || 0;
+  const laborSubtotal = (est.laborHours || 0) * 20;
+  const totalBalance = foodSubtotal + uberSubtotal + laborSubtotal;
+  const perGuest = est.headcount > 0 ? totalBalance / est.headcount : 0;
+
+  // Reference today as 2026-11-14 per local metadata
+  const today = new Date(2026, 10, 14);
+  const parts = (est.eventDate || `2026-12-12`).split(`-`).map(Number);
+  const eventObj = new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 1);
+  const diffDays = Math.round((eventObj - today) / (1000 * 60 * 60 * 24));
+  const isRush = diffDays < 7;
+
+  return {
+    foodSubtotal,
+    uberSubtotal,
+    laborSubtotal,
+    totalBalance,
+    perGuest,
+    diffDays,
+    isRush,
+    eventObj
+  };
+}
+
+function recalculateEstimator() {
+  const est = appState.estimator;
+  const calc = computeEstimatorSummary();
+
+  const totalEl = document.getElementById(`est-total-balance`);
+  const perGuestEl = document.getElementById(`est-per-guest`);
+  const foodEl = document.getElementById(`est-food-subtotal`);
+  const uberEl = document.getElementById(`est-uber-subtotal`);
+  const laborEl = document.getElementById(`est-labor-subtotal`);
+  const daysEl = document.getElementById(`est-days-until`);
+  const modeBadge = document.getElementById(`est-order-mode-badge`);
+  const cancelTier = document.getElementById(`est-cancel-tier`);
+  const milestonesBody = document.getElementById(`est-milestones-body`);
+  const rsvpEl = document.getElementById(`est-rsvp-window`);
+  const modEl = document.getElementById(`est-mod-cutoff`);
+  const payNoteEl = document.getElementById(`est-payment-note`);
+
+  if (totalEl) totalEl.textContent = `$` + calc.totalBalance.toFixed(2);
+  if (perGuestEl) perGuestEl.textContent = `$` + calc.perGuest.toFixed(2) + ` per guest (` + est.headcount + ` guests)`;
+  if (foodEl) foodEl.textContent = `$` + calc.foodSubtotal.toFixed(2);
+  if (uberEl) uberEl.textContent = `$` + calc.uberSubtotal.toFixed(2);
+  if (laborEl) laborEl.textContent = `$` + calc.laborSubtotal.toFixed(2);
+
+  if (daysEl) {
+    daysEl.textContent = calc.diffDays >= 0
+      ? calc.diffDays + ` days until event`
+      : `Past date (` + Math.abs(calc.diffDays) + ` days ago)`;
+  }
+
+  if (modeBadge && cancelTier) {
+    if (calc.isRush) {
+      modeBadge.className = `badge-error`;
+      modeBadge.textContent = `Rush Order (< 7 Days · 100% Upfront)`;
+      cancelTier.className = `badge-error`;
+      cancelTier.textContent = `Under 7 Days: 0% refund (forfeiture)`;
+    } else if (calc.diffDays <= 29) {
+      modeBadge.className = `badge-emerald`;
+      modeBadge.textContent = `Standard Order (50 / 25 / 25)`;
+      cancelTier.className = `badge-brass`;
+      cancelTier.textContent = `7–29 Days: 50% refund or reschedule`;
+    } else {
+      modeBadge.className = `badge-emerald`;
+      modeBadge.textContent = `Standard Order (50 / 25 / 25)`;
+      cancelTier.className = `badge-emerald`;
+      cancelTier.textContent = `30+ Days: Full refund less admin fees`;
+    }
+  }
+
+  if (milestonesBody) {
+    if (calc.isRush) {
+      milestonesBody.innerHTML = `
+        <tr>
+          <td><strong>Immediate Rush Payment (100%)</strong></td>
+          <td>Upon confirmation</td>
+          <td class="num"><strong>$${calc.totalBalance.toFixed(2)}</strong></td>
+        </tr>`;
+    } else {
+      const m1 = calc.totalBalance * 0.50;
+      const m2 = calc.totalBalance * 0.25;
+      const m3 = calc.totalBalance - m1 - m2;
+      const secondDate = subtractCalendarDays(est.eventDate, 7);
+      milestonesBody.innerHTML = `
+        <tr>
+          <td><strong>Initial Deposit (50% Non-Refundable)</strong></td>
+          <td>Upon contract execution</td>
+          <td class="num">$${m1.toFixed(2)}</td>
+        </tr>
+        <tr>
+          <td><strong>Second Installment (25%)</strong></td>
+          <td>${formatDateNice(secondDate)} (7 days prior)</td>
+          <td class="num">$${m2.toFixed(2)}</td>
+        </tr>
+        <tr>
+          <td><strong>Final Balance (25%)</strong></td>
+          <td>${formatDateNice(calc.eventObj)} (Prior to dispatch)</td>
+          <td class="num">$${m3.toFixed(2)}</td>
+        </tr>`;
+    }
+  }
+
+  if (rsvpEl) {
+    const early = subtractBusinessDays(est.eventDate, 10);
+    const late = subtractBusinessDays(est.eventDate, 5);
+    rsvpEl.textContent = formatDateNice(early) + ` to ` + formatDateNice(late);
+  }
+  if (modEl) {
+    const modDate = subtractBusinessDays(est.eventDate, 3);
+    modEl.textContent = formatDateNice(modDate);
+  }
+  if (payNoteEl) {
+    payNoteEl.textContent = est.paymentMethod === `Interac e-Transfer`
+      ? `Interac e-Transfer selected (no card surcharge).`
+      : `Credit / Debit Card selected (standard merchant processing surcharge applies).`;
+  }
+}
+
+function resetEstimator(btn) {
+  if (btn && btn.dataset.armed !== `true`) {
+    btn.dataset.armed = `true`;
+    btn.textContent = `Click again to reset`;
+    return;
+  }
+  if (btn) {
+    btn.dataset.armed = `false`;
+    btn.textContent = `Reset Estimator`;
+  }
+  appState.estimator = JSON.parse(JSON.stringify(DEFAULT_STATE.estimator));
+  hydrateEstimatorInputs();
+  renderEstimatorPortions();
+  recalculateEstimator();
+  saveAppState();
+}
+
+function hydrateEstimatorInputs() {
+  const est = appState.estimator;
+  const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+  setVal(`est-client-name`, est.clientName);
+  setVal(`est-event-date`, est.eventDate);
+  setVal(`est-delivery-address`, est.deliveryAddress);
+  setVal(`est-headcount-num`, est.headcount);
+  setVal(`est-headcount-slider`, Math.min(300, Math.max(10, est.headcount)));
+  setVal(`est-package-rate`, est.packageRate);
+  setVal(`est-uber-fee`, est.uberFee);
+  setVal(`est-labor-hours`, est.laborHours);
+
+  document.querySelectorAll(`input[name="spiceLevel"]`).forEach(r => { r.checked = r.value === est.spiceLevel; });
+  document.querySelectorAll(`input[name="dietarySplit"]`).forEach(r => { r.checked = r.value === est.dietarySplit; });
+  document.querySelectorAll(`input[name="paymentMethod"]`).forEach(r => { r.checked = r.value === est.paymentMethod; });
+}
+
+/* ==================== SERVICE AGREEMENT LOGIC ==================== */
+function applyEstimatorToAgreement() {
+  appState.agreementSynced = true;
+  if (appState.estimator.clientName && !appState.signature.sigClientName) {
+    appState.signature.sigClientName = appState.estimator.clientName;
+    const sigInput = document.getElementById(`sig-client-name`);
+    if (sigInput) sigInput.value = appState.signature.sigClientName;
+  }
+  renderAgreementSchedule();
+  navigateTo(`agreement`);
+  saveAppState();
+}
+
+function viewBlankAgreement() {
+  appState.agreementSynced = false;
+  renderAgreementSchedule();
+  navigateTo(`agreement`);
+  saveAppState();
+}
+
+function renderAgreementSchedule() {
+  const badge = document.getElementById(`agr-sync-badge`);
+  const cName = document.getElementById(`agr-client-name`);
+  const eDate = document.getElementById(`agr-event-date`);
+  const dAddr = document.getElementById(`agr-delivery-address`);
+  const hCount = document.getElementById(`agr-headcount`);
+  const spice = document.getElementById(`agr-spice-level`);
+  const diet = document.getElementById(`agr-dietary-split`);
+  const total = document.getElementById(`agr-total-settlement`);
+
+  if (!appState.agreementSynced) {
+    if (badge) { badge.className = `badge-brass`; badge.textContent = `Blank Template View`; }
+    if (cName) cName.textContent = `________________________ (Client Name)`;
+    if (eDate) eDate.textContent = `________________________ (Event Date)`;
+    if (dAddr) dAddr.textContent = `________________________ (Delivery Place)`;
+    if (hCount) hCount.textContent = `To be confirmed 5–10 business days prior per Section 2`;
+    if (spice) spice.textContent = `Confirmed at signing`;
+    if (diet) diet.textContent = `Entire Order Uniform or 50% Volume Split`;
+    if (total) total.textContent = `Per finalized itemized quote (50% / 25% / 25% schedule)`;
+    return;
+  }
+
+  const est = appState.estimator;
+  const calc = computeEstimatorSummary();
+  if (badge) { badge.className = `badge-emerald`; badge.textContent = `Synced with Estimator`; }
+  if (cName) cName.textContent = est.clientName || appState.signature.sigClientName || `To be completed at signing`;
+  if (eDate) eDate.textContent = est.eventDate || `To be confirmed`;
+  if (dAddr) dAddr.textContent = est.deliveryAddress || `To be confirmed (Prepaid Uber Round-Trip Dispatch)`;
+  if (hCount) hCount.textContent = est.headcount + ` guests (Confirmed 5–10 business days prior per Section 2)`;
+  if (spice) spice.textContent = est.spiceLevel + ` (Confirmed at signing)`;
+  if (diet) diet.textContent = est.dietarySplit;
+  if (total) total.textContent = `$` + calc.totalBalance.toFixed(2) + ` CAD via ` + est.paymentMethod + (calc.isRush ? ` (Rush: 100% Upfront)` : ` (50% / 25% / 25%)`);
+}
+
+function updateSignatureField(field, value) {
+  appState.signature[field] = value;
+  if (field === `sigClientName` && appState.agreementSynced && !appState.estimator.clientName) {
+    renderAgreementSchedule();
+  }
+  saveAppState();
+}
+
+function downloadAgreementTxt() {
+  const sig = appState.signature;
+  const clientName = (sig.sigClientName || appState.estimator.clientName || ``).trim();
+  if (!clientName) {
+    showInlineMessage(`agr-feedback`, `Please enter the Client Signatory Printed Name before downloading the Agreement.`, `error`);
+    return;
+  }
+  if (!sig.sigAck) {
+    showInlineMessage(`agr-feedback`, `Please check the Digital Acknowledgment box confirming the email-only communication policy and deposit terms.`, `error`);
+    return;
+  }
+
+  const est = appState.estimator;
+  const calc = computeEstimatorSummary();
+  const content = [
+    `MG'S KITCHEN — THE FLAVOUR SPECIALIST`,
+    `CATERING SERVICE AGREEMENT (DROP-OFF CATERING)`,
+    `20381 62 Ave #301, Langley, BC V3A 5E6 Canada · +1 (672) 975-1664 · manasagkitchen@gmail.com`,
+    `====================================================================`,
+    `CONTRACT SCHEDULE & EVENT OVERVIEW`,
+    `Caterer / Provider: MG's Kitchen — The Flavour Specialist`,
+    `Client Name: ${clientName}`,
+    `Event Date: ${appState.agreementSynced ? est.eventDate : `To be confirmed`}`,
+    `Delivery Address: ${appState.agreementSynced ? (est.deliveryAddress || `To be confirmed`) : `To be confirmed`}`,
+    `Initial Estimated Headcount: ${appState.agreementSynced ? est.headcount + ` guests` : `Per Section 2`}`,
+    `Specified Spice Level: ${appState.agreementSynced ? est.spiceLevel : `Confirmed at signing`}`,
+    `Dietary / Allergen Structure: ${appState.agreementSynced ? est.dietarySplit : `Uniform / 50% max split`}`,
+    `Estimated Total Settlement: ${appState.agreementSynced ? `$` + calc.totalBalance.toFixed(2) + ` CAD (` + est.paymentMethod + `)` : `Per quote`}`,
+    ``,
+    `1. EVENT & SERVICE DETAILS: Drop-off only; prepaid round-trip Uber courier; optional door setup $20.00/hr; strictly No Discounts Policy.`,
+    `2. GUEST COUNT & GUARANTEES: RSVP cutoff 5–10 business days prior; billing floor = higher of guarantee or actual attendance; reductions via email >= 3 business days prior; late additions >5 incur extra charges.`,
+    `3. PAYMENT TERMS: 50% Non-Refundable Deposit at execution; 25% due 7 days prior; 25% due event day prior to dispatch (100% upfront for rush orders <7 days). Interac e-Transfer or Credit/Debit Card (merchant surcharge applies).`,
+    `4. CANCELLATION & RUSH POLICY: 30+ days = full refund less admin fees; 7–29 days = 50% refund or reschedule; <7 days = 0% refund. No grocery receipts or raw goods transferred under any circumstances.`,
+    `5. FOOD SAFETY & ALLERGENS: Force Majeure; 100% or 50% max volume dietary split; spice locked at signing; Client assumes food safety & temperature liability 2 hours post-delivery; full liability for rented equipment damage.`,
+    `6. COMMUNICATION & TASTINGS: All requests strictly via email (manasagkitchen@gmail.com) at least 3 days prior (no phone/text/verbal changes). Non-sweet items available for tasting; sweets cannot be pre-sampled.`,
+    ``,
+    `EXECUTION & DIGITAL ACKNOWLEDGMENT`,
+    `Caterer Representative: MG's Kitchen Authorized Representative`,
+    `Client Signatory: ${clientName} (${sig.sigClientTitle || `Event Host / Client`})`,
+    `Date Signed: ${sig.sigDate || `2026-11-14`}`,
+    `Acknowledged Email-Only Policy, 50% Deposit & 2-Hour Safety Window: YES`
+  ].join(`\n`);
+
+  if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+    window.notebookAppApi.triggerFileDownload({
+      content,
+      contentType: `text/plain`,
+      encoding: `UTF-8`,
+      filename: `MGs_Kitchen_Catering_Agreement_${clientName.replace(/[^a-z0-9]+/gi, `_`)}.txt`
+    });
+    showInlineMessage(`agr-feedback`, `Agreement summary generated and downloaded for ${clientName}.`, `success`);
+  } else {
+    showInlineMessage(`agr-feedback`, `Agreement prepared for ${clientName}.`, `success`);
+  }
+}
+
+/* ==================== FOOTER & INTERACTIVE MAP ==================== */
+function renderSchematicMap() {
+  const container = document.getElementById(`schematic-map`);
+  if (!container) return;
+  const route = ROUTE_ORIGINS[appState.mapOrigin] || ROUTE_ORIGINS[`langley-centre`];
+  const badge = document.getElementById(`map-route-badge`);
+  const summary = document.getElementById(`map-route-summary`);
+  if (badge) badge.textContent = route.distance + ` · ` + route.driveTime;
+  if (summary) summary.textContent = `From ${route.label} → 20381 62 Ave #301, Langley, BC V3A 5E6`;
+
+  container.innerHTML = `
+    <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Langley corridor schematic to MG's Kitchen">
+      <rect width="340" height="220" fill="var(--surface-container-low)"/>
+      <!-- Hwy 1 & Major Langley Corridors -->
+      <path d="M 10 34 L 330 34" stroke="var(--dish-map-highway)" stroke-width="4" opacity="0.65"/>
+      <text x="16" y="26" fill="var(--on-surface-variant)" font-size="9" font-weight="700">HWY 1 (TRANS-CANADA)</text>
+
+      <path d="M 130 10 L 130 210" stroke="var(--dish-map-road)" stroke-width="3"/>
+      <text x="135" y="205" fill="var(--on-surface-variant)" font-size="8.5" font-weight="600">200 ST</text>
+
+      <path d="M 210 10 L 210 210" stroke="var(--dish-map-road)" stroke-width="3"/>
+      <text x="215" y="205" fill="var(--on-surface-variant)" font-size="8.5" font-weight="600">204 ST</text>
+
+      <path d="M 10 66 L 330 66" stroke="var(--dish-map-road)" stroke-width="2.5"/>
+      <text x="16" y="60" fill="var(--on-surface-variant)" font-size="8.5" font-weight="600">64 AVE</text>
+
+      <path d="M 10 112 L 330 112" stroke="var(--dish-map-road)" stroke-width="3"/>
+      <text x="16" y="106" fill="var(--on-surface-variant)" font-size="8.5" font-weight="700">62 AVE</text>
+
+      <path d="M 10 165 L 330 165" stroke="var(--dish-map-highway)" stroke-width="3" opacity="0.55"/>
+      <text x="16" y="180" fill="var(--on-surface-variant)" font-size="8.5" font-weight="600">FRASER HWY / LANGLEY BYPASS</text>
+
+      <!-- Active Route Path -->
+      <path d="${route.path}" fill="none" stroke="var(--primary)" stroke-width="3.5" stroke-dasharray="6 4" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Origin Marker -->
+      <circle cx="${route.startX}" cy="${route.startY}" r="7" fill="var(--tertiary)" stroke="var(--on-primary)" stroke-width="2"/>
+      <text x="${route.startX}" y="${route.startY + 18}" text-anchor="middle" fill="var(--tertiary)" font-size="8.5" font-weight="700">ORIGIN</text>
+
+      <!-- MG's Kitchen Destination Marker -->
+      <circle cx="210" cy="112" r="14" fill="var(--primary)" opacity="0.18"/>
+      <circle cx="210" cy="112" r="8" fill="var(--primary)" stroke="var(--on-primary)" stroke-width="2.2"/>
+      <rect x="220" y="92" width="112" height="28" rx="4" fill="var(--surface-card)" stroke="var(--primary)" stroke-width="1"/>
+      <text x="226" y="105" fill="var(--on-surface)" font-size="8.5" font-weight="700">MG's Kitchen #301</text>
+      <text x="226" y="115" fill="var(--on-surface-variant)" font-size="7.5">20381 62 Ave, Langley</text>
+    </svg>`;
+}
+
+function updateMapOrigin(originKey) {
+  appState.mapOrigin = originKey;
+  renderSchematicMap();
+  saveAppState();
+}
+
+function copyGoogleMapsDirections() {
+  const route = ROUTE_ORIGINS[appState.mapOrigin] || ROUTE_ORIGINS[`langley-centre`];
+  const query = `Directions from ${route.label} to MG's Kitchen, 20381 62 Ave #301, Langley, BC V3A 5E6, Canada`;
+  copyTextSafe(query, `map-feedback`, `Copied Google Maps route query to clipboard.`);
+}
+
+function copyContactInfo(kind) {
+  if (kind === `phone`) {
+    copyTextSafe(`+1 (672) 975-1664`, `footer-social-feedback`, `Copied kitchen phone +1 (672) 975-1664.`);
+  } else {
+    copyTextSafe(`manasagkitchen@gmail.com`, `footer-social-feedback`, `Copied email manasagkitchen@gmail.com.`);
+  }
+}
+
+function showSocialHandle(platform) {
+  const handles = {
+    'Instagram': `@mgkitchentheflavourspecialist`,
+    'Facebook': `MG's Kitchen — Profile ID 61593743134117`,
+    'YouTube': `@ManasaKitchenG`
+  };
+  const handle = handles[platform] || platform;
+  copyTextSafe(handle, `footer-social-feedback`, `${platform}: ${handle} (copied to clipboard).`);
+}
+
+function showInlineMessage(elementId, text, type) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  el.textContent = text;
+  el.className = `inline-feedback is-visible ` + (type === `error` ? `is-error` : `is-success`);
+}
+
+/* ==================== INITIALIZATION ==================== */
+async function initApp() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+    try {
+      const saved = await window.notebookAppApi.getAppState();
+      if (saved && typeof saved === `object`) {
+        appState = Object.assign({}, DEFAULT_STATE, saved);
+        appState.tray = Object.assign({}, DEFAULT_STATE.tray, saved.tray || {});
+        appState.estimator = Object.assign({}, DEFAULT_STATE.estimator, saved.estimator || {});
+        appState.estimator.portions = Object.assign({}, DEFAULT_STATE.estimator.portions, (saved.estimator && saved.estimator.portions) || {});
+        appState.signature = Object.assign({}, DEFAULT_STATE.signature, saved.signature || {});
+      }
+    } catch (e) {
+      // Fallback to default state cleanly
+    }
+  }
+
+  const heroArt = document.getElementById(`hero-dish-art`);
+  if (heroArt) heroArt.innerHTML = renderHeroSpreadArt();
+
+  if (appState.noticeDismissed) {
+    const notice = document.getElementById(`top-notice`);
+    if (notice) notice.style.display = `none`;
+  }
+
+  const searchInput = document.getElementById(`menu-search`);
+  if (searchInput) searchInput.value = appState.menuSearch || ``;
+
+  const sigName = document.getElementById(`sig-client-name`);
+  if (sigName) sigName.value = appState.signature.sigClientName || ``;
+  const sigTitle = document.getElementById(`sig-client-title`);
+  if (sigTitle) sigTitle.value = appState.signature.sigClientTitle || `Event Host / Client`;
+  const sigDate = document.getElementById(`sig-date`);
+  if (sigDate) sigDate.value = appState.signature.sigDate || `2026-11-14`;
+  const sigAck = document.getElementById(`sig-ack`);
+  if (sigAck) sigAck.checked = Boolean(appState.signature.sigAck);
+
+  const mapSelect = document.getElementById(`map-origin-select`);
+  if (mapSelect) mapSelect.value = appState.mapOrigin || `langley-centre`;
+
+  renderFeaturedHome();
+  setMenuCategory(appState.menuCategory || `all`);
+  renderOrderQuickItems();
+  renderOrderTraySummary();
+  selectOrderChannel(appState.orderChannel || `DoorDash`);
+  hydrateEstimatorInputs();
+  renderEstimatorPortions();
+  recalculateEstimator();
+  renderAgreementSchedule();
+  renderSchematicMap();
+  navigateTo(appState.activePage || `home`);
+
+  if (window.lucide && typeof window.lucide.createIcons === `function`) {
+    window.lucide.createIcons();
+  }
+  if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+    window.notebookAppApi.notifyAppReady();
+  }
+}
+
+document.addEventListener(`DOMContentLoaded`, initApp);
+</script>
+</body>
+</html>
