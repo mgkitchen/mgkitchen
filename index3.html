@@ -1079,6 +1079,13 @@
       }
     }
   </style>
+   <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z0bc7d3tvm");
+</script>
 </head>
 <body>
   <div id="toast-banner" class="toast-banner" role="status" aria-live="polite"></div>
@@ -1086,12 +1093,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <button type="button" class="brand-mark" onclick="navigateTo('home')" aria-label="MG's Kitchen Home">
-        <span class="brand-emblem" aria-hidden="true">
+        <img src="./logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;"> 
+                <!--<span class="brand-emblem" aria-hidden="true">
           <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="14" stroke="var(--primary)" stroke-width="1.5"/>
             <path d="M9 21c0-5 3.5-9 7-11 3.5 2 7 6 7 11H9Z" fill="var(--primary)" opacity="0.16" stroke="var(--primary)" stroke-width="1.5"/>
             <path d="M16 7v14M12 15c2 1 6 1 8 0" stroke="var(--tertiary)" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
+          </svg>-->
         </span>
         <span>
           <span class="brand-title">MG's Kitchen</span>
@@ -2729,9 +2737,9 @@
     /* ==================== PARTNER MODAL ==================== */
     let activePartnerStorefront = ``;
     function copySocialHandle(network) {
-      if (network === `instagram`) copyText(`@mgskitchen.langley (Instagram)`, `Instagram handle copied`);
+      if (network === `instagram`) copyText(`https://www.instagram.com/mgkitchentheflavourspecialist/`, `Instagram handle copied`);
       else if (network === `facebook`) copyText(`MG's Kitchen The Flavour Specialist (Facebook)`, `Facebook page copied`);
-      else if (network === `youtube`) copyText(`MG's Kitchen Langley (YouTube)`, `YouTube channel copied`);
+      else if (network === `youtube`) copyText(`https://www.youtube.com/@ManasaKitchenG`, `YouTube channel copied`);
     }
 
     function openPartnerModal(channel) {
