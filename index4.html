@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Window & Delivery - 3D Model Viewer</title>
+    <style>
+        :root {
+            --primary-color: #f4a261; /* Golden Sand */
+            --secondary-color: #e76f51; /* Terracotta */
+            --bg-color: #fc9868; /* Light Orange/Golden */
+            --text-color: #303030;
+            --overlay-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            background-image: url('your-background-image-url.jpg'); /* Optional: Add a background image */
+            background-size: cover;
+            color: var(--text-color);
+        }
+
+        /* Header & Logo Section */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container img {
+            max-height: 80px; /* Adjust size as needed */
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 10px 0;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #fff;
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Delivery Services Section (Grid Layout) */
+        .delivery-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: var(--overlay-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .delivery-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Store Hours Section */
+        .hours-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .hours-list li {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .days span {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Logo Section -->
+    <header>
+        <div class="logo-container">
+            <!-- PASTE YOUR LOGO URL HERE -->
+            <img src="logo.png" alt="Company Logo" id="company-logo">
+        </div>
+        <h1>[YOUR STORE NAME] 3D Viewer</h1>
+        
+        <div class="social-links">
+            <!-- Social Media Links -->
+            <a href="#" class="social-icon" title="Facebook">📘 Facebook</a>
+            <a href="#" class="social-icon" title="Instagram">📸 Instagram</a>
+            <a href="#" class="social-icon" title="Twitter/X">🐦 Twitter</a>
+            <a href="#" class="social-icon" title="LinkedIn">💼 LinkedIn</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Delivery Services Section (Merged from Index.html & 3) -->
+        <section class="delivery-section">
+            <!-- DoorDash Link -->
+            <div class="service-card">
+                <div class="delivery-icon">🛵</div>
+                <h3>DoorDash</h3>
+                <p>Order our delicious food for delivery right from DoorDash!</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">Visit DoorDash →</a>
+            </div>
+
+            <!-- UberEats Link -->
+            <div class="service-card">
+                <div class="delivery-icon">🍔</div>
+                <h3>Uber Eats</h3>
+                <p>Skip the line and get your meal delivered via Uber Eats.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">Visit Uber Eats →</a>
+            </div>
+
+            <!-- SkipTheDishes Link -->
+            <div class="service-card">
+                <div class="delivery-icon">🍔</div>
+                <h3>SkipTheDishes</h3>
+                <p>Experience SkipTheDishes and enjoy your food at home or office.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">Visit SkipTheDishes →</a>
+            </div>
+        </section>
+
+        <!-- Store Open Hours Section -->
+        <section class="hours-section">
+            <h2 style="color: var(--primary-color); margin-top: 0;">Store Open Hours</h2>
+            <ul class="hours-list" id="store-hours">
+                <li><span class="days">Monday - Friday:</span> 10:00 AM - 9:00 PM</li>
+                <li><span class="days">Saturday:</span> 9:00 AM - 8:00 PM</li>
+                <li><span class="days">Sunday:</span> 10:00 AM - 6:00 PM</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                Please come early for lunch and leave for dinner!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 [Your Company Name]. All rights reserved.</p>
+        <p>Proudly serving our community with delicious food delivered fast!</p>
+    </footer>
+
+</body>
+</html>
