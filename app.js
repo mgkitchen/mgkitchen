@@ -1537,7 +1537,7 @@
         dirMount.innerHTML = `
           <!--<div class="plain-url-box">Google Maps: ${MAP_DIRECTIONS.plainDestination}</div>-->
           <div style="display:flex; gap:var(--space-xs); flex-wrap:wrap;">
-            <button type="button" class="btn btn-primary btn-sm" onclick="copyDirectionsInfo()">Copy Google Maps Directions</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="copyDirectionsInfo()">Directions</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyAddressOnly()">Copy Address</button>
           </div>
         `;
@@ -1558,6 +1558,8 @@
 
     function copyDirectionsInfo() {
       copyTextToClipboard(`${MAP_DIRECTIONS.searchPrompt} (${MAP_DIRECTIONS.plainDestination})`, `Copied Google Maps directions for Langley kitchen`);
+      
+        window.open('https://share.google/1sB0BG8cEZgkoei6M', '_blank');
     }
 
     function copyAddressOnly() {
@@ -1635,4 +1637,12 @@
     }
 
     document.addEventListener(`DOMContentLoaded`, initApp);
+
+     
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z0bc7d3tvm");
+ 
   
