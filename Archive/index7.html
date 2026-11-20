@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MG's Kitchen — The Flavour Specialist | Langley, BC</title>
+  
+  <!-- SEO Metadata -->
+  <meta name="description" content="Authentic South Indian homemade meals in Langley, BC. Dosa, Podi Idli, Vada, Cashew Pulao & Degree Filter Coffee. Takeout, Catering & Park & Dine.">
+  <script src="app (1).js" defer></script>  
+  <link href="styles.css"rel="stylesheet">
+  <!-- External CSS Stylesheet -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Live Kitchen Operating Status Banner -->
+  <div id="live-status-banner" class="status-banner">
+    <span id="live-status-dot" class="dot"></span>
+    <span id="live-status-text">Checking kitchen availability...</span>
+  </div>
+
+  <!-- Floating Sticky Navigation Header -->
+  <header class="site-header floating-header">
+    <div class="header-container">
+      <a href="#home" class="brand-link">
+        <img src="./logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;">
+        <span class="brand-title">MG's Kitchen</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#parking-served">Park & Dine</a>
+        <a href="#menu">Menu</a>
+        <a href="#catering-agreement">Catering Terms</a>
+        <a href="#delivery">Order Online</a>
+      </nav>
+
+      <!-- Cart Button & Promotion Gallery Trigger -->
+      <div class="header-actions">
+        <button type="button" class="btn-promo-trigger" onclick="togglePromotionGallery(true)">
+          🎁 Promotions
+        </button>
+        <button type="button" class="cart-trigger-btn" onclick="toggleCartDrawer(true)">
+          🛒 Cart <span id="cart-counter-badge" class="badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <span class="hero-subtitle">Authentic South Indian Flavors in Langley, BC</span>
+      <h1>Homemade Small-Batch South Indian Classics</h1>
+      <p>From crispy Masala Dosas and steamed Ghee Podi Idlis to dark-roast Degree Filter Coffee. Prepared with 100% pure ingredients and zero artificial additives.</p>
+      
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Browse Menu</a>
+        <button onclick="enableParkingServedMode()" class="btn btn-warning">Order Park & Dine</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Park & Dine (Parking-Served / Car Express) Section -->
+  <section id="parking-served" class="parking-section">
+    <div class="parking-card">
+      <span class="badge-tag badge-warning">🚗 Drive-In "Car Oota" Experience</span>
+      <h2>MG's Park & Dine (Parking-Served)</h2>
+      <p>Park outside our kitchen at 20381 62 Ave #301, order on your phone, and enjoy hot South Indian breakfast served directly to your car window!</p>
+
+      <div class="parking-steps">
+        <div class="step-box">
+          <strong>1. 🅿️ Park Outside</strong>
+          <p>Park in any open spot outside MG's Kitchen Langley.</p>
+        </div>
+        <div class="step-box">
+          <strong>2. 📱 Select Items</strong>
+          <p>Choose your dishes and tap "Order via Parking-Served".</p>
+        </div>
+        <div class="step-box">
+          <strong>3. ☕ Window Service</strong>
+          <p>We serve your hot food directly to your vehicle window!</p>
+        </div>
+      </div>
+
+      <button type="button" onclick="enableParkingServedMode()" class="btn btn-warning btn-lg">
+        Activate Park & Dine Mode
+      </button>
+
+      <!-- Vehicle Detail Form Fields -->
+      <div id="parking-served-fields" style="display: none;" class="parking-fields-card">
+        <h4>🚗 Vehicle Identification for Server</h4>
+        <div class="input-grid">
+          <input type="text" id="car-desc-input" placeholder="Vehicle Color & Model (e.g. White Civic)" />
+          <input type="text" id="car-spot-input" placeholder="Parking Spot # or Description" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section with Dietary Filters -->
+  <section id="menu" class="menu-section">
+    <div class="section-title">
+      <h2>Our Kitchen Menu</h2>
+      <p>Select your favorite dishes or filter by dietary requirements:</p>
+    </div>
+
+    <!-- Dietary Filter Tabs -->
+    <div class="filter-bar">
+      <button type="button" class="filter-tab-btn active" data-category="all" onclick="filterMenu('all')">All Items</button>
+      <button type="button" class="filter-tab-btn" data-category="vegan" onclick="filterMenu('vegan')">🌱 Vegan</button>
+      <button type="button" class="filter-tab-btn" data-category="gf" onclick="filterMenu('gf')">🌾 Gluten-Free</button>
+      <button type="button" class="filter-tab-btn" data-category="nuts" onclick="filterMenu('nuts')">🥜 Contains Nuts</button>
+    </div>
+
+    <!-- Dynamic Menu Grid Container -->
+    <div id="menu-grid-container" class="menu-grid"></div>
+  </section>
+
+  <!-- Delivery Partners Section -->
+  <section id="delivery" class="delivery-section">
+    <div class="section-title">
+      <h2>Order Delivery via Food Apps</h2>
+      <p>Prefer doorstep delivery in Langley and surrounding areas? Order directly via our delivery partners:</p>
+    </div>
+
+    <div class="delivery-grid">
+      <button onclick="openDeliveryLink('doordash')" class="delivery-card doordash">
+        <strong>DoorDash</strong>
+        <span>Delivery & Pickup</span>
+      </button>
+      <button onclick="openDeliveryLink('ubereats')" class="delivery-card ubereats">
+        <strong>UberEats</strong>
+        <span>Delivery & Pickup</span>
+      </button>
+      <button onclick="openDeliveryLink('skipthedishes')" class="delivery-card skipthedishes">
+        <strong>SkipTheDishes</strong>
+        <span>Delivery & Pickup</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Catering Terms & Inquiries Section -->
+  <section id="catering-agreement" class="catering-section">
+    <div class="catering-box">
+      <h2>Event Catering & Service Guidelines</h2>
+      <p>Authentic South Indian tray catering for weddings, pujas, birthday parties, and corporate events.</p>
+      
+      <ul class="catering-terms-list">
+        <li><strong>Payment Schedule:</strong> 50% non-refundable deposit upon contract execution, 25% due 7 days prior, and 25% due on event day.</li>
+        <li><strong>Modifications:</strong> All headcount adjustments and dish changes must be submitted via email at least 3 business days prior.</li>
+        <li><strong>Delivery Courier:</strong> Prepaid round-trip Uber courier dispatch prior to order leaving kitchen.</li>
+      </ul>
+
+      <button onclick="window.location.href='mailto:manasagkitchen@gmail.com?subject=Catering%20Inquiry%20Details'" class="btn btn-primary">
+        Email Catering Inquiry Details
+      </button>
+    </div>
+  </section>
+
+  <!-- Side Cart Drawer -->
+  <aside id="side-cart-drawer" class="cart-drawer">
+    <div class="drawer-header">
+      <h3>Your Order Cart</h3>
+      <button type="button" onclick="toggleCartDrawer(false)" class="btn-close">✕</button>
+    </div>
+
+    <div id="cart-items-list" class="drawer-body"></div>
+
+    <div class="drawer-footer">
+      <div class="summary-line"><span>Subtotal:</span> <strong id="cart-subtotal-val">$0.00</strong></div>
+      <div class="summary-line"><span>GST (5% BC Tax):</span> <strong id="cart-tax-val">$0.00</strong></div>
+      <div class="summary-line grand-total"><span>Grand Net Total:</span> <strong id="cart-total-val">$0.00</strong></div>
+
+      <div class="etransfer-box">
+        <p>💡 <strong>Interac e-Transfer Instructions:</strong> Please send payment to <code>mgskitchen@gmail.com</code> before submitting your order email.</p>
+      </div>
+
+      <button type="button" onclick="submitETransferOrder()" class="btn btn-success btn-block">
+        Send Order via Email & Copy Payment Info
+      </button>
+    </div>
+  </aside>
+
+  <!-- Promotion Gallery Modal Popup -->
+  <div id="promotion-gallery-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <button type="button" onclick="togglePromotionGallery(false)" class="modal-close-btn">✕</button>
+      
+      <h3>MG's Kitchen Promotion Gallery</h3>
+      
+      <div class="promo-slide-view">
+        <img id="promo-img" src="" alt="Promotion Banner" class="promo-image">
+        <h4 id="promo-title"></h4>
+        <p id="promo-desc"></p>
+        <div id="promo-code" class="promo-code-badge"></div>
+      </div>
+
+      <div class="modal-nav-controls">
+        <button onclick="prevPromoSlide()" class="btn btn-secondary">‹ Previous</button>
+        <button onclick="nextPromoSlide()" class="btn btn-secondary">Next ›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="./logo.jpg" alt="MG's Kitchen Logo" style="height: 40px; vertical-align: middle;">
+        <span>MG's Kitchen — The Flavour Specialist</span>
+      </div>
+
+      <p class="footer-address">20381 62 Ave Unit 301, Langley, BC V2Y 5A6</p>
+
+      <div class="social-buttons">
+        <button onclick="openSocialLink('instagram')" class="btn-social">Instagram</button>
+        <button onclick="openSocialLink('facebook')" class="btn-social">Facebook</button>
+        <button onclick="openSocialLink('youtube')" class="btn-social">YouTube</button>
+      </div>
+
+      <div class="footer-maps">
+        <a href="https://maps.google.com/?q=20381+62+Ave+Unit+301,+Langley,+BC+V2Y+5A6" target="_blank" rel="noopener noreferrer" class="btn-maps">
+          📍 Get Directions on Google Maps
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Bundle -->
+  <script src="./app.js" defer></script>
+</body>
+</html>

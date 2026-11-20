@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="terracotta">
+  <title>MG's Kitchen — The Flavour Specialist</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js" defer></script>  
+  <!-- External CSS Stylesheet -->
+  <link rel="stylesheet" href="./styles.css"> 
+</head>
+<body>
+
+  <!-- Floating Sticky Header -->
+  <header class="floating-header">
+    <div class="header-inner">
+      <a href="#top" class="brand-mark">
+        <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="brand-fallback-svg" aria-hidden="true">MG</span>
+        <span class="brand-text">
+          <span class="brand-name">MG's Kitchen</span>
+          <span class="brand-sub">The Flavour Specialist</span>
+        </span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary sections">
+        <a href="#menu" class="nav-link">Menu</a>
+        <!--<a href="#catering" class="nav-link">Special Catering</a>-->
+        <a href="#agreement" class="nav-link">Agreement</a>
+        <a href="#delivery" class="nav-link">Delivery &amp; Social</a>
+      </nav>
+
+      <div class="header-actions">
+        <!--<span id="header-live-status" class="status-pill">Checking Hours…</span>-->
+        <button type="button" class="btn btn-secondary btn-sm" onclick="openPromoModal(0)">
+          <i data-lucide="sparkles" aria-hidden="true"></i>
+          <span>Offers</span>
+        </button>
+        <button type="button" class="cart-trigger-btn" onclick="openCartDrawer()" aria-label="Open shopping cart">
+          <i data-lucide="shopping-bag" aria-hidden="true"></i>
+          <span>Cart</span>
+          <span id="header-cart-count" class="cart-count-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="page-grid">
+
+    <!-- Hero & Live Kitchen Status -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-top">
+        <div>
+          <p class="kicker">Small-Batch South Indian Tiffin &amp; Catering · Langley, BC</p>
+          <h1 id="hero-title1" class="title">Delicious &amp; Authentic <em>South Indian</em> Flavors</h1>
+          <p class="lede">
+            Wholesome homemade South Indian meals crafted in small batches at our Langley kitchen with pure golden ghee, hand-roasted lentil podi, whole spices, zero preservatives, and zero artificial colors.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#menu" class="btn btn-primary">Explore Full Menu</a>
+            <!--<a href="#catering" class="btn btn-secondary">Catering &amp; Estimator</a>-->
+            <button type="button" class="btn btn-emerald" onclick="openPromoModal(0)">View Seasonal Offers</button>
+          </div>
+        </div>
+
+        <aside class="hero-status-panel" aria-label="Live kitchen operating status">
+          <p class="kicker">Live Kitchen Operating Status</p>
+          <!--<span id="header-live-status" class="status-pill">Checking Hours…</span>-->
+          <div id="live-status-mount"></div>
+          <p style="margin:0; font-size:0.875rem; color:var(--on-surface-variant);">
+            <strong>Pickup &amp; Park &amp; Dine:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6 · +1 (672) 975-1664
+          </p>
+        </aside>
+      </div>
+
+      <div class="ornament-rule" aria-hidden="true">◆ Pure Craft · Langley, BC ◆</div>
+
+      <div class="arch-grid">
+        <article class="arch-card is-featured">
+          <div class="arch-label">Pure Craft</div>
+          <div class="arch-figure">100%</div>
+          <div class="arch-caption">No preservatives or colors</div>
+        </article>
+        <article class="arch-card">
+          <div class="arch-label">Kitchen Window</div>
+          <div class="arch-figure">Thu–Sun</div>
+          <div class="arch-caption">08:00 AM – 3:00 PM</div>
+        </article>
+        <article class="arch-card">
+          <div class="arch-label">Daily Tiffin</div>
+          <div class="arch-figure">$7.99–$19.95</div>
+          <div class="arch-caption">23 small-batch dishes</div>
+        </article>
+        <article class="arch-card">
+          <div class="arch-label">Event Catering</div>
+          <div class="arch-figure">Drop-Off</div>
+          <div class="arch-caption">Prepaid Uber &amp; custom spice</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Promotions Teaser Strip (Hydrated from PROMO_SLIDES) -->
+    <section aria-labelledby="promo-heading">
+      <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap; margin-bottom:var(--space-md);">
+        <div>
+          <p class="kicker">Featured Highlights &amp; Kitchen Offers</p>
+          <h2 id="promo-heading" class="section-title">Seasonal <em>Promotions</em></h2>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="openPromoModal(0)">Open Gallery Popup</button>
+      </div>
+      <div id="promo-strip-mount" class="promo-strip-grid"></div>
+    </section>
+
+    <!-- Heritage & Craft -->
+    <section class="craft-band" aria-labelledby="heritage-heading">
+      <p class="kicker">Our Heritage &amp; Craft</p>
+      <h2 id="heritage-heading" class="section-title">Warmth &amp; Comfort in Every <em>Small Batch</em></h2>
+      <blockquote class="heritage-quote">
+        “When I moved from South India to Vancouver, the thing I missed most was the warmth and comfort of home. What started as a personal quest to recreate the flavors I grew up with—from steaming idlis to spiced rice specialties—is now MG's Kitchen.”
+      </blockquote>
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <p class="kicker">Authenticity</p>
+          <h3>Regional Heritage</h3>
+          <p>Time-tested South Indian recipes crafted without shortcuts, preserving traditional tempering and aroma.</p>
+        </div>
+        <div class="pillar-item">
+          <p class="kicker">Freshness</p>
+          <h3>Daily Small Batches</h3>
+          <p>Prepared Thursday through Sunday in mindful batches for vibrant aroma, peak taste, and wholesomeness.</p>
+        </div>
+        <div class="pillar-item">
+          <p class="kicker">Purity</p>
+          <h3>Zero Additives</h3>
+          <p>Pure golden ghee, whole spices, and zero added preservatives or artificial food colors.</p>
+        </div>
+        <div class="pillar-item">
+          <p class="kicker">Craftsmanship</p>
+          <h3>Hand-Roasted Podi</h3>
+          <p>Slow-roasted lentils, house-blended spice mixes, and gentle mustard-curry-leaf tempering.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unified Menu & Dietary Filters (Hydrated from MENU_ITEMS) -->
+    <section id="menu" aria-labelledby="menu-heading">
+      <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap;">
+        <div>
+          <p class="kicker">Unified Kitchen Menu · Thu–Sun 9:30 AM – 3:00 PM</p>
+          <h2 id="menu-heading" class="section-title">Menu &amp; Culinary <em>Gallery</em></h2>
+        </div>
+        <span id="menu-count-label" class="badge-emerald">Showing 23 dishes</span>
+      </div>
+
+      <div class="menu-controls">
+        <div class="menu-filter-top">
+          <div class="field-group" style="flex:1; min-width:220px;">
+            <label for="menu-search" class="field-label">Search dishes or ingredients</label>
+            <input type="search" id="menu-search" class="input-control" placeholder="Search idli, dosa, ghee, cashew, peanut…" oninput="setMenuSearch(this.value)">
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="resetMenuFilters()">Reset Filters</button>
+        </div>
+
+        <div>
+          <span class="field-label" style="display:block; margin-bottom:var(--space-xs);">Category</span>
+          <div id="category-chips-mount" class="chip-row"></div>
+        </div>
+
+        <div>
+          <span class="field-label" style="display:block; margin-bottom:var(--space-xs);">Dietary &amp; Allergen Filters</span>
+          <div class="chip-row">
+            <button type="button" id="diet-vegan-btn" class="filter-chip diet-chip" onclick="toggleDietaryFilter('vegan')">Vegan</button>
+            <button type="button" id="diet-gf-btn" class="filter-chip diet-chip" onclick="toggleDietaryFilter('gf')">Gluten-Free</button>
+            <button type="button" id="diet-nutfree-btn" class="filter-chip diet-chip" onclick="toggleDietaryFilter('nutFree')">Nut-Free Only</button>
+            <button type="button" id="diet-nuts-btn" class="filter-chip diet-chip" onclick="toggleDietaryFilter('containsNuts')">Contains Nuts Only</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="menu-grid" class="menu-grid"></div>
+    </section>
+
+    <!-- Special Catering & Interactive Estimator 
+    <section id="catering" aria-labelledby="catering-heading">
+      <p class="kicker">Events, Celebrations &amp; Corporate Drop-Off · No Discounts Policy</p>
+      <h2 id="catering-heading" class="section-title">Special Catering <em>Estimator</em></h2>
+      <p class="lede">
+        Formal drop-off catering across Langley &amp; Greater Vancouver, dispatched exclusively via prepaid round-trip Uber courier with milestone billing (50% / 25% / 25%) and written email-only spice &amp; allergen customization.
+      </p>
+
+      <div class="two-col-split" style="margin-top:var(--space-lg);">
+        <div class="panel-card">
+          <h3 style="font-family:var(--font-headline); font-size:1.5rem; margin:0 0 var(--space-md);">Event &amp; Portion Inputs</h3>
+
+          <div class="form-grid-2">
+            <div class="field-group">
+              <label for="cat-client-name" class="field-label">Client / Host Name</label>
+              <input type="text" id="cat-client-name" class="input-control" placeholder="e.g. Priya Sharma" oninput="updateCateringField('clientName', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-event-date" class="field-label">Event Date</label>
+              <input type="date" id="cat-event-date" class="input-control" onchange="updateCateringField('eventDate', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-address" class="field-label">Delivery Address (Uber Dispatch)</label>
+              <input type="text" id="cat-address" class="input-control" placeholder="Street, City, Postal Code" oninput="updateCateringField('address', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-guests" class="field-label">Estimated Headcount (Guests)</label>
+              <input type="number" id="cat-guests" class="input-control" min="5" max="500" oninput="updateCateringNumber('guests', this.value)">
+            </div>
+          </div>
+
+          <div class="ornament-rule" aria-hidden="true">◆ Priced Catering Portions ◆</div>
+
+          <div class="form-grid-2">
+            <div class="field-group">
+              <label for="cat-qty-tomato" class="field-label">Tomato Bath ($11.95)</label>
+              <input type="number" id="cat-qty-tomato" class="input-control" min="0" oninput="updateCateringPortion('tomatoBath', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-qty-podi" class="field-label">Ghee Podi Idli ($12.95)</label>
+              <input type="number" id="cat-qty-podi" class="input-control" min="0" oninput="updateCateringPortion('gheePodiIdli', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-qty-vada" class="field-label">Masala Vada ($8.95)</label>
+              <input type="number" id="cat-qty-vada" class="input-control" min="0" oninput="updateCateringPortion('masalaVada', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-qty-upma" class="field-label">Kharabath Upma ($7.99)</label>
+              <input type="number" id="cat-qty-upma" class="input-control" min="0" oninput="updateCateringPortion('kharabath', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-pkg-rate" class="field-label">Additional Package ($ / Guest)</label>
+              <input type="number" id="cat-pkg-rate" class="input-control" min="0" step="0.5" oninput="updateCateringNumber('pkgRate', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-uber-fee" class="field-label">Prepaid Round-Trip Uber ($ CAD)</label>
+              <input type="number" id="cat-uber-fee" class="input-control" min="0" step="1" oninput="updateCateringNumber('uberFee', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-labor-hrs" class="field-label">Door Setup Labor (Hrs @ $20.00/hr)</label>
+              <input type="number" id="cat-labor-hrs" class="input-control" min="0" step="0.5" oninput="updateCateringNumber('laborHours', this.value)">
+            </div>
+            <div class="field-group">
+              <label for="cat-spice" class="field-label">Specified Spice Level (At Signing)</label>
+              <select id="cat-spice" class="select-control" onchange="updateCateringField('spiceLevel', this.value)">
+                <option value="Mild">Mild</option>
+                <option value="Traditional Medium">Traditional Medium</option>
+                <option value="Authentic South Indian Spicy">Authentic South Indian Spicy</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="cat-dietary" class="field-label">Allergen / Dietary Split</label>
+              <select id="cat-dietary" class="select-control" onchange="updateCateringField('dietarySplit', this.value)">
+                <option value="Entire Order Uniform">Entire Order Uniform</option>
+                <option value="50% Volume Split (Max allowed)">50% Volume Split (Max allowed)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="cat-payment" class="field-label">Accepted Payment Method</label>
+              <select id="cat-payment" class="select-control" onchange="updateCateringField('paymentMethod', this.value)">
+                <option value="Interac e-Transfer (No card surcharge)">Interac e-Transfer (No card surcharge)</option>
+                <option value="Credit / Debit Card (Merchant surcharge applies)">Credit / Debit Card (Merchant surcharge applies)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <button type="button" class="btn btn-primary btn-sm" onclick="loadCateringIntoCart()">Load Portions into Cart</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="resetCateringEstimator(this)">Reset Estimator</button>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-sm); flex-wrap:wrap;">
+            <span class="kicker" style="margin:0;">Estimated Settlement</span>
+            <span id="cat-tier-badge" class="badge-emerald">Standard Order (50 / 25 / 25)</span>
+          </div>
+          <div id="catering-summary-mount" style="margin-top:var(--space-md);"></div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-md);">
+            <a id="catering-mailto-link" href="mailto:mgskitchen@gmail.com" class="btn btn-primary btn-sm">Email Catering Inquiry</a>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyCateringEmailText()">Copy Inquiry Email</button>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- Formal Catering Service Agreement Guidelines -->
+    <section id="agreement" aria-labelledby="agreement-heading">
+      <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap;">
+        <div>
+          <p class="kicker">Formal Terms &amp; Conditions · Drop-Off Catering</p>
+          <h2 id="agreement-heading" class="section-title">Catering Service <em>Agreement</em></h2>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="downloadSignedAgreement()">Download Agreement Summary (.txt)</button>
+      </div>
+
+      <div id="agreement-schedule-mount" class="panel-card" style="margin-top:var(--space-lg);"></div>
+      <div id="agreement-sections-mount" class="agreement-grid"></div>
+
+      <div class="signature-box">
+        <p class="kicker">Execution &amp; Signatures</p>
+        <h3 style="font-family:var(--font-headline); font-size:1.5rem; margin:0 0 var(--space-sm);">Digital Acknowledgment</h3>
+        <p style="margin:0 0 var(--space-md); font-size:0.9375rem; color:var(--on-surface-variant);">
+          By completing the signatory section below, the parties acknowledge they have read, understood, and agreed to be bound by the terms, cancellation schedules, and delivery protocols set forth in this Agreement.
+        </p>
+
+        <div class="form-grid-2">
+          <div class="field-group">
+            <label for="sig-client-name" class="field-label">Client Signatory (Printed Name)</label>
+            <input type="text" id="sig-client-name" class="input-control" placeholder="Full legal name" oninput="updateCateringField('signatoryName', this.value)">
+          </div>
+          <div class="field-group">
+            <label for="sig-date" class="field-label">Date Signed</label>
+            <input type="date" id="sig-date" class="input-control" onchange="updateCateringField('signatoryDate', this.value)">
+          </div>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="sig-agree-check" onchange="updateCateringField('agreed', this.checked)">
+          <span style="font-size:0.9125rem;">
+            I confirm all requests and updates will be submitted strictly via email (no phone, text, or verbal modifications) and accept the 50% non-refundable initial deposit and 2-hour post-delivery food safety terms.
+          </span>
+        </label>
+
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-md); align-items:center;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="downloadSignedAgreement()">Download Signed Summary (.txt)</button>
+          <span id="sig-status-note" style="font-size:0.875rem; color:var(--on-surface-variant);"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery Partners & Social Channels (Hydrated from deliveryUrls & socialUrls) -->
+    <section id="delivery" aria-labelledby="delivery-heading">
+      <p class="kicker">Delivery Partners &amp; Community · Langley, BC</p>
+      <h2 id="delivery-heading" class="section-title">Order Online &amp; <em>Connect</em></h2>
+      <p class="lede">
+        Order individual small-batch dishes Thursday–Sunday (9:30 AM – 3:00 PM) via our delivery partner storefronts, or submit a direct Kitchen Pickup, Park &amp; Dine, or Prepaid Uber Catering order through your Cart.
+      </p>
+
+      <div id="delivery-partners-mount" class="partners-grid"></div>
+
+      <div class="ornament-rule" aria-hidden="true">◆ Follow MG's Kitchen ◆</div>
+
+      <div id="social-links-mount" class="partners-grid social-row" aria-label="Social Media">
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer with Logo & Google Maps Directions -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div style="display:flex; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-sm);">
+          <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+          <span class="brand-fallback-svg" aria-hidden="true">MG</span>
+          <div>
+            <strong style="font-family:var(--font-headline); font-size:1.35rem; display:block; line-height:1.1;">MG's Kitchen</strong>
+            <span style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--secondary); font-weight:700;">The Flavour Specialist</span>
+          </div>
+        </div>
+        <p style="margin:0 0 var(--space-sm); font-size:0.9rem; color:var(--on-surface-variant);">
+          Homemade South Indian meals prepared in small batches in Langley, BC with pure ingredients, zero preservatives, and zero artificial colors.
+        </p>
+        <p style="margin:0; font-size:0.8125rem; color:var(--on-surface-variant);">
+          © 2026 MG's Kitchen — The Flavour Specialist · Langley, BC.
+        </p>
+      </div>
+
+      <div>
+        <p class="kicker">Contact &amp; Kitchen Hours</p>
+        <p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Address:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6, Canada</p>
+        <!--<p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Phone:</strong> +1 (672) 975-1664</p>-->
+        <p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Orders &amp; Interac e-Transfer:</strong> mgskitchen@gmail.com</p>
+        <p style="margin:0 0 var(--space-sm); font-size:0.9rem;"><strong>Kitchen Inquiries:</strong> manasagkitchen@gmail.com</p>
+        <table class="data-table">
+          <tbody>
+            <tr><td><strong>Mon – Wed</strong></td><td>Closed (Catering Bookings by Email)</td></tr>
+            <tr><td><strong>Thu – Sun (Kitchen)</strong></td><td>11 a.m. - 4:40 p.m</td></tr>
+            <tr><td><strong>Thu – Sun (Delivery Apps)</strong></td><td>11 a.m. - 4:40 p.m</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="map-schematic">
+        <p class="kicker">Langley Location &amp; Google Maps Directions</p>
+        <svg viewBox="0 0 320 120" width="100%" height="120" role="img" aria-label="Schematic map showing MG's Kitchen at 20381 62 Ave near 204 St in Langley, BC">
+          <rect x="0" y="0" width="320" height="120" rx="8" fill="#f3e9dc" />
+          <line x1="16" y1="68" x2="304" y2="68" stroke="#9e8a78" stroke-width="6" />
+          <line x1="220" y1="12" x2="220" y2="108" stroke="#9e8a78" stroke-width="5" />
+          <circle cx="176" cy="54" r="10" fill="#b84a24" />
+          <circle cx="176" cy="54" r="4" fill="#ffffff" />
+          <text x="24" y="56" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#57483f">62 AVE · LANGLEY</text>
+          <text x="228" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#57483f">204 ST</text>
+          <text x="18" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#261b15">MG's Kitchen (#301) · 20381 62 Ave</text>
+        </svg>
+        <div id="footer-directions-mount" style="margin-top:var(--space-sm); display:flex; flex-direction:column; gap:var(--space-xs);"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Side Cart Drawer -->
+  <div id="cart-backdrop" class="drawer-backdrop" onclick="closeCartDrawer()" aria-hidden="true"></div>
+  <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+    <div class="drawer-header">
+      <div>
+        <p class="kicker" style="margin:0;">Direct Order &amp; Interac e-Transfer</p>
+        <h2 id="cart-drawer-title" style="font-family:var(--font-headline); font-size:1.6rem; margin:0;">Your Shopping <em>Cart</em></h2>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeCartDrawer()" aria-label="Close cart drawer">Close</button>
+    </div>
+
+    <div class="drawer-body">
+      <div id="cart-drawer-items"></div>
+
+      <div class="ornament-rule" aria-hidden="true" style="margin-block:var(--space-xs);">◆ Order &amp; Fulfillment Details ◆</div>
+
+      <div class="field-group">
+        <label for="cart-promo-input" class="field-label">Promo Code (From Offers Gallery)</label>
+        <div style="display:flex; gap:var(--space-xs);">
+          <input type="text" id="cart-promo-input" class="input-control" placeholder="Enter code e.g. TIFFIN10" oninput="updateCartField('promoCode', this.value)">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="applyPromoFromInput()">Apply</button>
+        </div>
+        <span id="cart-promo-feedback" style="font-size:0.8125rem; color:var(--tertiary);"></span>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="field-group">
+          <label for="cart-customer-name" class="field-label">Customer Name</label>
+          <input type="text" id="cart-customer-name" class="input-control" placeholder="Your full name" oninput="updateCartField('customerName', this.value)">
+        </div>
+        <div class="field-group">
+          <label for="cart-customer-contact" class="field-label">Email or Phone</label>
+          <input type="text" id="cart-customer-contact" class="input-control" placeholder="Phone or email" oninput="updateCartField('contact', this.value)">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="cart-fulfillment" class="field-label">Order Fulfillment Mode</label>
+        <select id="cart-fulfillment" class="select-control" onchange="updateCartField('fulfillment', this.value)">
+          <option value="pickup">Kitchen Pickup (20381 62 Ave #301, Langley)</option>
+          <option value="parkAndDine">Park &amp; Dine (Parking-Served at Curbside)</option>
+          <option value="catering">Prepaid Uber Drop-Off Catering Inquiry</option>
+        </select>
+      </div>
+
+      <!-- Park & Dine Vehicle Details (JS-toggled) -->
+      <div id="park-dine-panel" style="display:none; background:var(--primary-container); border:1px solid var(--outline-featured); border-radius:var(--rounded); padding:var(--space-md);">
+        <p class="kicker" style="margin:0 0 var(--space-xs);">Park &amp; Dine Vehicle Details</p>
+        <div class="form-grid-2">
+          <div class="field-group">
+            <label for="pd-vehicle-model" class="field-label">Vehicle Make &amp; Model</label>
+            <input type="text" id="pd-vehicle-model" class="input-control" placeholder="e.g. Honda CR-V" oninput="updateParkDineField('model', this.value)">
+          </div>
+          <div class="field-group">
+            <label for="pd-vehicle-color" class="field-label">Vehicle Color</label>
+            <input type="text" id="pd-vehicle-color" class="input-control" placeholder="e.g. Silver" oninput="updateParkDineField('color', this.value)">
+          </div>
+          <div class="field-group">
+            <label for="pd-vehicle-plate" class="field-label">License Plate</label>
+            <input type="text" id="pd-vehicle-plate" class="input-control" placeholder="e.g. BC ABC 123" oninput="updateParkDineField('plate', this.value)">
+          </div>
+          <div class="field-group">
+            <label for="pd-arrival-note" class="field-label">Arrival Time / Stall</label>
+            <input type="text" id="pd-arrival-note" class="input-control" placeholder="e.g. 12:30 PM · Unit 301 lot" oninput="updateParkDineField('arrival', this.value)">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="cart-spice" class="field-label">Spice Preference</label>
+        <select id="cart-spice" class="select-control" onchange="updateCartField('spice', this.value)">
+          <option value="Mild">Mild</option>
+          <option value="Traditional Medium">Traditional Medium</option>
+          <option value="Authentic South Indian Spicy">Authentic South Indian Spicy</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="cart-notes" class="field-label">Dietary Split / Delivery Address / Notes</label>
+        <textarea id="cart-notes" class="textarea-control" placeholder="Allergen notes (uniform or 50% split) or delivery address…" oninput="updateCartField('notes', this.value)"></textarea>
+      </div>
+
+      <div class="field-group">
+        <span class="field-label">Formatted Order Email Preview (mgskitchen@gmail.com)</span>
+        <pre id="cart-email-preview" class="email-preview-box"></pre>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div id="cart-totals-mount"></div>
+      <p style="margin:0; font-size:0.78rem; color:var(--on-surface-variant);">
+        <strong>Interac e-Transfer:</strong> Send total to <strong>mgskitchen@gmail.com</strong>. All balances must be settled prior to kitchen dispatch.
+      </p>
+      <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap;">
+        <a id="cart-mailto-btn" href="mailto:mgskitchen@gmail.com" class="btn btn-primary btn-sm" style="flex:1;">Send Interac Order Email</a>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyCartEmailText()">Copy Email</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="clearCartItems(this)">Clear</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Promotion Gallery Modal Popup -->
+  <div id="promo-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="promo-modal-title" onclick="handlePromoBackdropClick(event)">
+    <div class="promo-modal-card">
+      <img id="promo-modal-img" class="promo-modal-media" src="" alt="Promotion illustration">
+      <div class="promo-modal-body">
+        <div style="display:flex; justify-content:space-between; align-items:start; gap:var(--space-sm);">
+          <div>
+            <span id="promo-modal-badge" class="badge-emerald">Offer</span>
+            <h3 id="promo-modal-title" style="font-family:var(--font-headline); font-size:1.75rem; margin:var(--space-xs) 0 0;"></h3>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closePromoModal()" aria-label="Close promotions modal">Close</button>
+        </div>
+        <p id="promo-modal-desc" style="margin:0; color:var(--on-surface-variant);"></p>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-sm); background:var(--surface-container-low); padding:var(--space-sm) var(--space-md); border-radius:var(--rounded); border:var(--warm-hairline);">
+          <div>
+            <span class="field-label" style="display:block;">Discount Code</span>
+            <strong id="promo-modal-code" style="font-size:1.1rem; color:var(--primary); letter-spacing:0.06em;"></strong>
+            <span id="promo-modal-window" style="display:block; font-size:0.78rem; color:var(--on-surface-variant);"></span>
+          </div>
+          <div style="display:flex; gap:var(--space-xs); flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyCurrentPromoCode()">Copy Code</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="applyCurrentPromoToCart()">Apply to Cart</button>
+          </div>
+        </div>
+        <div class="promo-modal-nav">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="stepPromoSlide(-1)">Previous</button>
+          <div id="promo-modal-dots" class="promo-dots"></div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="stepPromoSlide(1)">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inline Toast -->
+  <div id="inline-toast" class="inline-toast" role="status" aria-live="polite"></div>
+
+  <api-shim></api-shim>
+    
+</body>
+</html>
