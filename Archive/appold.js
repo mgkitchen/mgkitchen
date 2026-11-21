@@ -355,7 +355,7 @@ NET TOTAL AMOUNT: $${grandTotal.toFixed(2)} CAD
 -----------------------------------
 
 IMPORTANT PAYMENT INSTRUCTIONS:
-Please complete Interac e-Transfer of $${grandTotal.toFixed(2)} CAD to: mgskitchen@gmail.com
+Please complete Interac e-Transfer of $${grandTotal.toFixed(2)} CAD to: manasagkitchen@gmail.com
 (Include your Name and Phone Number in the e-Transfer Memo)
 
 CUSTOMER CONTACT INFO:
@@ -367,16 +367,16 @@ Requested Time: [Immediate / Preferred Time]
 
   // Copy e-Transfer email to clipboard
   if (navigator.clipboard) {
-    navigator.clipboard.writeText("mgskitchen@gmail.com");
+    navigator.clipboard.writeText("manasagkitchen@gmail.com");
   }
 
   alert(
-    `Interac e-Transfer Email (mgskitchen@gmail.com) copied to clipboard!\n\n` +
+    `Interac e-Transfer Email (manasagkitchen@gmail.com) copied to clipboard!\n\n` +
     `Total Amount: $${grandTotal.toFixed(2)} CAD\n` +
     `Your email application will now open to send your order details.`
   );
 
-  window.location.href = `mailto:mgskitchen@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+  window.location.href = `mailto:manasagkitchen@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 }
 
 // ==========================================
