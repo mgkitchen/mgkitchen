@@ -3,8 +3,8 @@
        ========================================================================= */
 
     const GST_RATE = 0.05;
-    const BUSINESS_EMAIL = `mgskitchen@gmail.com`;
-    const INQUIRY_EMAIL = `mgskitchen@gmail.com`;
+    const BUSINESS_EMAIL = `manasagkitchen@gmail.com`;
+    const INQUIRY_EMAIL = `manasagkitchen@gmail.comm`;
     const KITCHEN_ADDRESS = `20381 62 Ave #301, Langley, BC V3A 5E6, Canada`;
     const KITCHEN_PHONE = `+1 (672) 975-1664`;
 
