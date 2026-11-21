@@ -3,8 +3,8 @@
        ========================================================================= */
 
     const GST_RATE = 0.05;
-    const BUSINESS_EMAIL = `mgskitchen@gmail.com`;
-    const INQUIRY_EMAIL = `mgskitchen@gmail.com`;
+    const BUSINESS_EMAIL = `manasagkitchen@gmail.com`;
+    const INQUIRY_EMAIL = `manasagkitchen@gmail.com`;
     const KITCHEN_ADDRESS = `20381 62 Ave #301, Langley, BC V3A 5E6, Canada`;
     const KITCHEN_PHONE = `+1 (672) 975-1664`;
 
@@ -452,7 +452,7 @@
           `Second Installment: 25% due 7 days (1 week) prior to event date.`,
           `Final Balance: 25% due day of event, prior to kitchen dispatch.`,
           `Strict Advance Settlement: 100% of total balance, Uber fees, and labor must be settled before food leaves the kitchen. No deferred billing, net terms, or cash-on-delivery.`,
-          `Accepted Methods: Interac e-Transfer (mgskitchen@gmail.com) or Credit/Debit Card (subject to standard merchant processing surcharges).`
+          `Accepted Methods: Interac e-Transfer (manasagkitchen@gmail.com) or Credit/Debit Card (subject to standard merchant processing surcharges).`
         ]
       },
       {

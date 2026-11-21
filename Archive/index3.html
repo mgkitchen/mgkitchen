@@ -1376,7 +1376,7 @@
             <tbody>
               <tr>
                 <td><strong>Direct Website Cart</strong></td>
-                <td>mgskitchen@gmail.com</td>
+                <td>manasagkitchen@gmail.com</td>
                 <td>Langley Kitchen Pickup or Prepaid Uber Catering</td>
                 <td>Interac e-Transfer (No card surcharge)</td>
               </tr>
@@ -1719,7 +1719,7 @@
           </div>
           <ul>
             <li><strong>Strict Advance Settlement:</strong> 100% of total balance, including Uber transit fees and scheduled labor, must be settled before food leaves the kitchen. No late payments, deferred billing, net terms, or cash-on-delivery.</li>
-            <li><strong>Accepted Payment Methods:</strong> Interac e-Transfer (send to <strong>mgskitchen@gmail.com</strong>) or Credit/Debit Card (subject to standard merchant processing surcharges).</li>
+            <li><strong>Accepted Payment Methods:</strong> Interac e-Transfer (send to <strong>manasagkitchen@gmail.com</strong>) or Credit/Debit Card (subject to standard merchant processing surcharges).</li>
           </ul>
         </article>
 
@@ -1857,7 +1857,7 @@
           <p class="dish-desc" style="margin-bottom: var(--space-sm);">
             <strong>Address:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6, Canada<br>
             <strong>Phone:</strong> +1 (672) 975-1664<br>
-            <strong>Orders &amp; e-Transfer:</strong> mgskitchen@gmail.com<br>
+            <strong>Orders &amp; e-Transfer:</strong> manasagkitchen@gmail.com<br>
             <strong>Catering &amp; Inquiries:</strong> manasagkitchen@gmail.com<br>
             <strong>Website:</strong> www.mgkitchen.ca
           </p>
@@ -1952,7 +1952,7 @@
       </div>
 
       <div class="notice-box">
-        <strong>Interac e-Transfer Notice:</strong> Please send Interac e-Transfer to <strong>mgskitchen@gmail.com</strong> before sending your order via email. All balances must be settled prior to dispatch.
+        <strong>Interac e-Transfer Notice:</strong> Please send Interac e-Transfer to <strong>manasagkitchen@gmail.com</strong> before sending your order via email. All balances must be settled prior to dispatch.
       </div>
 
       <div id="cart-items-container" style="display: grid; gap: var(--space-sm);"></div>
@@ -2016,7 +2016,7 @@
       <div id="cart-inline-error" style="font-size: 0.85rem; color: var(--error); font-weight: 600; display: none;"></div>
 
       <div style="display: grid; gap: var(--space-xs);">
-        <a id="cart-mailto-link" href="mailto:mgskitchen@gmail.com" class="btn btn-primary" onclick="return handleSendOrderEmail(event)">
+        <a id="cart-mailto-link" href="mailto:manasagkitchen@gmail.com" class="btn btn-primary" onclick="return handleSendOrderEmail(event)">
           <i data-lucide="mail" width="16" height="16"></i>
           <span>Send Order via Email</span>
         </a>
@@ -2776,7 +2776,7 @@
               <tr><td><strong>Storefront Name</strong></td><td>${storefront}</td></tr>
               <tr><td><strong>Platform Destination</strong></td><td>${domain}</td></tr>
               <tr><td><strong>Kitchen Pickup Address</strong></td><td>20381 62 Ave #301, Langley, BC V3A 5E6, Canada</td></tr>
-              <tr><td><strong>Hours &amp; Direct Contact</strong></td><td>Thu–Sun 9:30 AM – 3:00 PM · +1 (672) 975-1664 · mgskitchen@gmail.com</td></tr>
+              <tr><td><strong>Hours &amp; Direct Contact</strong></td><td>Thu–Sun 9:30 AM – 3:00 PM · +1 (672) 975-1664 · manasagkitchen@gmail.com</td></tr>
             </tbody>
           </table>
         </div>
@@ -2897,7 +2897,7 @@
         `Contact: ${m.contact || `(Not provided)`}`,
         `Fulfillment: ${m.fulfillment}`,
         `Spice Preference: ${m.spice}`,
-        `Interac e-Transfer Recipient: mgskitchen@gmail.com`,
+        `Interac e-Transfer Recipient: manasagkitchen@gmail.com`,
         `Interac e-Transfer Reference #: ${m.etransferRef || `(Pending / Sent prior to email)`}`,
         `Notes / Dietary Split: ${m.notes || `None`}`,
         ``,
@@ -2910,7 +2910,7 @@
         `Net Total (CAD): ${formatMoney(totals.netTotal)}`,
         totals.hasQuoteItems ? `Note: Includes Daily Batch / Quote Confirmed items to be verified by MG's Kitchen.` : ``,
         ``,
-        `Interac e-Transfer Reminder: Payment sent to mgskitchen@gmail.com prior to dispatch.`
+        `Interac e-Transfer Reminder: Payment sent to manasagkitchen@gmail.com prior to dispatch.`
       ].filter(function(l) { return l !== undefined; }).join(`\n`);
     }
 
@@ -2919,7 +2919,7 @@
       if (!link) return;
       const subject = encodeURIComponent(`MG's Kitchen Order — ${appState.cartMeta.name || `Guest`} (${formatMoney(computeCartTotals().netTotal)})`);
       const body = encodeURIComponent(compileCartEmailBody());
-      link.href = `mailto:mgskitchen@gmail.com?subject=${subject}&body=${body}`;
+      link.href = `mailto:manasagkitchen@gmail.com?subject=${subject}&body=${body}`;
     }
 
     function handleSendOrderEmail(ev) {
@@ -2934,7 +2934,7 @@
       }
       if (errEl) errEl.style.display = `none`;
       updateCartMailtoLink();
-      showToast(`Order summary compiled for mgskitchen@gmail.com`);
+      showToast(`Order summary compiled for manasagkitchen@gmail.com`);
       return true;
     }
 
@@ -3254,7 +3254,7 @@
         `MG'S KITCHEN — CATERING SERVICE AGREEMENT DETAILS`,
         `Caterer: MG's Kitchen — The Flavour Specialist (20381 62 Ave #301, Langley, BC V3A 5E6)`,
         `Inquiries Email (Email-Only Modifications): manasagkitchen@gmail.com`,
-        `Interac e-Transfer Email: mgskitchen@gmail.com`,
+        `Interac e-Transfer Email: manasagkitchen@gmail.com`,
         ``,
         `CONTRACT SCHEDULE & EVENT OVERVIEW`,
         `Client Name: ${e.client || a.sigName || `(Pending)`}`,

@@ -1543,7 +1543,7 @@
                 <span class="car-step-num">3</span>
                 <div>
                   <strong>Settle via Interac e-Transfer &amp; Stay Cozy</strong>
-                  <div style="font-size: 0.875rem; color: var(--on-surface-variant);">Send Interac e-Transfer to <strong>mgskitchen@gmail.com</strong> and email your Car Oota express ticket—we bring your order directly to your window.</div>
+                  <div style="font-size: 0.875rem; color: var(--on-surface-variant);">Send Interac e-Transfer to <strong>manasagkitchen@gmail.com</strong> and email your Car Oota express ticket—we bring your order directly to your window.</div>
                 </div>
               </div>
             </div>
@@ -1588,7 +1588,7 @@
                 <i data-lucide="car" aria-hidden="true" width="16" height="16"></i>
                 Send Car Oota Express Order
               </button>
-              <a id="car-mailto-link" href="mailto:mgskitchen@gmail.com" class="btn btn-secondary" style="display: none;">Open Mail Client</a>
+              <a id="car-mailto-link" href="mailto:manasagkitchen@gmail.com" class="btn btn-secondary" style="display: none;">Open Mail Client</a>
             </div>
 
             <div class="ticket-preview" id="car-ticket-preview" aria-live="polite"></div>
@@ -1914,7 +1914,7 @@
           <p style="font-size: 0.9rem; color: var(--on-surface-variant); margin: 0 0 var(--space-sm);">
             20381 62 Ave Unit 301, Langley, BC V3A 5E6, Canada<br>
             Phone: +1 (672) 975-1664<br>
-            Orders &amp; Interac e-Transfer: <strong>mgskitchen@gmail.com</strong><br>
+            Orders &amp; Interac e-Transfer: <strong>manasagkitchen@gmail.com</strong><br>
             Catering &amp; Kitchen Inquiries: <strong>manasagkitchen@gmail.com</strong>
           </p>
           <div style="font-size: 0.85rem; color: var(--on-surface-variant);">
@@ -2052,7 +2052,7 @@
       </div>
 
       <div class="etransfer-box">
-        <strong>Interac e-Transfer:</strong> Send payment to <strong>mgskitchen@gmail.com</strong> prior to or upon submitting your order. All balances must be settled before order dispatch.
+        <strong>Interac e-Transfer:</strong> Send payment to <strong>manasagkitchen@gmail.com</strong> prior to or upon submitting your order. All balances must be settled before order dispatch.
       </div>
 
       <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
@@ -2063,7 +2063,7 @@
         <button type="button" class="btn btn-secondary" id="clear-cart-btn" onclick="clearCart(this)">Clear Cart</button>
       </div>
       <div class="inline-feedback" id="cart-email-feedback" aria-live="polite"></div>
-      <a id="cart-mailto-anchor" href="mailto:mgskitchen@gmail.com" class="btn btn-emerald" style="display: none;">Open Email Client (mgskitchen@gmail.com)</a>
+      <a id="cart-mailto-anchor" href="mailto:manasagkitchen@gmail.com" class="btn btn-emerald" style="display: none;">Open Email Client (manasagkitchen@gmail.com)</a>
     </div>
   </aside>
 
@@ -2990,12 +2990,12 @@
         `BC GST (5%): $` + totals.gst.toFixed(2) + `\n` +
         `Total Amount: $` + totals.grandTotal.toFixed(2) + ` CAD` + (totals.hasQuoteItems ? ` (+ quote-confirmed items)` : ``) + `\n\n` +
         `INTERAC E-TRANSFER PAYMENT INSTRUCTION:\n` +
-        `Sending Interac e-Transfer to: mgskitchen@gmail.com prior to or upon order submission (100% settled prior to dispatch).\n\nThank you!`;
+        `Sending Interac e-Transfer to: manasagkitchen@gmail.com prior to or upon order submission (100% settled prior to dispatch).\n\nThank you!`;
 
       const subject = `MG's Kitchen Order — ` + (appState.order.customerName || `New Order`) + ` ($` + totals.grandTotal.toFixed(2) + `)`;
-      const mailtoUrl = `mailto:mgskitchen@gmail.com?subject=` + encodeURIComponent(subject) + `&body=` + encodeURIComponent(body);
+      const mailtoUrl = `mailto:manasagkitchen@gmail.com?subject=` + encodeURIComponent(subject) + `&body=` + encodeURIComponent(body);
 
-      copyText(`mgskitchen@gmail.com`, `Copied mgskitchen@gmail.com to clipboard & prepared order email`);
+      copyText(`manasagkitchen@gmail.com`, `Copied manasagkitchen@gmail.com to clipboard & prepared order email`);
 
       if (anchor) {
         anchor.href = mailtoUrl;
@@ -3003,7 +3003,7 @@
         anchor.click();
       }
       if (fb) {
-        fb.innerHTML = `<strong>mgskitchen@gmail.com copied!</strong> Your formatted order ($` + totals.grandTotal.toFixed(2) + ` CAD incl. 5% GST) is ready. If your mail app didn't launch automatically, click <em>Open Email Client</em> below.`;
+        fb.innerHTML = `<strong>manasagkitchen@gmail.com copied!</strong> Your formatted order ($` + totals.grandTotal.toFixed(2) + ` CAD incl. 5% GST) is ready. If your mail app didn't launch automatically, click <em>Open Email Client</em> below.`;
         fb.classList.add(`is-visible`);
       }
     }
@@ -3048,16 +3048,16 @@
         `Spice Level: ` + pd.spice + `\n\n` +
         `Cart Items: ` + itemsSummary + `\n` +
         `Subtotal: $` + totals.subtotal.toFixed(2) + ` | BC GST (5%): $` + totals.gst.toFixed(2) + ` | Total: $` + totals.grandTotal.toFixed(2) + ` CAD\n\n` +
-        `Interac e-Transfer sent to mgskitchen@gmail.com. Waiting in car at 20381 62 Ave Unit 301.`;
+        `Interac e-Transfer sent to manasagkitchen@gmail.com. Waiting in car at 20381 62 Ave Unit 301.`;
 
-      const mailtoUrl = `mailto:mgskitchen@gmail.com?subject=` + encodeURIComponent(subject) + `&body=` + encodeURIComponent(body);
-      copyText(`mgskitchen@gmail.com`, `Copied mgskitchen@gmail.com for Car Oota e-Transfer`);
+      const mailtoUrl = `mailto:manasagkitchen@gmail.com?subject=` + encodeURIComponent(subject) + `&body=` + encodeURIComponent(body);
+      copyText(`manasagkitchen@gmail.com`, `Copied manasagkitchen@gmail.com for Car Oota e-Transfer`);
 
       if (preview) {
         preview.innerHTML = `<strong>Car Oota Express Ticket Ready!</strong><br>` +
           `Vehicle: <strong>` + pd.vehicle + `</strong> · Spot: <strong>` + pd.parking + `</strong><br>` +
           `Order: ` + itemsSummary + ` (` + (totals.lines.length ? `$` + totals.grandTotal.toFixed(2) + ` incl. GST` : `Add dishes above`) + `)<br>` +
-          `Send Interac e-Transfer to <strong>mgskitchen@gmail.com</strong>.`;
+          `Send Interac e-Transfer to <strong>manasagkitchen@gmail.com</strong>.`;
         preview.classList.add(`is-visible`);
       }
       if (mailLink) {

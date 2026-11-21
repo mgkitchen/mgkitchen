@@ -277,7 +277,7 @@ GRAND TOTAL: $${grandTotal.toFixed(2)}
 -----------------------------------
 ${parkInfo}
 PAYMENT INSTRUCTION:
-Please send Interac e-Transfer of $${grandTotal.toFixed(2)} to: mgskitchen@gmail.com
+Please send Interac e-Transfer of $${grandTotal.toFixed(2)} to: manasagkitchen@gmail.com
 Memo: [Your Name & Phone Number]
 
 CUSTOMER INFORMATION:
@@ -287,10 +287,10 @@ Preferred Pickup Time: [Specify Pickup Time]
 `
   );
 
-  navigator.clipboard.writeText("mgskitchen@gmail.com");
-  alert("Payment email 'mgskitchen@gmail.com' copied to clipboard!\nOpening your email application to send your order.");
+  navigator.clipboard.writeText("manasagkitchen@gmail.com");
+  alert("Payment email 'manasagkitchen@gmail.com' copied to clipboard!\nOpening your email application to send your order.");
 
-  window.location.href = `mailto:mgskitchen@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+  window.location.href = `mailto:manasagkitchen@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 }
 
 // 5. Park & Dine (Parking-Served) Express Mode
