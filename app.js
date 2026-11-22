@@ -408,7 +408,7 @@ function initMobileMenu() {
         title: `Curbside Parking-Served Hot Dosa`,
         description: `Bengaluru Car Oota: Arrive at 20381 62 Ave #301 and enter your vehicle make, color, and plate in the Cart drawer. Freshly seared Masala Dose or Benne Dose brought hot to your car.`,
         discountCode: `PARKDINE5`,
-        discountRate: 0.05,
+        discountRate: 0.10,
         validWindow: `Thu–Sun 11:30 AM – 3:00 PM · Langley Kitchen Lot`,
         imageUrl: makePromoSvgDataUri(`Park & Dine Curbside`, `#1d6356`, `#e1efe9`, `CODE: PARKDINE5`)
       },
