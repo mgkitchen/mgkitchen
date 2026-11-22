@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="dashboard">
+  <meta name="design-style" content="terracotta">
+  <title>MG's Kitchen — The Flavour Specialist | Langley, BC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="app copy.js" defer></script>  
+    <link rel="stylesheet" href="./styles copy.css"> 
+  
+</head>
+<body>
+  <!-- Floating Header -->
+  <div class="floating-header-wrap">
+    <header class="floating-header">
+      <a href="#top" class="brand-lockup">
+        <div class="brand-logo-box">
+           <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+          <span class="brand-logo-fallback" aria-hidden="true">MG</span>
+        </div>
+        <div>
+          <div class="brand-text-title">MG's Kitchen</div>
+          <div class="brand-text-sub">The Flavour Specialist · Langley, BC</div>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary sections">
+        <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
+        <a href="#menu-explorer" class="nav-link">Menu</a>
+        <a href="#delivery-partners" class="nav-link">Delivery</a>
+        <a href="#catering-estimator" class="nav-link">Catering</a>
+        <a href="#agreement-rules" class="nav-link">Agreement</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn btn-primary" id="header-cart-btn" onclick="openCartDrawer()">
+          <i data-lucide="shopping-bag" width="18" height="18" aria-hidden="true"></i>
+          <span>Cart</span>
+          <span class="cart-count-pill tabular" id="header-cart-count">0</span>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main class="page-grid" id="top">
+    <!-- Live Kitchen Status Banner -->
+    <section class="status-banner is-closed" id="live-status-banner" aria-live="polite">
+      <div class="status-main">
+        <span class="status-pill closed" id="status-pill">
+          <i data-lucide="clock" width="14" height="14" aria-hidden="true"></i>
+          <span id="status-pill-text">Checking Kitchen Hours</span>
+        </span>
+        <span class="status-pill catering-always">
+          <i data-lucide="sparkles" width="14" height="14" aria-hidden="true"></i>
+          <span>Catering Booking Open 24/7</span>
+        </span>
+        <span class="status-detail" id="status-detail-text">
+          Regular Tiffin &amp; Park &amp; Dine Window: Thu–Sun, 9:30 AM – 2:30 PM PT · 20381 62 Ave #301, Langley
+        </span>
+      </div>
+      <div class="status-controls">
+        <span class="field-label" id="pacific-clock-label">Langley PT</span>
+        <button type="button" class="sim-toggle-btn" id="sim-toggle-btn" onclick="toggleStatusPreview()">
+          Preview Open Window
+        </button>
+      </div>
+    </section>
+
+    <!-- Hero & Architectural Metrics -->
+    <section class="hero-grid" aria-label="Brand introduction">
+      <div class="hero-copy">
+        <span class="kicker">Small-Batch South Indian Tiffin &amp; Event Catering · Langley, BC</span>
+        <h1 class="title">Delicious & Authentic <em>South Indian</em> Flavors, Fired Fresh in Langley</h1>
+        <p class="hero-lede">
+          Crafted daily in small batches at 20381 62 Ave #301 with pure golden ghee, hand-roasted lentil podi, whole spices, zero preservatives, and zero artificial colors. Order for Bengaluru-style <strong>Park &amp; Dine (Car Oota)</strong>, kitchen pickup, or formal 24/7 drop-off catering.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#menu-explorer" class="btn btn-primary">
+            <i data-lucide="utensils" width="18" height="18" aria-hidden="true"></i>
+            <span>Explore Full Menu</span>
+          </a>
+          <a href="#service-modes" class="btn btn-emerald">
+            <i data-lucide="car" width="18" height="18" aria-hidden="true"></i>
+            <span>Park &amp; Dine (Car Oota)</span>
+          </a>
+          <!--<a href="#catering-estimator" class="btn btn-secondary">
+            <i data-lucide="calendar" width="18" height="18" aria-hidden="true"></i>
+            <span>Catering Estimator</span>
+          </a>-->
+        </div>
+        <blockquote class="hero-quote">
+          “When I moved from South India to Vancouver, the thing I missed most was the warmth and comfort of home. What started as a personal quest to recreate the flavors I grew up with—from steaming idlis to spiced rice specialties—is now MG's Kitchen.”
+        </blockquote>
+      </div>
+
+      <div class="arch-row">
+        <div class="arch-card is-featured">
+          <div class="arch-label">Kitchen Window</div>
+          <div class="arch-value">Thu–Sun</div>
+          <div class="arch-caption">9:30 AM – 2:30 PM Open · Catering 24/7</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">Pure Craft</div>
+          <div class="arch-value">100%</div>
+          <div class="arch-caption">Zero preservatives or artificial colors</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">Park &amp; Dine</div>
+          <div class="arch-value">Car Oota</div>
+          <div class="arch-caption">Bengaluru window service at #301</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">Tiffin Pricing</div>
+          <div class="arch-value">$7.99+</div>
+          <div class="arch-caption">5% BC GST · Interac e-Transfer</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Hero & Live Kitchen Status -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-top">
+        <div>
+          <p class="kicker">Small-Batch South Indian Tiffin &amp; Catering · Langley, BC</p>
+          <h1 id="hero-title1" class="title">Delicious &amp; Authentic <em>South Indian</em> Flavors</h1>
+          <p class="lede">
+            Wholesome homemade South Indian meals crafted in small batches at our Langley kitchen with pure golden ghee, hand-roasted lentil podi, whole spices, zero preservatives, and zero artificial colors.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#menu" class="btn btn-primary">Explore Full Menu</a>
+            <!--<a href="#catering" class="btn btn-secondary">Catering &amp; Estimator</a>-->
+            <button type="button" class="btn btn-emerald" onclick="openPromoModal(0)">View Seasonal Offers</button>
+          </div>
+        </div>
+
+        <aside class="hero-status-panel" aria-label="Live kitchen operating status">
+          <p class="kicker">Live Kitchen Operating Status</p>
+          <!--<span id="header-live-status" class="status-pill">Checking Hours…</span>-->
+          <div id="live-status-mount"></div>
+          <p style="margin:0; font-size:0.875rem; color:var(--on-surface-variant);">
+            <strong>Pickup &amp; Park &amp; Dine:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6 · +1 (672) 975-1664
+          </p>
+        </aside>
+      </div>
+
+      <div class="ornament-rule" aria-hidden="true">◆ Pure Craft · Langley, BC ◆</div>
+    <div class="ornament-rule" aria-hidden="true"><span>◆</span><span>Langley Kitchen Service Modes</span><span>◆</span></div>
+
+    <!-- Park & Dine (Bengaluru Car Oota) & Service Modes -->
+    <section class="service-band" id="service-modes">
+      <div>
+        <span class="kicker">Choose Your Fulfillment Mode</span>
+        <h2 class="section-title" style="margin-top: var(--space-xs); margin-bottom: var(--space-md);">
+          Park &amp; Dine (<em>Bengaluru Car Oota</em>) &amp; Pickup
+        </h2>
+        <div class="mode-selector-grid">
+          <button type="button" class="mode-option is-active" id="mode-btn-car-oota" onclick="setServiceMode('car-oota')">
+            <div class="mode-icon-box">
+              <i data-lucide="car" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Park &amp; Dine (Bengaluru Car Oota)</span>
+                <span class="badge-emerald">Window Service</span>
+              </div>
+              <div class="mode-desc">
+                Pull up outside 20381 62 Ave #301 during Thu–Sun (9:30 AM – 2:30 PM). Enjoy piping-hot benne dose, ghee podi idli, and masala vada brought straight to your car window.
+              </div>
+            </div>
+          </button>
+
+          <button type="button" class="mode-option" id="mode-btn-pickup" onclick="setServiceMode('pickup')">
+            <div class="mode-icon-box">
+              <i data-lucide="shopping-bag" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Langley Kitchen Pickup</span>
+                <span class="badge-terracotta">Direct Counter</span>
+              </div>
+              <div class="mode-desc">
+                Collect your freshly packed small-batch order directly at Unit #301, Langley. Pre-settle via Interac e-Transfer to manasagkitchen@gmail.com.
+              </div>
+            </div>
+          </button>
+
+          <button type="button" class="mode-option" id="mode-btn-catering" onclick="setServiceMode('catering')">
+            <div class="mode-icon-box">
+              <i data-lucide="truck" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Drop-Off Event Catering</span>
+                <span class="badge-brass">24/7 Inquiries · Prepaid Uber</span>
+              </div>
+              <div class="mode-desc">
+                Formal drop-off catering dispatched exclusively via prepaid round-trip Uber courier. Governed by written email-only terms and milestone payments.
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <aside class="car-oota-card" aria-label="Active Service Mode Details">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
+          <span class="kicker" id="active-mode-kicker">Selected Window Mode</span>
+          <span class="badge-emerald" id="active-mode-badge">Bengaluru Car Oota Active</span>
+        </div>
+        <h3 style="font-size: 1.5rem;" id="active-mode-heading">How Bengaluru Car Oota Works at #301</h3>
+        <ol class="car-oota-steps" id="active-mode-steps">
+          <li><span class="step-num">1</span><span><strong>Build &amp; Submit Order:</strong> Add your dishes below, select <em>Park &amp; Dine</em> in the Cart Drawer, and include your vehicle make/color.</span></li>
+          <li><span class="step-num">2</span><span><strong>Interac e-Transfer:</strong> Send total with 5% BC GST to <strong>manasagkitchen@gmail.com</strong> prior to pickup window.</span></li>
+          <li><span class="step-num">3</span><span><strong>Pull Up &amp; Dine:</strong> Arrive at 20381 62 Ave #301 (Thu–Sun, 9:30 AM – 2:30 PM) and text or call <strong>+1 (672) 975-1664</strong> for car-window service.</span></li>
+        </ol>
+        <div class="inline-notice" id="car-oota-tip">
+          Tip: Your selected service mode syncs automatically with the Cart Drawer and your pre-filled Interac e-Transfer order email.
+        </div>
+      </aside>
+    </section>
+
+    <!-- Menu Explorer -->
+    <section id="menu-explorer" style="display: grid; gap: var(--space-lg);">
+      <div>
+        <span class="kicker">Unified Kitchen Menu · Thu–Sun 9:30 AM – 2:30 PM</span>
+        <h2 class="section-title" style="margin-top: var(--space-xs);">
+          Small-Batch Menu &amp; <em>Dietary</em> Explorer
+        </h2>
+      </div>
+
+      <div class="menu-toolbar">
+        <div class="toolbar-top-row">
+          <div class="search-field-wrap">
+            <label for="menu-search-input" class="field-label">Search Dishes, Ingredients, or Tags</label>
+            <input type="search" id="menu-search-input" class="input-control" placeholder="Try benne, idli, Friday Special, ragi, vada…" oninput="handleMenuSearch(this.value)">
+          </div>
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center;">
+            <span class="field-label" style="margin-right: var(--space-xs);">Dietary Filter:</span>
+            <button type="button" class="filter-pill" id="diet-btn-vegan" onclick="toggleDietaryFilter('vegan')">
+              <i data-lucide="leaf" width="15" height="15" aria-hidden="true"></i>
+              <span>Vegan</span>
+            </button>
+            <button type="button" class="filter-pill" id="diet-btn-gf" onclick="toggleDietaryFilter('gluten-free')">
+              <i data-lucide="wheat-off" width="15" height="15" aria-hidden="true"></i>
+              <span>Gluten-Free</span>
+            </button>
+            <button type="button" class="filter-pill" id="diet-btn-nuts" onclick="toggleDietaryFilter('contains-nuts')">
+              <i data-lucide="nut" width="15" height="15" aria-hidden="true"></i>
+              <span>Contains Nuts</span>
+            </button>
+            <button type="button" class="filter-pill" onclick="resetMenuFilters()">
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-pill-row" role="tablist" aria-label="Menu categories">
+          <button type="button" class="filter-pill is-active" id="cat-btn-all" onclick="setMenuCategory('all')">All Categories</button>
+          <button type="button" class="filter-pill" id="cat-btn-rice-day" onclick="setMenuCategory('Rice of the Day')">Rice of the Day</button>
+          <button type="button" class="filter-pill" id="cat-btn-rice-spec" onclick="setMenuCategory('Rice Specialities')">Rice Specialities</button>
+          <button type="button" class="filter-pill" id="cat-btn-breakfast" onclick="setMenuCategory('Breakfast Specials')">Breakfast Specials</button>
+          <button type="button" class="filter-pill" id="cat-btn-dosa" onclick="setMenuCategory('Dosa')">Dosa</button>
+          <button type="button" class="filter-pill" id="cat-btn-meals" onclick="setMenuCategory('Meals')">Meals</button>
+          <button type="button" class="filter-pill" id="cat-btn-desserts" onclick="setMenuCategory('Desserts')">Desserts</button>
+          <button type="button" class="filter-pill" id="cat-btn-addons" onclick="setMenuCategory('Add-ons')">Add-ons</button>
+        </div>
+      </div>
+
+      <div id="menu-results-meta" class="field-label" style="color: var(--on-surface-variant);"></div>
+      <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <div class="ornament-rule" aria-hidden="true"><span>◆</span><span>Delivery Apps &amp; Community</span><span>◆</span></div>
+
+    <!-- Delivery Partners & Social Links -->
+    <section id="delivery-partners" style="display: grid; gap: var(--space-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-md); flex-wrap: wrap;">
+        <div>
+          <span class="kicker">Delivery Apps (Thu–Sun, 9:30 AM – 3:00 PM) · Langley &amp; Greater Vancouver</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">
+            Direct Delivery Partners &amp; <em>Social</em> Channels
+          </h2>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="copyTextWithFeedback('20381 62 Ave #301, Langley, BC V3A 5E6', 'delivery-copy-feedback')">
+          <i data-lucide="copy" width="16" height="16" aria-hidden="true"></i>
+          <span>Copy Kitchen Address</span>
+        </button>
+      </div>
+
+      <div id="delivery-copy-feedback" class="inline-notice" style="display: none;"></div>
+
+      <div class="partners-grid">
+        <article class="partner-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="badge-terracotta">Virtual Brand · DashPass</span>
+              <span class="field-label">doordash.com</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-top: var(--space-sm);">DoorDash</h3>
+            <p style="font-size: 0.875rem; color: var(--on-surface-variant); margin: var(--space-xs) 0 0;">
+              Storefront: <strong>MG'S KITCHEN THE FLAVOUR SPECIALIST — Langley, BC</strong>. Delivery, Pickup, and Group Orders across Breakfast Specials, Rice Specialties, Signature Specials, Dosa &amp; Crepes, and Desserts.
+            </p>
+            <p style="font-size: 0.78rem; color: var(--secondary); margin: var(--space-sm) 0 0; font-style: italic;">
+              Merchant Notice: Prices on the DoorDash menu are set directly by the Merchant.
+            </p>
+          </div>
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" onclick="showPlatformDestination('doordash')">
+              <i data-lucide="external-link" width="16" height="16" aria-hidden="true"></i>
+              <span>DoorDash Storefront</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="badge-emerald">Courier &amp; Catering Dispatch</span>
+              <span class="field-label">ubereats.com</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-top: var(--space-sm);">UberEats</h3>
+            <p style="font-size: 0.875rem; color: var(--on-surface-variant); margin: var(--space-xs) 0 0;">
+              Storefront: <strong>MG'S KITCHEN (20381 62 Ave, 301, Langley Twp)</strong>. Order daily tiffins online, or schedule formal drop-off catering delivered exclusively via prepaid round-trip Uber courier.
+            </p>
+          </div>
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-emerald" onclick="showPlatformDestination('ubereats')">
+              <i data-lucide="external-link" width="16" height="16" aria-hidden="true"></i>
+              <span>UberEats Storefront</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="badge-brass">Canadian Delivery Network</span>
+              <span class="field-label">skipthedishes.com</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-top: var(--space-sm);">SkipTheDishes</h3>
+            <p style="font-size: 0.875rem; color: var(--on-surface-variant); margin: var(--space-xs) 0 0;">
+              Storefront: <strong>MG'S KITCHEN THE FLAVOUR SPECIALIST (20381 62 Ave Unit 301)</strong>. Local Langley delivery and takeout including Place Settings count requests.
+            </p>
+          </div>
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-secondary" onclick="showPlatformDestination('skipthedishes')">
+              <i data-lucide="external-link" width="16" height="16" aria-hidden="true"></i>
+              <span>SkipTheDishes Storefront</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div id="platform-destination-banner" class="inline-notice" style="display: none;"></div>
+
+      <!-- Social Channels with Lucide Icons -->
+      <div class="panel-card" style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
+        <div>
+          <div class="kicker">Connect &amp; Follow MG's Kitchen</div>
+          <p style="margin: var(--space-xs) 0 0; font-size: 0.9rem; color: var(--on-surface-variant);">
+            Follow daily Rice of the Day announcements, small-batch drops, and kitchen updates.
+          </p>
+        </div>
+        <div class="social-row">
+          <button type="button" class="social-pill" onclick="showPlatformDestination('instagram')">
+            <i data-lucide="instagram" width="18" height="18" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </button>
+          <button type="button" class="social-pill" onclick="showPlatformDestination('facebook')">
+            <i data-lucide="facebook" width="18" height="18" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </button>
+          <button type="button" class="social-pill" onclick="showPlatformDestination('youtube')">
+            <i data-lucide="youtube" width="18" height="18" aria-hidden="true"></i>
+            <span>YouTube</span>
+          </button>
+          <button type="button" class="social-pill" onclick="showPlatformDestination('whatsapp')">
+            <i data-lucide="message-circle" width="18" height="18" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-rule" aria-hidden="true"><span>◆</span><span>Drop-Off Catering &amp; Formal Terms</span><span>◆</span></div>
+
+    <!-- Interactive Catering Estimator -->
+    <section id="catering-estimator" style="display: grid; gap: var(--space-lg);">
+      <div>
+        <span class="kicker">Sections 2, 3 &amp; 4 · Strictly Non-Negotiable (No Discounts Policy)</span>
+        <h2 class="section-title" style="margin-top: var(--space-xs);">
+          Catering Payment <em>Estimator</em> &amp; Cutoff Planner
+        </h2>
+      </div>
+
+      <div class="catering-layout">
+        <div class="panel-card" style="display: grid; gap: var(--space-md);">
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="cat-client-name" class="field-label">Client / Host Name</label>
+              <input type="text" id="cat-client-name" class="input-control" placeholder="Enter host full name" oninput="updateCateringCalc()">
+            </div>
+            <div class="form-field">
+              <label for="cat-event-date" class="field-label">Event Date</label>
+              <input type="date" id="cat-event-date" class="input-control" value="2026-12-20" oninput="updateCateringCalc()">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cat-address" class="field-label">Delivery Address (Prepaid Round-Trip Uber Courier)</label>
+            <input type="text" id="cat-address" class="input-control" placeholder="Street address, city, postal code" oninput="updateCateringCalc()">
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="cat-guests" class="field-label">Guaranteed Guest Headcount</label>
+              <input type="number" id="cat-guests" class="input-control tabular" min="10" max="500" value="40" oninput="updateCateringCalc()">
+            </div>
+            <div class="form-field">
+              <label for="cat-per-guest" class="field-label">Menu Allocation ($ CAD / Guest)</label>
+              <input type="number" id="cat-per-guest" class="input-control tabular" min="0" step="0.5" value="15.50" oninput="updateCateringCalc()">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="cat-uber" class="field-label">Prepaid Round-Trip Uber Fee ($ CAD)</label>
+              <input type="number" id="cat-uber" class="input-control tabular" min="0" step="1" value="45" oninput="updateCateringCalc()">
+            </div>
+            <div class="form-field">
+              <label for="cat-labor-hrs" class="field-label">Door Setup Labor (Hours @ $20.00/hr)</label>
+              <input type="number" id="cat-labor-hrs" class="input-control tabular" min="0" max="12" step="0.5" value="0" oninput="updateCateringCalc()">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="cat-spice" class="field-label">Specified Spice Level (Finalized at Signing)</label>
+              <select id="cat-spice" class="select-control" onchange="updateCateringCalc()">
+                <option value="Mild">Mild</option>
+                <option value="Traditional Medium" selected>Traditional Medium</option>
+                <option value="Authentic South Indian Spicy">Authentic South Indian Spicy</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cat-dietary-split" class="field-label">Allergen / Dietary Accommodation</label>
+              <select id="cat-dietary-split" class="select-control" onchange="updateCateringCalc()">
+                <option value="Entire Order Uniform">Entire Order Uniform (100%)</option>
+                <option value="50% Volume Split (Max Allowed)">50% Volume Split (Max Allowed)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cat-payment" class="field-label">Accepted Payment Method</label>
+            <select id="cat-payment" class="select-control" onchange="updateCateringCalc()">
+              <option value="Interac e-Transfer (manasagkitchen@gmail.com · No card surcharge)">Interac e-Transfer (manasagkitchen@gmail.com · No card surcharge)</option>
+              <option value="Credit / Debit Card (Merchant processing surcharges apply)">Credit / Debit Card (Merchant processing surcharges apply)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" onclick="downloadAgreementSummary()">
+              <i data-lucide="download" width="16" height="16" aria-hidden="true"></i>
+              <span>Download Contract Summary (.txt)</span>
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="emailCateringInquiry()">
+              <i data-lucide="mail" width="16" height="16" aria-hidden="true"></i>
+              <span>Email Catering Inquiry</span>
+            </button>
+          </div>
+          <div id="cat-action-msg" class="inline-notice" style="display: none;"></div>
+        </div>
+
+        <!-- Estimator Output -->
+        <div class="panel-card" style="display: grid; gap: var(--space-md);">
+          <div class="summary-kpi-row">
+            <div class="arch-card is-featured">
+              <div class="arch-label">Total Contract + 5% GST</div>
+              <div class="arch-value tabular" id="cat-total-out">$733.95</div>
+              <div class="arch-caption" id="cat-per-guest-out">$18.35 per guest</div>
+            </div>
+            <div class="arch-card">
+              <div class="arch-label">Timeline Status</div>
+              <div class="arch-value tabular" id="cat-days-out">28 days</div>
+              <div class="arch-caption" id="cat-tier-out">7–29 Days: 50% refund or reschedule</div>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Cost Breakdown</th>
+                <th style="text-align: right;">Amount (CAD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Menu Subtotal (<span id="cat-guests-label">40</span> guests)</td>
+                <td class="num" id="cat-food-sub">$620.00</td>
+              </tr>
+              <tr>
+                <td>5% BC GST (Food &amp; Setup Services)</td>
+                <td class="num" id="cat-gst-out">$31.00</td>
+              </tr>
+              <tr>
+                <td>Prepaid Round-Trip Uber Courier</td>
+                <td class="num" id="cat-uber-out">$45.00</td>
+              </tr>
+              <tr>
+                <td>Door Setup Labor ($20.00/hr)</td>
+                <td class="num" id="cat-labor-out">$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Payment Milestone</th>
+                <th>Due Date</th>
+                <th style="text-align: right;">Due (CAD)</th>
+              </tr>
+            </thead>
+            <tbody id="cat-milestones-body"></tbody>
+          </table>
+
+          <div class="inline-notice is-warning" id="cat-cutoff-notice"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catering Service Agreement Rules -->
+    <section id="agreement-rules" style="display: grid; gap: var(--space-lg);">
+      <div>
+        <span class="kicker">Formal Terms &amp; Conditions · Drop-Off Catering</span>
+        <h2 class="section-title" style="margin-top: var(--space-xs);">
+          Catering Service <em>Agreement</em> Rules
+        </h2>
+      </div>
+
+      <div class="agreement-grid">
+        <article class="clause-card">
+          <span class="kicker">Section 1 · Service Scope &amp; Logistics</span>
+          <h3 style="font-size: 1.35rem;">Drop-Off, Uber &amp; Labor</h3>
+          <ul>
+            <li><strong>Drop-Off Only:</strong> No on-site waitstaff, table service, or ongoing event management under standard terms.</li>
+            <li><strong>Prepaid Round-Trip Uber:</strong> Delivered exclusively via Uber courier; client must prepay round-trip (to-and-fro) Uber charges prior to kitchen dispatch.</li>
+            <li><strong>Door Setup Labor:</strong> Room staging, unpacking, chafing dishes, and buffet setup are excluded. Pre-agreed door setup is billed at <strong>$20.00/hr</strong>.</li>
+            <li><strong>No Discounts Policy:</strong> Menu rates, delivery fees, and labor charges are strictly non-negotiable.</li>
+          </ul>
+        </article>
+
+        <article class="clause-card">
+          <span class="kicker">Section 2 · Guest Count Guarantees</span>
+          <h3 style="font-size: 1.35rem;">RSVP Cutoff &amp; Billing Floor</h3>
+          <ul>
+            <li><strong>RSVP Cutoff:</strong> Final guaranteed guest headcount must be submitted <strong>5 to 10 business days</strong> prior to the event date.</li>
+            <li><strong>Billing Floor:</strong> Final invoicing uses the guaranteed minimum headcount or actual attendance, whichever is higher.</li>
+            <li><strong>Reductions:</strong> Must be emailed in writing at least <strong>3 business days</strong> prior; late reductions cannot be accommodated.</li>
+            <li><strong>Late Additions:</strong> Additions exceeding 5 guests post-cutoff incur extra per-person charges subject to supply.</li>
+          </ul>
+        </article>
+
+        <article class="clause-card">
+          <span class="kicker">Section 3 · Payment Schedule</span>
+          <h3 style="font-size: 1.35rem;">50% / 25% / 25% Settlement</h3>
+          <ul>
+            <li><strong>Initial Deposit:</strong> <strong>50% (Non-Refundable)</strong> due upon contract execution.</li>
+            <li><strong>Second Installment:</strong> <strong>25%</strong> due 7 days (1 week) prior to event date.</li>
+            <li><strong>Final Balance:</strong> <strong>25%</strong> due day of event, prior to order dispatch.</li>
+            <li><strong>Strict Advance Settlement:</strong> 100% of food, Uber transit, and labor must clear before dispatch (no COD, deferred, or net terms).</li>
+            <li><strong>Methods:</strong> Interac e-Transfer (manasagkitchen@gmail.com) or Credit/Debit Card (merchant surcharges apply).</li>
+          </ul>
+        </article>
+
+        <article class="clause-card">
+          <span class="kicker">Section 4 · Cancellations &amp; Rush</span>
+          <h3 style="font-size: 1.35rem;">Refund Tiers &amp; Grocery Policy</h3>
+          <ul>
+            <li><strong>30+ Days Prior:</strong> Full refund less minimal administrative and processing charges.</li>
+            <li><strong>7 to 29 Days Prior:</strong> 50% refund, or option to reschedule date/time/venue (subject to capacity &amp; approval).</li>
+            <li><strong>Under 7 Days Prior:</strong> <strong>0% refund</strong> — total forfeiture of all funds paid.</li>
+            <li><strong>Rush Orders (&lt;7 Days):</strong> Require immediate <strong>100% upfront payment</strong> upon confirmation.</li>
+            <li><strong>Grocery &amp; Materials Policy:</strong> Grocery receipts, raw goods, or wholesale items are never transferred to the Client.</li>
+          </ul>
+        </article>
+
+        <article class="clause-card">
+          <span class="kicker">Section 5 · Safety &amp; Allergens</span>
+          <h3 style="font-size: 1.35rem;">2-Hour Window &amp; Splits</h3>
+          <ul>
+            <li><strong>Dietary / Allergen Splits:</strong> Adjustments accepted exclusively for the <strong>entire order</strong> or a <strong>50% volume split</strong> (no individual single-serving allergen plates).</li>
+            <li><strong>Spice Profile:</strong> Finalized at contract signing; post-signing changes cannot be guaranteed.</li>
+            <li><strong>2-Hour Safe Consumption:</strong> Quality guaranteed to handover; Client assumes legal &amp; physical liability for temperature/hygiene <strong>2 hours after delivery</strong>.</li>
+            <li><strong>Equipment &amp; Force Majeure:</strong> Client liable for lost/damaged rentals; standard Force Majeure exemptions apply.</li>
+          </ul>
+        </article>
+
+        <article class="clause-card">
+          <span class="kicker">Section 6 · Communication &amp; Tastings</span>
+          <h3 style="font-size: 1.35rem;">Email-Only &amp; Sweet Rule</h3>
+          <ul>
+            <li><strong>Email-Only Policy:</strong> Phone calls, texts, and verbal discussions are <strong>not accepted</strong> for order modifications. All updates must be emailed to <strong>manasagkitchen@gmail.com</strong>.</li>
+            <li><strong>3-Day Deadline:</strong> Menu changes must be emailed at least <strong>3 days</strong> prior; later changes incur extra fees if approved.</li>
+            <li><strong>Sweet Tastings:</strong> Sweets cannot be sampled prior to the event (cannot be made in small test batches).</li>
+            <li><strong>Savory Tastings:</strong> Non-sweet items may be ordered &amp; tasted in advance with adjustable spice.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Location & Contact Schematic -->
+    <section class="location-card" aria-label="Langley kitchen location">
+      <div style="display: grid; gap: var(--space-sm);">
+        <span class="kicker">Direct Kitchen Pickup &amp; Park &amp; Dine</span>
+        <h2 class="section-title">20381 62 Ave #301, <em>Langley</em>, BC</h2>
+        <p style="margin: 0; color: var(--on-surface-variant);">
+          Located along the 62 Ave corridor near 204 St in Langley, BC (V3A 5E6). Active storefront pickup and Bengaluru Car Oota window service operate Thu–Sun, 9:30 AM – 2:30 PM.
+        </p>
+        <div style="display: grid; gap: var(--space-xs); font-size: 0.9rem; margin-top: var(--space-xs);">
+          <div><strong>Phone / Car Oota Arrival:</strong> +1 (672) 975-1664</div>
+          <div><strong>Orders &amp; Interac e-Transfer:</strong> manasagkitchen@gmail.com</div>
+          <div><strong>Kitchen Inquiries:</strong> manasagkitchen@gmail.com</div>
+          <div><strong>Website:</strong> www.mgkitchen.ca</div>
+        </div>
+      </div>
+
+      <div class="schematic-box">
+        <svg viewBox="0 0 420 210" width="100%" role="img" aria-label="Schematic map of MG's Kitchen at 20381 62 Ave Unit 301 near 204 St in Langley, BC">
+          <rect x="0" y="0" width="420" height="210" rx="10" fill="var(--background)" />
+          <line x1="20" y1="110" x2="400" y2="110" stroke="var(--outline)" stroke-width="10" stroke-linecap="round" />
+          <line x1="270" y1="20" x2="270" y2="195" stroke="var(--outline)" stroke-width="10" stroke-linecap="round" />
+          <line x1="20" y1="110" x2="400" y2="110" stroke="var(--background)" stroke-width="1.5" stroke-dasharray="8 6" />
+          <text x="34" y="96" fill="var(--on-surface-variant)" font-size="11" font-family="Plus Jakarta Sans, sans-serif" font-weight="700">62 AVE CORRIDOR · LANGLEY</text>
+          <text x="282" y="42" fill="var(--on-surface-variant)" font-size="11" font-family="Plus Jakarta Sans, sans-serif" font-weight="700">204 ST</text>
+          <rect x="132" y="126" width="118" height="58" rx="8" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2" />
+          <circle cx="191" cy="110" r="8" fill="var(--primary)" />
+          <text x="191" y="149" text-anchor="middle" fill="var(--on-primary-container)" font-size="12" font-family="Cormorant Garamond, serif" font-weight="700">MG's Kitchen (#301)</text>
+          <text x="191" y="167" text-anchor="middle" fill="var(--on-surface-variant)" font-size="10" font-family="Plus Jakarta Sans, sans-serif">20381 62 Ave · Car Oota</text>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+         <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <h3 style="font-size: 1.5rem;">MG's Kitchen — The Flavour Specialist</h3>
+        <p style="font-size: 0.875rem; color: var(--on-surface-variant); margin-top: var(--space-xs);">
+          Homemade South Indian meals prepared in small batches with pure ghee, whole spices, zero preservatives, and zero artificial colors in Langley, BC.
+        </p>
+      </div>
+      <div>
+        <div class="kicker" style="margin-bottom: var(--space-xs);">Service Hours</div>
+        <div style="font-size: 0.875rem; color: var(--on-surface-variant); display: grid; gap: 4px;">
+          <div><strong>Mon – Wed:</strong> Closed (24/7 Catering Inquiries)</div>
+          <div><strong>Thu – Sun (Park &amp; Dine / Pickup):</strong> 9:30 AM – 2:30 PM</div>
+          <div><strong>Thu – Sun (Delivery Apps):</strong> 9:30 AM – 3:00 PM</div>
+        </div>
+      </div>
+      <div>
+        <div class="kicker" style="margin-bottom: var(--space-xs);">Direct Contact</div>
+        <div style="font-size: 0.875rem; color: var(--on-surface-variant); display: grid; gap: 4px;">
+          <div>20381 62 Ave #301, Langley, BC V3A 5E6</div>
+          <div>+1 (672) 975-1664</div>
+          <div>manasagkitchen@gmail.com · manasagkitchen@gmail.com</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Side Cart Drawer -->
+  <div class="cart-backdrop" id="cart-backdrop" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart Drawer" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <div>
+        <div class="kicker">MG's Kitchen Order</div>
+        <h2 style="font-size: 1.5rem;">Your Cart &amp; <em>Checkout</em></h2>
+      </div>
+      <button type="button" class="btn btn-secondary" style="padding: 0.45rem 0.9rem;" onclick="closeCartDrawer()" aria-label="Close cart drawer">
+        <i data-lucide="x" width="18" height="18" aria-hidden="true"></i>
+        <span>Close</span>
+      </button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div class="form-field">
+        <label for="cart-fulfillment-select" class="field-label">Service Mode</label>
+        <select id="cart-fulfillment-select" class="select-control" onchange="setServiceMode(this.value)">
+          <option value="car-oota">Park &amp; Dine (Bengaluru Car Oota — 20381 62 Ave #301)</option>
+          <option value="pickup">Langley Kitchen Pickup (Unit #301)</option>
+          <option value="catering">Prepaid Uber Drop-Off Catering Inquiry</option>
+        </select>
+      </div>
+
+      <div id="cart-items-list" style="display: grid; gap: var(--space-sm);"></div>
+
+      <div class="cart-totals-box">
+        <div class="total-line">
+          <span>Subtotal</span>
+          <span class="tabular" id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="total-line">
+          <span>BC GST (5%)</span>
+          <span class="tabular" id="cart-gst">$0.00</span>
+        </div>
+        <div class="total-line grand">
+          <span>Total Due (CAD)</span>
+          <span class="tabular" id="cart-total">$0.00</span>
+        </div>
+      </div>
+
+      <div class="inline-notice">
+        <strong>Interac e-Transfer Instruction:</strong> Send payment to <strong>manasagkitchen@gmail.com</strong> prior to or upon submitting your order. 100% settlement is required before order dispatch.
+      </div>
+
+      <div class="form-field">
+        <label for="cart-customer-name" class="field-label">Your Name</label>
+        <input type="text" id="cart-customer-name" class="input-control" placeholder="Full name" oninput="persistCurrentState()">
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-field">
+          <label for="cart-customer-contact" class="field-label">Email or Phone</label>
+          <input type="text" id="cart-customer-contact" class="input-control" placeholder="Phone or email" oninput="persistCurrentState()">
+        </div>
+        <div class="form-field">
+          <label for="cart-spice-level" class="field-label">Spice Preference</label>
+          <select id="cart-spice-level" class="select-control" onchange="persistCurrentState()">
+            <option value="Mild">Mild</option>
+            <option value="Traditional Medium" selected>Traditional Medium</option>
+            <option value="Authentic South Indian Spicy">Authentic South Indian Spicy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field" id="cart-vehicle-field">
+        <label for="cart-vehicle-note" class="field-label">Car Oota Vehicle Make / Color / Arrival Time</label>
+        <input type="text" id="cart-vehicle-note" class="input-control" placeholder="e.g., Silver Honda Civic, arriving 12:15 PM" oninput="persistCurrentState()">
+      </div>
+
+      <div class="form-field">
+        <label for="cart-notes" class="field-label">Dietary Split or Order Notes (Email-Only)</label>
+        <textarea id="cart-notes" class="textarea-control" rows="2" placeholder="Allergens, place settings count, or delivery notes…" oninput="persistCurrentState()"></textarea>
+      </div>
+
+      <div id="cart-validation-msg" class="inline-notice is-error" style="display: none;"></div>
+      <div id="cart-email-preview" class="inline-notice" style="display: none;"></div>
+
+      <div style="display: grid; gap: var(--space-sm);">
+        <a href="mailto:manasagkitchen@gmail.com" id="cart-mailto-btn" class="btn btn-primary" onclick="return prepareCartMailto(event)">
+          <i data-lucide="mail" width="18" height="18" aria-hidden="true"></i>
+          <span>Submit Interac Order via Email (manasagkitchen@gmail.com)</span>
+        </a>
+        <div style="display: flex; gap: var(--space-sm);">
+          <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="copyOrderToClipboard()">
+            <i data-lucide="copy" width="16" height="16" aria-hidden="true"></i>
+            <span>Copy Summary</span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="clear-cart-btn" onclick="clearCart(this)">
+            <span>Clear Cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <api-shim></api-shim>
+ 
+</body>
+</html>

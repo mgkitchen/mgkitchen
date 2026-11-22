@@ -87,7 +87,69 @@
       --dur-short: 220ms;
       --dur-long: 420ms;
     }
+    .brand-text {
+      display: block;
+    }
+     .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--rounded-lg);
+      overflow: hidden;
+      border: 1px solid var(--brass-border);
+      background: var(--primary-container);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .brand-logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--primary);
+      background: var(--primary-container);
+      letter-spacing: 0.04em;
+    }
+    .brand-text-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      color: var(--on-surface);
+    }
+    .brand-text-sub {
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
 
+   @media (max-width: 767px) {
+  /* Replace .brand-text with the actual class/tag wrapping "MG's Kitchen" & tagline */
+  header .brand-text,
+  .brand-text {
+    display: none !important;
+  }
+}
     /* Base reset */
     *, *::before, *::after { box-sizing: border-box; }
     html, body {
@@ -193,6 +255,111 @@
       color: var(--secondary);
       white-space: nowrap;
     }
+ /* Park & Dine (Bengaluru Car Oota) & Service Mode Section */
+    .service-band {
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .mode-selector-grid {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .mode-option {
+      width: 100%;
+      text-align: left;
+      background: var(--surface-elevated);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .mode-option:hover {
+      background: var(--surface-container-low);
+      box-shadow: var(--soft-shadow);
+    }
+    .mode-option.is-active {
+      background: var(--primary-container);
+      border-color: var(--featured-border);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+    .mode-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .mode-option.is-active .mode-icon-box {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .mode-title {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .mode-desc {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin-top: var(--space-xs);
+    }
+    .car-oota-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--brass-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .car-oota-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .car-oota-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--rounded-full);
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      font-size: var(--label-size);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
 
     .header-nav {
       display: flex;
@@ -218,13 +385,73 @@
       background-color: var(--surface-container-low);
       color: var(--primary);
     }
+    .mobile-nav-panel {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 16px;
+    }
 
+    .mobile-nav-panel.is-open {
+      display: flex;
+    }
+
+ /* Default (desktop & tablet): hidden */
+.hamburger-btn,
+#mobileNavBtn {
+  display: none;
+}
+
+/* Mobile only: shown below 768px */
+@media (max-width: 768px) {
+  .header, .hamburger-btn,
+  #mobileNavBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
     .header-actions {
       display: flex;
       align-items: center;
       gap: var(--space-sm);
       flex-shrink: 0;
     }
+.hamburger-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+  
+  .hamburger-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 20px;
+    background: inherit;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    z-index: 50;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
 
     .status-pill {
       display: inline-flex;
@@ -1064,7 +1291,25 @@
       font-size: 0.9375rem;
       font-variant-numeric: tabular-nums;
     }
-
+.inline-notice {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border: 1px solid var(--emerald-border);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .inline-notice.is-warning {
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+      border-color: var(--brass-border);
+    }
+    .inline-notice.is-error {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      border-color: var(--error);
+    }
     .summary-total {
       display: flex;
       justify-content: space-between;
@@ -1232,3 +1477,4 @@
         scroll-behavior: auto !important;
       }
     }
+    @keyframes fd-sweep{0%{left:-80%}28%{left:130%}100%{left:130%}}.fd-shine{position:absolute;top:0;left:-80%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent);transform:skewX(-18deg);animation:fd-sweep 3.2s ease-in-out 0.8s infinite;pointer-events:none;border-radius:inherit;}

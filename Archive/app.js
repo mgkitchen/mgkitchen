@@ -452,7 +452,7 @@
           `Second Installment: 25% due 7 days (1 week) prior to event date.`,
           `Final Balance: 25% due day of event, prior to kitchen dispatch.`,
           `Strict Advance Settlement: 100% of total balance, Uber fees, and labor must be settled before food leaves the kitchen. No deferred billing, net terms, or cash-on-delivery.`,
-          `Accepted Methods: Interac e-Transfer (manasagkitchen@gmail.com) or Credit/Debit Card (subject to standard merchant processing surcharges).`
+          `Accepted Methods: Interac e-Transfer (${BUSINESS_EMAIL}) or Credit/Debit Card (subject to standard merchant processing surcharges).`
         ]
       },
       {

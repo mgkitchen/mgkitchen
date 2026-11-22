@@ -28,7 +28,7 @@
   "@id": "[suspicious link removed]",
   "url": "https://www.mgkitchen.ca",
   "telephone": "+1-604-000-0000",
-  "email": "mgskitchen@gmail.com",
+  "email": "manasagkitchen@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "20381 62 Ave Unit 301",
@@ -72,23 +72,37 @@
   <!-- Floating Sticky Header -->
   <header class="floating-header">
     <div class="header-inner">
-      <a href="#top" class="brand-mark">
-        <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-        <span class="brand-fallback-svg" aria-hidden="true">MG</span>
-        <span class="brand-text">
-          <span class="brand-name">MG's Kitchen</span>
-          <span class="brand-sub">The Flavour Specialist</span>
-        </span>
+    <a href="#top" class="brand-lockup">
+        <div class="brand-logo-box">
+           <img src="./Logoblk.jpeg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+          <span class="brand-logo-fallback" aria-hidden="true">MG</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-text-title">MG's Kitchen</div>
+          <div class="brand-text-sub">The Flavour Specialist · Langley, BC</div>
+        </div>
       </a>
-
-      <nav class="header-nav" aria-label="Primary sections">
+      <!--<nav class="header-nav" aria-label="Primary sections">
+        <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
         <a href="#menu" class="nav-link">Menu</a>
-        <!--<a href="#catering" class="nav-link">Special Catering</a>-->
         <a href="#agreement" class="nav-link">Agreement</a>
         <a href="#delivery" class="nav-link">Delivery &amp; Social</a>
-      </nav>
-
+      </nav>-->
+      <nav class="header-nav" aria-label="Primary sections">
+  <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
+  <a href="#menu" class="nav-link mobile-toggleable">Menu</a>
+  <!--<a href="#catering" class="nav-link mobile-toggleable">Special Catering</a>-->
+  <a href="#agreement" class="nav-link mobile-toggleable">Agreement</a>
+  <a href="#delivery" class="nav-link mobile-toggleable">Delivery &amp; Social</a>
+</nav>
+<div id="mobileNavPanel" class="mobile-nav-panel" hidden>
+  <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
+  <a href="#menu" class="nav-link">Menu</a>
+  <a href="#delivery" class="nav-link">Delivery &amp; Social</a>
+</div>
       <div class="header-actions">
+       <button   id="mobileNavBtn"   type="button"  class="hamburger-btn"  aria-label="Toggle navigation menu" aria-expanded="false"  aria-controls="mobileNavPanel">☰</button>
+       <div class="header-actions">
         <!--<span id="header-live-status" class="status-pill">Checking Hours…</span>-->
         <button type="button" class="btn btn-secondary btn-sm" onclick="openPromoModal(0)">
           <i data-lucide="sparkles" aria-hidden="true"></i>
@@ -142,7 +156,7 @@
         <article class="arch-card">
           <div class="arch-label">Kitchen Window</div>
           <div class="arch-figure">Thu–Sun</div>
-          <div class="arch-caption">08:00 AM – 3:00 PM</div>
+          <div class="arch-caption">11 A.M. - 4:40 P.M</div>
         </article>
         <article class="arch-card">
           <div class="arch-label">Daily Tiffin</div>
@@ -156,7 +170,77 @@
         </article>
       </div>
     </section>
+<!-- Park & Dine (Bengaluru Car Oota) & Service Modes -->
+    <section class="service-band" id="service-modes">
+      <div>
+        <span class="kicker">Choose Your Fulfillment Mode</span>
+        <h2 class="section-title" style="margin-top: var(--space-xs); margin-bottom: var(--space-md);">
+          Park &amp; Dine (<em>Bengaluru Car Oota</em>) &amp; Pickup
+        </h2>
+        <div class="mode-selector-grid">
+          <button type="button" class="mode-option is-active" id="mode-btn-car-oota" onclick="setServiceMode('car-oota')">
+            <div class="mode-icon-box">
+              <i data-lucide="car" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Park &amp; Dine (Bengaluru Car Oota)</span>
+                <span class="badge-emerald">Window Service</span>
+              </div>
+              <div class="mode-desc">
+                Pull up outside 20381 62 Ave #301 during Thu–Sun (11 A.M. - 4:40 P.M). Enjoy piping-hot benne dose, ghee podi idli, and masala vada brought straight to your car window.
+              </div>
+            </div>
+          </button>
 
+          <button type="button" class="mode-option" id="mode-btn-pickup" onclick="setServiceMode('pickup')">
+            <div class="mode-icon-box">
+              <i data-lucide="shopping-bag" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Langley Kitchen Pickup</span>
+                <span class="badge-terracotta">Direct Counter</span>
+              </div>
+              <div class="mode-desc">
+                Collect your freshly packed small-batch order directly at Unit #301, Langley. Pre-settle via Interac e-Transfer to manasagkitchen@gmail.com.
+              </div>
+            </div>
+          </button>
+
+          <button type="button" class="mode-option" id="mode-btn-catering" onclick="setServiceMode('catering')">
+            <div class="mode-icon-box">
+              <i data-lucide="truck" width="20" height="20" aria-hidden="true"></i>
+            </div>
+            <div>
+              <div class="mode-title">
+                <span>Drop-Off Event Catering</span>
+                <span class="badge-brass">24/7 Inquiries · Prepaid Uber</span>
+              </div>
+              <div class="mode-desc">
+                Formal drop-off catering dispatched exclusively via prepaid round-trip Uber courier. Governed by written email-only terms and milestone payments.
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <aside class="car-oota-card" aria-label="Active Service Mode Details">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
+          <span class="kicker" id="active-mode-kicker">Selected Window Mode</span>
+          <span class="badge-emerald" id="active-mode-badge">Bengaluru Car Oota Active</span>
+        </div>
+        <h3 style="font-size: 1.5rem;" id="active-mode-heading">How Bengaluru Car Oota Works at #301</h3>
+        <ol class="car-oota-steps" id="active-mode-steps">
+          <li><span class="step-num">1</span><span><strong>Build &amp; Submit Order:</strong> Add your dishes below, select <em>Park &amp; Dine</em> in the Cart Drawer, and include your vehicle make/color.</span></li>
+          <li><span class="step-num">2</span><span><strong>Interac e-Transfer:</strong> Send total with 5% BC GST to <strong>manasagkitchen@gmail.com</strong> prior to pickup window.</span></li>
+          <li><span class="step-num">3</span><span><strong>Pull Up &amp; Dine:</strong> Arrive at 20381 62 Ave #301 (Thu–Sun, 11 A.M. - 4:40 P.M) and text or call <strong>+1 (672) 975-1664</strong> for car-window service.</span></li>
+        </ol>
+        <div class="inline-notice" id="car-oota-tip">
+          Tip: Your selected service mode syncs automatically with the Cart Drawer and your pre-filled Interac e-Transfer order email.
+        </div>
+      </aside>
+    </section>
     <!-- Promotions Teaser Strip (Hydrated from PROMO_SLIDES) -->
     <section aria-labelledby="promo-heading">
       <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap; margin-bottom:var(--space-md);">
@@ -204,7 +288,7 @@
     <section id="menu" aria-labelledby="menu-heading">
       <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap;">
         <div>
-          <p class="kicker">Unified Kitchen Menu · Thu–Sun 9:30 AM – 3:00 PM</p>
+          <p class="kicker">Unified Kitchen Menu · Thu–Sun 11 A.M. - 4:40 P.M</p>
           <h2 id="menu-heading" class="section-title">Menu &amp; Culinary <em>Gallery</em></h2>
         </div>
         <span id="menu-count-label" class="badge-emerald">Showing 23 dishes</span>
@@ -395,7 +479,7 @@
       <p class="kicker">Delivery Partners &amp; Community · Langley, BC</p>
       <h2 id="delivery-heading" class="section-title">Order Online &amp; <em>Connect</em></h2>
       <p class="lede">
-        Order individual small-batch dishes Thursday–Sunday (9:30 AM – 3:00 PM) via our delivery partner storefronts, or submit a direct Kitchen Pickup, Park &amp; Dine, or Prepaid Uber Catering order through your Cart.
+        Order individual small-batch dishes Thursday–Sunday (11 A.M. - 4:40 P.M) via our delivery partner storefronts, or submit a direct Kitchen Pickup, Park &amp; Dine, or Prepaid Uber Catering order through your Cart.
       </p>
 
       <div id="delivery-partners-mount" class="partners-grid"></div>
@@ -415,12 +499,17 @@
     <div class="footer-inner">
       <div>
         <div style="display:flex; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-sm);">
-          <img src="./logonew.jpg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-          <span class="brand-fallback-svg" aria-hidden="true">MG</span>
-          <div>
-            <strong style="font-family:var(--font-headline); font-size:1.35rem; display:block; line-height:1.1;">MG's Kitchen</strong>
-            <span style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--secondary); font-weight:700;">The Flavour Specialist</span>
-          </div>
+         <a href="#top" class="brand-lockup">
+        <div class="brand-logo-box">
+           <img src="./Logoblk.jpeg" alt="MG's Kitchen Logo" style="height: 60px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+          <span class="brand-logo-fallback" aria-hidden="true">MG</span>
+        </div>
+        <div>
+          <div class="brand-text-title">MG's Kitchen</div>
+          <div class="brand-text-sub">The Flavour Specialist · Langley, BC</div>
+        </div>
+      </a>
+ 
         </div>
         <p style="margin:0 0 var(--space-sm); font-size:0.9rem; color:var(--on-surface-variant);">
           Homemade South Indian meals prepared in small batches in Langley, BC with pure ingredients, zero preservatives, and zero artificial colors.
@@ -575,18 +664,20 @@
           </div>
           <button type="button" class="btn btn-secondary btn-sm" onclick="closePromoModal()" aria-label="Close promotions modal">Close</button>
         </div>
-        <p id="promo-modal-desc" style="margin:0; color:var(--on-surface-variant);"></p>
-        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-sm); background:var(--surface-container-low); padding:var(--space-sm) var(--space-md); border-radius:var(--rounded); border:var(--warm-hairline);">
+        <p id="promo-modal-desc" style="display:block; font-size:0.78rem; margin:0; color:var(--on-surface-variant);"></p>
+         <strong id="promo-modal-code" style="font-size:1.1rem; color:var(--primary); letter-spacing:0.06em;"></strong> 
+         <button type="button" class="btn btn-primary btn-sm" onclick="applyCurrentPromoToCart()">Apply to Cart</button>
+       <!-- <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-sm); background:var(--surface-container-low); padding:var(--space-sm) var(--space-md); border-radius:var(--rounded); border:var(--warm-hairline);">
           <div>
             <span class="field-label" style="display:block;">Discount Code</span>
-            <strong id="promo-modal-code" style="font-size:1.1rem; color:var(--primary); letter-spacing:0.06em;"></strong>
+           <strong id="promo-modal-code" style="font-size:1.1rem; color:var(--primary); letter-spacing:0.06em;"></strong> 
             <span id="promo-modal-window" style="display:block; font-size:0.78rem; color:var(--on-surface-variant);"></span>
           </div>
           <div style="display:flex; gap:var(--space-xs); flex-wrap:wrap;">
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyCurrentPromoCode()">Copy Code</button>
             <button type="button" class="btn btn-primary btn-sm" onclick="applyCurrentPromoToCart()">Apply to Cart</button>
           </div>
-        </div>
+        </div>--> 
         <div class="promo-modal-nav">
           <button type="button" class="btn btn-secondary btn-sm" onclick="stepPromoSlide(-1)">Previous</button>
           <div id="promo-modal-dots" class="promo-dots"></div>

@@ -15,38 +15,28 @@
         category: `Rice Specialties`,
         tags: [`Featured`, `Most Ordered`, `Catering Favorite`],
         description: `Fragrant South Indian spiced rice and semolina simmered with vine-ripened tomatoes, roasted cashews, green peas, mustard seeds, and aromatic curry leaves.`,
-        price: 11.95,
+        price: 19.13,
         spiceLevel: `Medium`,
         isVegan: true,
         isGlutenFree: false,
         containsNuts: true,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `ghee-podi-idli`,
-        name: `Ghee Podi Idli`,
+        name: `Ghee Podi Idli & Chatney`,
         category: `Breakfast Specials`,
         tags: [`Featured`, `Signature Tiffin`, `Catering Favorite`],
         description: `Mini steamed rice cakes tossed in authentic pure golden ghee and a robust, house-blended roasted lentil gunpowder spice mix (podi) with crispy curry leaves.`,
-        price: 12.95,
+        price: 17.72,
         spiceLevel: `Spiced`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
-      },
-      {
-        id: `masala-vada`,
-        name: `Masala Vada`,
-        category: `Breakfast Specials`,
-        tags: [`Featured`, `Popular`, `Crisp Fritters`],
-        description: `Deep-fried, coarsely ground split chickpea (chana dal) patties infused with onions, fresh green chilies, ginger, fennel, and hand-selected regional herbs.`,
-        price: 8.95,
-        spiceLevel: `Mild–Medium`,
-        isVegan: true,
-        isGlutenFree: true,
-        containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
+        
       },
       {
         id: `kharabath-upma`,
@@ -54,12 +44,13 @@
         category: `Breakfast Specials`,
         tags: [`Featured`, `Breakfast Classic`],
         description: `Warm, comforting roasted semolina slow-cooked with pure ghee, tempered mustard seeds, toasted cashews, garden vegetables, and fresh cilantro.`,
-        price: 7.99,
+        price: 11.99,
         spiceLevel: `Mild`,
         isVegan: false,
         isGlutenFree: false,
         containsNuts: true,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `kharabath-kesari-duo`,
@@ -67,12 +58,13 @@
         category: `Breakfast Specials`,
         tags: [`Featured`, `#1 Most Liked`],
         description: `The ultimate sweet-and-savory breakfast duo pairing a rich, spiced vegetable semolina upma with a sweet, aromatic ghee-laden pineapple kesari halwa.`,
-        price: 12.50,
+        price: 16.73,
         spiceLevel: `Mild & Sweet`,
         isVegan: false,
         isGlutenFree: false,
         containsNuts: true,
-        noPreTasting: true
+        noPreTasting: true,
+        isActive: true
       },
       {
         id: `khara-sweet-pongal`,
@@ -85,7 +77,8 @@
         isVegan: false,
         isGlutenFree: true,
         containsNuts: true,
-        noPreTasting: true
+        noPreTasting: true,
+        isActive: false
       },
       {
         id: `rava-idly-saagu`,
@@ -98,7 +91,8 @@
         isVegan: false,
         isGlutenFree: false,
         containsNuts: true,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: false
       },
       {
         id: `idli-coconut-chutney`,
@@ -106,12 +100,13 @@
         category: `Breakfast Specials`,
         tags: [`Featured`, `Popular`],
         description: `Soft, fluffy fermented rice and lentil cakes steamed to perfection, served fresh alongside a creamy, cooling freshly grated coconut chutney.`,
-        price: 11.95,
+        price: 16.72,
         spiceLevel: `Mild`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `medu-vada`,
@@ -124,7 +119,8 @@
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: false
       },
       {
         id: `lemon-rice`,
@@ -132,12 +128,13 @@
         category: `Rice Specialties`,
         tags: [`Featured`, `Zesty Delight`],
         description: `Light and bright aromatic basmati rice tempered with fresh lemon juice, mustard seeds, curry leaves, turmeric, and crunchy roasted peanuts.`,
-        price: 12.95,
+        price: 18.93,
         spiceLevel: `Mild`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: true,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `mango-rice`,
@@ -145,12 +142,13 @@
         category: `Rice Specialties`,
         tags: [`Featured`, `Seasonal Special`],
         description: `Zesty seasonal rice tossed with freshly grated tangy raw mango, split lentils, green chilies, and aromatic oil tempering.`,
-        price: 12.95,
+        price: 18.93,
         spiceLevel: `Mild–Medium`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `curry-leaves-rice`,
@@ -158,25 +156,27 @@
         category: `Rice Specialties`,
         tags: [`Aromatic & Earthy`],
         description: `Fluffy white rice sautéed in a deeply flavorful, earthy paste of slow-roasted curry leaves, aromatic garlic, black pepper, and toasted lentils.`,
-        price: 12.95,
+        price: 18.93,
         spiceLevel: `Medium`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `meals-ragi-platter`,
-        name: `Meals (Rice + Ragi Balls + Sambar + Rasam)`,
-        category: `Rice Specialties`,
+        name: `Meals (Ragi Balls + Rice + Sambar)`,
+        category: `Meals`,
         tags: [`Traditional Platter`],
-        description: `A traditional, highly nutritious platter featuring a steamed finger millet ball, fluffy rice, a hearty vegetable sambar, and a tangy pepper-tomato rasam broth.`,
-        price: 19.95,
+        description: `2 medium ragi (finger millet) balls, 24 oz sambar, and 12 oz rice (Scheduled orders only). A traditional, highly nutritious platter featuring a steamed finger millet ball, fluffy rice, a hearty vegetable sambar, and a tangy pepper-tomato rasam broth.`,
+        price: 32.00,
         spiceLevel: `Medium`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `mushroom-biryani`,
@@ -189,7 +189,8 @@
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: false
       },
       {
         id: `benne-dose-saagu`,
@@ -197,12 +198,13 @@
         category: `Signature Specials`,
         tags: [`Featured`, `Signature`],
         description: `A distinct regional crepe roasted in generous amounts of pure creamery butter for a crispy exterior and spongy center, served with coconut-based mixed veg gravy.`,
-        price: 13.95,
+        price: 26.53,
         spiceLevel: `Mild`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `ghee-rice-kurma`,
@@ -210,12 +212,13 @@
         category: `Signature Specials`,
         tags: [`Darshini Style`],
         description: `Fragrant rice delicately tossed in pure golden ghee, seasoned with mild whole spices, curry leaves, and crunchy cashews, paired with vegetable kurma.`,
-        price: 18.95,
+        price: 23.73,
         spiceLevel: `Mild`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: true,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `vegetable-pulao`,
@@ -223,12 +226,13 @@
         category: `Signature Specials`,
         tags: [`Featured`, `#3 Most Liked`],
         description: `Fragrant short-grain rice slow-cooked with a vibrant paste of fresh mint, cilantro, and seasonal garden vegetables. Served with cooling yogurt raita.`,
-        price: 14.95,
+        price: 23.73,
         spiceLevel: `Mild–Medium`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `masala-dose`,
@@ -236,12 +240,13 @@
         category: `Dosa & Crepes`,
         tags: [`Featured`, `Popular`, `Iconic Dosa`],
         description: `Golden-brown crispy fermented rice crepe lined with a fiery garlic-chili red chutney paste and stuffed with seasoned mashed potato masala.`,
-        price: 14.95,
+        price: 15.95,
         spiceLevel: `Medium`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `onion-dose`,
@@ -254,7 +259,8 @@
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `adai-dose`,
@@ -262,12 +268,13 @@
         category: `Dosa & Crepes`,
         tags: [`Protein Rich`],
         description: `Savory, hearty regional crepe crafted from a thick, nutrition-rich batter of blended lentils and traditional aromatic spices, cooked to a golden crisp.`,
-        price: 15.95,
+        price: 16.95,
         spiceLevel: `Medium`,
         isVegan: true,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: false
+        noPreTasting: false,
+        isActive: true
       },
       {
         id: `kesari-bath`,
@@ -280,7 +287,8 @@
         isVegan: false,
         isGlutenFree: false,
         containsNuts: true,
-        noPreTasting: true
+        noPreTasting: true,
+        isActive: true
       },
       {
         id: `pink-blossom`,
@@ -288,12 +296,13 @@
         category: `Desserts`,
         tags: [`Chilled Dessert`],
         description: `A chilled, creamy dessert delicately infused with fragrant rose flower extract, sweet milk solids, and topped with premium nut slivers.`,
-        price: 8.95,
+        price: 12.95,
         spiceLevel: `Sweet`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: true,
-        noPreTasting: true
+        noPreTasting: true,
+        isActive: true
       },
       {
         id: `velvet-sapodilla`,
@@ -301,21 +310,87 @@
         category: `Desserts`,
         tags: [`Warm Dessert`],
         description: `A rich, warm, slow-simmered dessert confection crafted from the sweet, caramel-like pulp of fresh sapodilla fruit, pure ghee, and milk solids.`,
-        price: 8.00,
+        price: 12.95,
         spiceLevel: `Sweet`,
         isVegan: false,
         isGlutenFree: true,
         containsNuts: false,
-        noPreTasting: true
+        noPreTasting: true,
+        isActive: true
       }
     ];
 
-    /* Replaceable imageUrl values: swap any data URI below with your hosted image URL */
-    function makePromoSvgDataUri(title, accentHex, bgHex, tag) {
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280"><rect width="640" height="280" fill="${bgHex}"/><circle cx="540" cy="140" r="110" fill="${accentHex}" opacity="0.18"/><circle cx="540" cy="140" r="68" fill="${accentHex}" opacity="0.28"/><rect x="36" y="42" width="168" height="28" rx="14" fill="${accentHex}"/><text x="120" y="60" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">${tag}</text><text x="36" y="132" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#261b15">${title}</text><text x="36" y="176" font-family="sans-serif" font-size="16" fill="#57483f">MG's Kitchen · Langley, BC · Small-Batch Craft</text></svg>`;
-      return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-    }
+    function escapeSvgText(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
+function makePromoSvgDataUri(title, bgColor = '#b84a24', textColor = '#f3e9dc', badgeText = '') {
+  const safeTitle = escapeSvgText(title);
+  const safeBg = escapeSvgText(bgColor);
+  const safeText = escapeSvgText(textColor);
+  const safeBadge = escapeSvgText(badgeText);
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320">
+      <rect width="600" height="320" rx="16" fill="${safeBg}" />
+      <text x="40" y="135" fill="${safeText}" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="700">
+        ${safeTitle}
+      </text>
+      ${
+        safeBadge
+          ? `<rect x="40" y="168" rx="8" width="220" height="44" fill="${safeText}" />
+             <text x="150" y="197" text-anchor="middle" fill="${safeBg}" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700">
+               ${safeBadge}
+             </text>`
+          : ''
+      }
+    </svg>
+  `.trim();
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+function initMobileMenu() {
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (!hamburgerBtn || !navLinks) {
+    return;
+  }
+
+  const setMenuState = (isOpen) => {
+    navLinks.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  hamburgerBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = !navLinks.classList.contains('open');
+    setMenuState(isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      setMenuState(false);
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navLinks.classList.contains('open')) {
+      return;
+    }
+    const clickedInside =
+      navLinks.contains(event.target) || hamburgerBtn.contains(event.target);
+    if (!clickedInside) {
+      setMenuState(false);
+    }
+  });
+}
+ 
     const PROMO_SLIDES = [
       {
         id: `promo-tiffin`,
@@ -329,9 +404,9 @@
       },
       {
         id: `promo-park-dine`,
-        badge: `Park & Dine`,
+        badge: `Park & Dine - Bengaluru Car Oota`,
         title: `Curbside Parking-Served Hot Dosa`,
-        description: `Arrive at 20381 62 Ave #301 and enter your vehicle make, color, and plate in the Cart drawer. Freshly seared Masala Dose or Benne Dose brought hot to your car.`,
+        description: `Bengaluru Car Oota: Arrive at 20381 62 Ave #301 and enter your vehicle make, color, and plate in the Cart drawer. Freshly seared Masala Dose or Benne Dose brought hot to your car.`,
         discountCode: `PARKDINE5`,
         discountRate: 0.05,
         validWindow: `Thu–Sun 11:30 AM – 3:00 PM · Langley Kitchen Lot`,
@@ -486,7 +561,7 @@
         ]
       }
     ];
-
+ 
     /* =========================================================================
        2. APPLICATION STATE & PERSISTENCE (notebookAppApi)
        ========================================================================= */
@@ -537,6 +612,28 @@
         agreed: false
       }
     };
+
+      async function persistCurrentState() {
+      const nameEl = document.getElementById(`cart-customer-name`);
+      const contactEl = document.getElementById(`cart-customer-contact`);
+      const spiceEl = document.getElementById(`cart-spice-level`);
+      const vehicleEl = document.getElementById(`cart-vehicle-note`);
+      const notesEl = document.getElementById(`cart-notes`);
+
+      if (nameEl) appState.customerName = nameEl.value;
+      if (contactEl) appState.customerContact = contactEl.value;
+      if (spiceEl) appState.spiceLevel = spiceEl.value;
+      if (vehicleEl) appState.vehicleNote = vehicleEl.value;
+      if (notesEl) appState.orderNotes = notesEl.value;
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Ignore persistence write error in preview
+        }
+      }
+    }
 
     let activePromoIndex = 0;
 
@@ -762,6 +859,57 @@
       const found = appState.cart.find(function (c) { return c.id === itemId; });
       return found ? found.qty : 0;
     }
+function setServiceMode(mode) {
+      appState.serviceMode = mode;
+
+      const modes = [`car-oota`, `pickup`, `catering`];
+      modes.forEach((m) => {
+        const btn = document.getElementById(`mode-btn-${m}`);
+        if (btn) btn.classList.toggle(`is-active`, m === mode);
+      });
+
+      const selectEl = document.getElementById(`cart-fulfillment-select`);
+      if (selectEl && selectEl.value !== mode) selectEl.value = mode;
+
+      const badge = document.getElementById(`active-mode-badge`);
+      const heading = document.getElementById(`active-mode-heading`);
+      const steps = document.getElementById(`active-mode-steps`);
+      const vehicleField = document.getElementById(`cart-vehicle-field`);
+
+      if (vehicleField) {
+        vehicleField.style.display = mode === `car-oota` ? `flex` : `none`;
+      }
+
+      if (badge && heading && steps) {
+        if (mode === `car-oota`) {
+          badge.textContent = `Bengaluru Car Oota Active`;
+          heading.textContent = `How Bengaluru Car Oota Works at #301`;
+          steps.innerHTML = `
+            <li><span class="step-num">1</span><span><strong>Build &amp; Submit Order:</strong> Add dishes below, select <em>Park &amp; Dine</em> in the Cart Drawer, and note your vehicle make/color.</span></li>
+            <li><span class="step-num">2</span><span><strong>Interac e-Transfer:</strong> Send total with 5% BC GST to <strong>${BUSINESS_EMAIL}</strong> before arriving.</span></li>
+            <li><span class="step-num">3</span><span><strong>Pull Up &amp; Dine:</strong> Park outside 20381 62 Ave #301 (Thu–Sun, 11 A.M. - 4:40 P.M) and text/call <strong>+1 (672) 975-1664</strong> for car-window service.</span></li>
+          `;
+        } else if (mode === `pickup`) {
+          badge.textContent = `Kitchen Pickup Active`;
+          heading.textContent = `Direct Pickup at 20381 62 Ave #301`;
+          steps.innerHTML = `
+            <li><span class="step-num">1</span><span><strong>Select Dishes:</strong> Choose from Rice of the Day, Breakfast Specials, Dosas, Meals, and Desserts.</span></li>
+            <li><span class="step-num">2</span><span><strong>Settle via Interac:</strong> Send total + 5% BC GST to <strong>${BUSINESS_EMAIL}</strong>.</span></li>
+            <li><span class="step-num">3</span><span><strong>Collect Fresh:</strong> Pick up at Unit #301 during Thu–Sun, 11 A.M. - 4:40 P.M.</span></li>
+          `;
+        } else {
+          badge.textContent = `24/7 Catering Mode Active`;
+          heading.textContent = `Prepaid Uber Drop-Off Catering`;
+          steps.innerHTML = `
+            <li><span class="step-num">1</span><span><strong>Written Email Booking:</strong> All catering menu, headcount, and spice details must be emailed to <strong>${BUSINESS_EMAIL}</strong>.</span></li>
+            <li><span class="step-num">2</span><span><strong>Milestone Payments:</strong> 50% non-refundable deposit at signing, 25% 7 days prior, 25% + round-trip Uber prior to dispatch.</span></li>
+            <li><span class="step-num">3</span><span><strong>Handover &amp; 2-Hr Rule:</strong> Dispatched via prepaid Uber courier; optional door setup billed at <strong>$20.00/hr</strong>.</span></li>
+          `;
+        }
+      }
+
+      persistCurrentState();
+    }
 
     function setMenuCategory(category) {
       appState.menuFilter.category = category;
@@ -824,6 +972,7 @@
 
       const q = (f.search || ``).trim().toLowerCase();
       const filtered = MENU_ITEMS.filter(function (item) {
+        if (item.isActive === false) return false;
         if (f.category === `Featured` && item.tags.indexOf(`Featured`) === -1) return false;
         if (f.category !== `All` && f.category !== `Featured` && item.category !== f.category) return false;
         if (f.vegan && !item.isVegan) return false;
@@ -1029,7 +1178,7 @@
       };
     }
 
-    function buildCartEmailPayload(fin) {
+   /* function buildCartEmailPayload(fin) {
       const m = appState.cartMeta;
       const fulfillmentLabels = {
         pickup: `Kitchen Pickup (${KITCHEN_ADDRESS})`,
@@ -1055,7 +1204,78 @@
 
       const mailtoHref = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       return { subject: subject, body: body, mailtoHref: mailtoHref };
-    }
+    }*/
+          function buildCartEmailPayload(fin) {
+          const m = appState.cartMeta;
+
+          // Reuse an existing order number if already generated in cartMeta, otherwise create a new one
+          if (!m.orderNumber) {
+            m.orderNumber = generateOrderNumber('MGK-ORD');
+          }
+          const orderNumber = m.orderNumber;
+
+          const fulfillmentLabels = {
+            pickup: `Kitchen Pickup (${KITCHEN_ADDRESS})`,
+            parkAndDine: `Park & Dine (Parking-Served Curbside at ${KITCHEN_ADDRESS})`,
+            catering: `Prepaid Round-Trip Uber Drop-Off Catering Inquiry`
+          };
+
+          const modeShortLabel =
+            m.fulfillment === 'parkAndDine'
+              ? 'Park & Dine'
+              : m.fulfillment === 'catering'
+              ? 'Catering Inquiry'
+              : 'Pickup';
+
+          const itemRows = fin.lines.length
+            ? fin.lines
+                .map(function (l) {
+                  const p = l.lineTotal !== null ? `$${l.lineTotal.toFixed(2)} CAD` : `Quote Confirmed`;
+                  return `- ${l.qty}x ${l.dish.name} — ${p}`;
+                })
+                .join(`\n`)
+            : `- (No items selected yet)`;
+
+          let parkDineSection = ``;
+          if (m.fulfillment === `parkAndDine`) {
+            parkDineSection = `\nPark & Dine Vehicle Details:\n- Make & Model: ${m.parkDine.model || '(Not entered)'}\n- Color: ${m.parkDine.color || '(Not entered)'}\n- License Plate: ${m.parkDine.plate || '(Not entered)'}\n- Arrival Time / Stall: ${m.parkDine.arrival || '(Not entered)'}\n`;
+          }
+
+          const subject = `MG's Kitchen Order [${orderNumber}] — ${m.customerName || 'Customer'} (${modeShortLabel})`;
+
+          const body = `Hello MG's Kitchen,
+
+        I would like to place the following order:
+
+        Order Reference #: ${orderNumber}
+        Customer: ${m.customerName || '(Please enter)'}
+        Contact: ${m.contact || '(Please enter)'}
+        Fulfillment: ${fulfillmentLabels[m.fulfillment] || fulfillmentLabels.pickup}${parkDineSection}
+        Spice Preference: ${m.spice}
+        Dietary / Delivery Notes: ${m.notes || 'None'}
+
+        Order Items:
+        ${itemRows}
+
+        Summary (CAD):
+        - Subtotal: $${fin.subtotal.toFixed(2)}${fin.discountAmount > 0 ? `\n- Promo (${m.promoCode.toUpperCase()}): -$${fin.discountAmount.toFixed(2)}` : ''}
+        - BC GST (5%): $${fin.gst.toFixed(2)}
+        - Grand Total: $${fin.grandTotal.toFixed(2)}${fin.quoteCount > 0 ? ` (+ ${fin.quoteCount} Quote-Confirmed item(s))` : ''}
+
+        Interac e-Transfer Payment & Confirmation Note:
+        - Please send $${fin.grandTotal.toFixed(2)} CAD via Interac e-Transfer to ${BUSINESS_EMAIL} prior to kitchen dispatch and include Order Reference # (${orderNumber}) in the e-Transfer message/memo field.
+        - Please reply to this email thread with your Interac e-Transfer Confirmation / Reference Number once sent so we can verify payment promptly.
+
+        Thank you!`;
+
+          const mailtoHref = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          return {
+            orderNumber: orderNumber,
+            subject: subject,
+            body: body,
+            mailtoHref: mailtoHref
+          };
+        }
 
     function renderCartTotalsAndEmail() {
       const fin = computeCartFinancials();
@@ -1139,7 +1359,25 @@
 
       renderCartTotalsAndEmail();
     }
+  function openCartDrawer() {
+      const backdrop = document.getElementById(`cart-backdrop`);
+      const drawer = document.getElementById(`cart-drawer`);
+      if (backdrop) backdrop.classList.add(`is-open`);
+      if (drawer) {
+        drawer.classList.add(`is-open`);
+        drawer.setAttribute(`aria-hidden`, `false`);
+      }
+    }
 
+    function closeCartDrawer() {
+      const backdrop = document.getElementById(`cart-backdrop`);
+      const drawer = document.getElementById(`cart-drawer`);
+      if (backdrop) backdrop.classList.remove(`is-open`);
+      if (drawer) {
+        drawer.classList.remove(`is-open`);
+        drawer.setAttribute(`aria-hidden`, `true`);
+      }
+    }
     function copyCartEmailText() {
       const fin = computeCartFinancials();
       const payload = buildCartEmailPayload(fin);
@@ -1286,8 +1524,69 @@
         rsvpEndLabel: minusDays(ev, 7)
       };
     }
+      /**
+       * Generates a unique order number formatted as: MGK-YYYYMMDD-XXXX
+       * Example: MGK-20261123-4829
+       */
+      function generateOrderNumber(prefix = 'MGK') {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const randomSuffix = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
+        return `${prefix}-${year}${month}${day}-${randomSuffix}`;
+      }
 
-    function buildCateringEmailPayload(m) {
+      function buildCateringEmailPayload(m) {
+        const c = appState.catering;
+        
+        // Reuse an existing order number if already generated in state, otherwise create a new one
+        if (!c.orderNumber) {
+          c.orderNumber = generateOrderNumber('MGK-CAT');
+        }
+        const orderNumber = c.orderNumber;
+
+        const subject = `Catering Inquiry [${orderNumber}] — ${c.clientName || 'Client'} (${c.eventDate || 'TBD'})`;
+         
+        const body = `Hello MG's Kitchen,
+
+      I would like to submit a formal Drop-Off Catering Inquiry (Email-Only Policy):
+
+      - Order Reference #: ${orderNumber}
+      - Client Name: ${c.clientName || '(To be confirmed)'}
+      - Event Date: ${c.eventDate || '(To be confirmed)'}
+      - Delivery Address (Prepaid Uber): ${c.address || '(To be confirmed)'}
+      - Estimated Headcount: ${c.guests} guests
+      - Specified Spice Level: ${c.spiceLevel}
+      - Allergen / Dietary Split: ${c.dietarySplit}
+      - Payment Method: ${c.paymentMethod}
+
+      Requested Portions:
+      - Tomato Bath ($11.95): ${c.portions.tomatoBath}
+      - Ghee Podi Idli ($12.95): ${c.portions.gheePodiIdli}
+      - Masala Vada ($8.95): ${c.portions.masalaVada}
+      - Kharabath Upma ($7.99): ${c.portions.kharabath}
+
+      Estimated Settlement:
+      - Food Subtotal: $${m.foodSubtotal.toFixed(2)} CAD
+      - Prepaid Round-Trip Uber Courier: $${m.uberFee.toFixed(2)} CAD
+      - Door Setup Labor ($20.00/hr): $${m.laborFee.toFixed(2)} CAD
+      - Estimated Total: $${m.total.toFixed(2)} CAD ($${m.perGuest.toFixed(2)}/guest)
+
+      Interac e-Transfer Payment & Confirmation Note:
+      - Please send your Interac e-Transfer payment to ${BUSINESS_EMAIL} and include Order Reference # (${orderNumber}) in the e-Transfer message/memo field.
+      - IMPORTANT: Please reply to this email thread with your Interac e-Transfer Confirmation / Reference Number once sent so our kitchen can verify settlement prior to dispatch.
+
+      I acknowledge the 50% non-refundable deposit, 3-day email-only modification cutoff (${m.modCutoffLabel}), and 2-hour post-delivery food safety window.`;
+
+        return {
+          orderNumber: orderNumber,
+          subject: subject,
+          body: body,
+          mailtoHref: `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        };
+      }
+   /* function buildCateringEmailPayload(m) {
       const c = appState.catering;
       const subject = `Catering Inquiry — ${c.clientName || 'Client'} (${c.eventDate || 'TBD'})`;
       const body = `Hello MG's Kitchen,\n\nI would like to submit a formal Drop-Off Catering Inquiry (Email-Only Policy):\n\n- Client Name: ${c.clientName || '(To be confirmed)'}\n- Event Date: ${c.eventDate || '(To be confirmed)'}\n- Delivery Address (Prepaid Uber): ${c.address || '(To be confirmed)'}\n- Estimated Headcount: ${c.guests} guests\n- Specified Spice Level: ${c.spiceLevel}\n- Allergen / Dietary Split: ${c.dietarySplit}\n- Payment Method: ${c.paymentMethod}\n\nRequested Portions:\n- Tomato Bath ($11.95): ${c.portions.tomatoBath}\n- Ghee Podi Idli ($12.95): ${c.portions.gheePodiIdli}\n- Masala Vada ($8.95): ${c.portions.masalaVada}\n- Kharabath Upma ($7.99): ${c.portions.kharabath}\n\nEstimated Settlement:\n- Food Subtotal: $${m.foodSubtotal.toFixed(2)} CAD\n- Prepaid Round-Trip Uber Courier: $${m.uberFee.toFixed(2)} CAD\n- Door Setup Labor ($20.00/hr): $${m.laborFee.toFixed(2)} CAD\n- Estimated Total: $${m.total.toFixed(2)} CAD ($${m.perGuest.toFixed(2)}/guest)\n\nI acknowledge the 50% non-refundable deposit, 3-day email-only modification cutoff (${m.modCutoffLabel}), and 2-hour post-delivery food safety window.`;
@@ -1297,7 +1596,7 @@
         body: body,
         mailtoHref: `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
       };
-    }
+    }*/
 
     function renderCateringAndAgreement() {
       const c = appState.catering;
@@ -1492,6 +1791,9 @@
                 <span class="badge-emerald">${partner.tag}</span>
                 <h3 style="font-family:var(--font-headline); font-size:1.65rem; margin:0 0 var(--space-xs);">${partner.name}</h3>
                 <p style="margin:0 0 var(--space-sm); font-size:0.9rem; color:var(--on-surface-variant);">${partner.description}</p>
+                 <p style="font-size: 0.78rem; color: var(--secondary); margin: var(--space-sm) 0 0; font-style: italic;">
+              Merchant Notice: Delivery Charges on the ${partner.name} menu are set directly by the Merchant.
+                </p>
                 <!--<div class="plain-url-box">${partner.plainDomain}</div>
                 -->
                 
@@ -1637,7 +1939,11 @@
     }
 
     document.addEventListener(`DOMContentLoaded`, initApp);
-
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMobileMenu);
+    } else {
+      initMobileMenu();
+    }
      
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -1645,4 +1951,21 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "z0bc7d3tvm");
  
-  
+  const hamburgerBtn = document.querySelector('.hamburger-btn, [aria-label*="Menu"], #mobileMenuBtn');
+const mobileNavPanel = document.getElementById('mobileNavPanel');
+
+if (hamburgerBtn && mobileNavPanel) {
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileNavPanel.classList.toggle('is-open');
+    mobileNavPanel.hidden = !isOpen;
+    hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  mobileNavPanel.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNavPanel.classList.remove('is-open');
+      mobileNavPanel.hidden = true;
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}

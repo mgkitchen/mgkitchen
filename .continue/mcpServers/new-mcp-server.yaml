@@ -1,0 +1,15 @@
+mcpServers:
+  # Option A: Pre-built JS MCP Server
+  - name: js-mcp
+    command: npx
+    args:
+      - -y
+      - js-mcp
+
+  # Option B: Your Custom Local JS Server
+  - name: custom-js-server
+    command: node
+    args:
+      - ./index.js
+    env:
+      NODE_ENV: development
