@@ -236,9 +236,9 @@
       },
       {
         id: `masala-dose`,
-        name: `Masala Dose (Dosa + Red Chutney + Aloo)`,
-        category: `Dosa & Crepes`,
-        tags: [`Featured`, `Popular`, `Iconic Dosa`],
+        name: `Masala Dose (Dose + Red Chutney + Aloo)`,
+        category: `Dose & Crepes`,
+        tags: [`Featured`, `Popular`, `Iconic Dose`],
         description: `Golden-brown crispy fermented rice crepe lined with a fiery garlic-chili red chutney paste and stuffed with seasoned mashed potato masala.`,
         price: 15.95,
         spiceLevel: `Medium`,
@@ -251,7 +251,7 @@
       {
         id: `onion-dose`,
         name: `Onion Dose`,
-        category: `Dosa & Crepes`,
+        category: `Dose & Crepes`,
         tags: [`Featured`, `Crispy Crepe`],
         description: `A large, golden fermented rice crepe generously sprinkled with finely chopped sweet red onions and fresh cilantro before searing.`,
         price: 14.95,
@@ -265,7 +265,7 @@
       {
         id: `adai-dose`,
         name: `Adai Dose`,
-        category: `Dosa & Crepes`,
+        category: `Dose & Crepes`,
         tags: [`Protein Rich`],
         description: `Savory, hearty regional crepe crafted from a thick, nutrition-rich batter of blended lentils and traditional aromatic spices, cooked to a golden crisp.`,
         price: 16.95,
@@ -405,8 +405,8 @@ function initMobileMenu() {
       {
         id: `promo-park-dine`,
         badge: `Park & Dine - Bengaluru Car Oota`,
-        title: `Curbside Parking-Served Hot Dosa`,
-        description: `Bengaluru Car Oota: Arrive at 20381 62 Ave #301 and enter your vehicle make, color, and plate in the Cart drawer. Freshly seared Masala Dose or Benne Dose brought hot to your car.`,
+        title: `Curbside Parking-Served Hot Dose`,
+        description: `Bengaluru Car Oota: Arrive at 20381 62 Ave and enter your vehicle make, color, and plate in the Cart drawer. Freshly seared Masala Dose or Benne Dose brought hot to your car.`,
         discountCode: `PARKDINE5`,
         discountRate: 0.10,
         validWindow: `Thu–Sun 11:30 AM – 3:00 PM · Langley Kitchen Lot`,
@@ -429,7 +429,7 @@ function initMobileMenu() {
         id: `doordash`,
         name: `DoorDash`,
         tag: `Featured Partner · Virtual Brand`,
-        description: `Storefront: MG'S KITCHEN THE FLAVOUR SPECIALIST — Langley, BC. Supports Delivery, Pickup, and Group Orders across Featured Items, Breakfast Specials, Rice Specialties, and Dosas. Prices on DoorDash are set directly by the Merchant.`,
+        description: `Storefront: MG'S KITCHEN THE FLAVOUR SPECIALIST — Langley, BC. Supports Delivery, Pickup, and Group Orders across Featured Items, Breakfast Specials, Rice Specialties, and Doses. Prices on DoorDash are set directly by the Merchant.`,
         plainDomain: `https://www.doordash.com/en-CA/store/mgs-kitchen-the-flavour-specialist-langley-52160213`,
         plainSecondDomain: `https://merchant-portal.doordash.com/merchant/storefront?intl=en-CA&store_id=52160213`,
         actionLabel: `DoorDash Storefront`,actionLabel2: `DoorDash Online`
@@ -478,7 +478,7 @@ function initMobileMenu() {
         name: "YouTube",
         icon: "youtube", // Lucide icon: data-lucide="youtube"
         handle: "MG's Kitchen Culinary Craft",
-        description: "Behind-the-scenes stories on hand-roasted podi, fermented dosa batter, and traditional Bengaluru-style cooking.",
+        description: "Behind-the-scenes stories on hand-roasted podi, fermented Dose batter, and traditional Bengaluru-style cooking.",
         plainDomain: "https://www.youtube.com/@ManasaKitchenG",
         url: "https://www.youtube.com/@ManasaKitchenG",
         actionLabel: "YouTube"
@@ -883,7 +883,7 @@ function setServiceMode(mode) {
       if (badge && heading && steps) {
         if (mode === `car-oota`) {
           badge.textContent = `Bengaluru Car Oota Active`;
-          heading.textContent = `How Bengaluru Car Oota Works at #301`;
+          heading.textContent = `How Bengaluru Car Oota Works`;
           steps.innerHTML = `
             <li><span class="step-num">1</span><span><strong>Build &amp; Submit Order:</strong> Add dishes below, select <em>Park &amp; Dine</em> in the Cart Drawer, and note your vehicle make/color.</span></li>
             <li><span class="step-num">2</span><span><strong>Interac e-Transfer:</strong> Send total with 5% BC GST to <strong>${BUSINESS_EMAIL}</strong> before arriving.</span></li>
@@ -891,9 +891,9 @@ function setServiceMode(mode) {
           `;
         } else if (mode === `pickup`) {
           badge.textContent = `Kitchen Pickup Active`;
-          heading.textContent = `Direct Pickup at 20381 62 Ave #301`;
+          heading.textContent = `Direct Pickup at 20381 62 Ave`;
           steps.innerHTML = `
-            <li><span class="step-num">1</span><span><strong>Select Dishes:</strong> Choose from Rice of the Day, Breakfast Specials, Dosas, Meals, and Desserts.</span></li>
+            <li><span class="step-num">1</span><span><strong>Select Dishes:</strong> Choose from Rice of the Day, Breakfast Specials, Doses, Meals, and Desserts.</span></li>
             <li><span class="step-num">2</span><span><strong>Settle via Interac:</strong> Send total + 5% BC GST to <strong>${BUSINESS_EMAIL}</strong>.</span></li>
             <li><span class="step-num">3</span><span><strong>Collect Fresh:</strong> Pick up at Unit #301 during Thu–Sun, 11 A.M. - 4:40 P.M.</span></li>
           `;
@@ -1067,7 +1067,22 @@ function setServiceMode(mode) {
         if (dish) showToast(`Added ${dish.name} to cart`);
       }
     }
+ function openAgreementDrawer() {
+      renderCartDrawer();
+      const backdrop = document.getElementById(`agreement-backdrop`);
+      const drawer = document.getElementById(`agreement`);
+      if (backdrop) backdrop.classList.add(`is-open`);
+      if (drawer) drawer.classList.add(`is-open`);
+    }
 
+    function closeAgreementDrawer() {
+      const backdrop = document.getElementById(`agreement-backdrop`);
+      const drawer = document.getElementById(`agreement`);
+      if (backdrop) backdrop.classList.remove(`is-open`);
+      if (drawer) drawer.classList.remove(`is-open`);
+    }
+
+    
     function openCartDrawer() {
       renderCartDrawer();
       const backdrop = document.getElementById(`cart-backdrop`);
@@ -1577,7 +1592,7 @@ function setServiceMode(mode) {
       - Please send your Interac e-Transfer payment to ${BUSINESS_EMAIL} and include Order Reference # (${orderNumber}) in the e-Transfer message/memo field.
       - IMPORTANT: Please reply to this email thread with your Interac e-Transfer Confirmation / Reference Number once sent so our kitchen can verify settlement prior to dispatch.
 
-      I acknowledge the 50% non-refundable deposit, 3-day email-only modification cutoff (${m.modCutoffLabel}), and 2-hour post-delivery food safety window.`;
+      I acknowledge the "Non-Refundable $20 for Catering Enquiry" & 50% non-refundable deposit, 3-day email-only modification cutoff (${m.modCutoffLabel}), and 2-hour post-delivery food safety window.`;
 
         return {
           orderNumber: orderNumber,
@@ -1694,7 +1709,7 @@ function setServiceMode(mode) {
               <tr><td><strong>Initial Estimated Headcount</strong></td><td>${c.guests} guests (Final confirmed 5–10 business days prior per Section 2)</td></tr>
               <tr><td><strong>Specified Spice Level</strong></td><td>${c.spiceLevel} (Confirmed at signing)</td></tr>
               <tr><td><strong>Dietary / Allergen Structure</strong></td><td>${c.dietarySplit}</td></tr>
-              <tr><td><strong>Estimated Contract Settlement</strong></td><td><strong>$${m.total.toFixed(2)} CAD</strong> (${c.paymentMethod})</td></tr>
+              <!--<tr><td><strong>Estimated Contract Settlement</strong></td><td><strong>$${m.total.toFixed(2)} CAD</strong> (${c.paymentMethod})</td></tr>-->
             </tbody>
           </table>
         `;
@@ -1861,7 +1876,7 @@ function setServiceMode(mode) {
     function copyDirectionsInfo() {
       copyTextToClipboard(`${MAP_DIRECTIONS.searchPrompt} (${MAP_DIRECTIONS.plainDestination})`, `Copied Google Maps directions for Langley kitchen`);
       
-        window.open('https://share.google/1sB0BG8cEZgkoei6M', '_blank');
+        window.open('https://maps.app.goo.gl/MyvaZ1DN5UNXVNpV6', '_blank');
     }
 
     function copyAddressOnly() {
@@ -1969,3 +1984,172 @@ if (hamburgerBtn && mobileNavPanel) {
     });
   });
 }
+
+function initAgreementModal({
+  triggerSelector = 'a[href="#agreement"]',
+  modalId = "agreement-modal",
+  mobileMenuOpenClasses = ["mobile-nav-open", "nav-open", "is-open", "active"],
+  mobileDrawerSelector = ".mobile-nav, .nav-drawer, .mobile-menu",
+  onConfirm = null
+} = {}) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  const triggers = Array.from(document.querySelectorAll(triggerSelector));
+  const closeBtn = modal.querySelector("#close-agreement-modal");
+  const jumpLink = modal.querySelector("#jump-to-full-agreement");
+  const form = modal.querySelector("#agreement-modal-form");
+  const nameInput = modal.querySelector("#modal-signatory-name");
+  const checkInput = modal.querySelector("#modal-ack-check");
+
+  let lastFocusedElement = null;
+
+  function closeMobileDrawerIfOpen() {
+    mobileMenuOpenClasses.forEach((cls) => {
+      document.body.classList.remove(cls);
+      document.documentElement.classList.remove(cls);
+    });
+
+    document.querySelectorAll(mobileDrawerSelector).forEach((drawer) => {
+      mobileMenuOpenClasses.forEach((cls) => drawer.classList.remove(cls));
+      if (drawer.hasAttribute("aria-expanded")) {
+        drawer.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  function setTriggersExpanded(expanded) {
+    triggers.forEach((el) => {
+      if (el.hasAttribute("aria-expanded")) {
+        el.setAttribute("aria-expanded", String(expanded));
+      }
+    });
+  }
+
+  function openModal(event) {
+    if (event) {
+      event.preventDefault();
+      // Prevent any delegated parent/drawer handlers from reopening or interfering
+      event.stopPropagation();
+    }
+
+    lastFocusedElement = event?.currentTarget || document.activeElement;
+
+    if (event?.currentTarget?.classList?.contains("mobile-toggleable")) {
+      closeMobileDrawerIfOpen();
+    }
+
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    setTriggersExpanded(true);
+
+    // Defer focus slightly so any mobile drawer close transition doesn't steal focus
+    requestAnimationFrame(() => {
+      (nameInput || closeBtn)?.focus();
+    });
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    setTriggersExpanded(false);
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    }
+  }triggers.forEach((link) => {
+    link.addEventListener("click", openModal);
+  });
+
+  closeBtn?.addEventListener("click", closeModal);
+
+  jumpLink?.addEventListener("click", () => {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    setTriggersExpanded(false);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-modal]")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
+    }
+  });
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const payload = {
+      signatoryName: nameInput?.value.trim() || "",
+      acknowledged: Boolean(checkInput?.checked),
+      signedAt: new Date().toISOString()
+    };
+
+    if (typeof onConfirm === "function") {
+      onConfirm(payload);
+    }
+    closeModal();
+  });
+
+  return { open: openModal, close: closeModal };
+}
+
+const agreementLink = document.querySelector('a.nav-link.mobile-toggleable[href="#agreement"]');
+
+agreementLink?.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // If you have a mobile menu / drawer toggle helper, close it cleanly first
+  document.body.classList.remove("mobile-nav-open", "nav-open");
+
+  openAgreementModal(event);
+});
+
+document.addEventListener(
+  "click",
+  (event) => {
+    const trigger = event.target.closest('[data-agreement-trigger], a[href="#agreement"]');
+    if (!trigger) return;
+
+    event.preventDefault();
+
+    const modal = document.getElementById("agreement-modal");
+    if (!modal) {
+      console.warn("Agreement modal (#agreement-modal) not found in DOM.");
+      return;
+    }
+
+    // Close mobile menu state if present
+    document.body.classList.remove("mobile-nav-open", "nav-open", "is-open", "active");
+    document.documentElement.classList.remove("mobile-nav-open", "nav-open", "is-open", "active");
+
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    trigger.setAttribute("aria-expanded", "true");
+  },
+  true
+);
+
+const agreementModal = document.getElementById("agreement-modal");
+
+agreementModal?.addEventListener(
+  "click",
+  (event) => {
+    const closeTrigger = event.target.closest(
+      "#close-agreement-modal, [data-close-modal], .mgk-modal__close, [aria-label*='Close' i]"
+    );
+    if (!closeTrigger) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    agreementModal.hidden = true;
+    agreementModal.setAttribute("hidden", "");
+    agreementModal.classList.remove("is-open", "open", "active");
+    document.body.classList.remove("modal-open");
+  },
+  true
+);

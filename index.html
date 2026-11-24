@@ -92,8 +92,8 @@
   <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
   <a href="#menu" class="nav-link mobile-toggleable">Menu</a>
   <!--<a href="#catering" class="nav-link mobile-toggleable">Special Catering</a>-->
-  <a href="#agreement" class="nav-link mobile-toggleable">Agreement</a>
   <a href="#delivery" class="nav-link mobile-toggleable">Delivery &amp; Social</a>
+  <a href="#agreement" class="nav-link mobile-toggleable">Agreement</a>
 </nav>
 <div id="mobileNavPanel" class="mobile-nav-panel" hidden>
   <a href="#service-modes" class="nav-link">Park &amp; Dine</a>
@@ -161,7 +161,7 @@
         <article class="arch-card">
           <div class="arch-label">Daily Tiffin</div>
           <div class="arch-figure">$7.99–$19.95</div>
-          <div class="arch-caption">23 small-batch dishes</div>
+          <div class="arch-caption">22 small-batch dishes</div>
         </article>
         <article class="arch-card">
           <div class="arch-label">Event Catering</div>
@@ -171,6 +171,7 @@
       </div>
     </section>
 <!-- Park & Dine (Bengaluru Car Oota) & Service Modes -->
+ <!-- Park & Dine (Bengaluru Car Oota) & Service Modes -->
     <section class="service-band" id="service-modes">
       <div>
         <span class="kicker">Choose Your Fulfillment Mode</span>
@@ -188,7 +189,7 @@
                 <span class="badge-emerald">Window Service</span>
               </div>
               <div class="mode-desc">
-                Pull up outside 20381 62 Ave #301 during Thu–Sun (11 A.M. - 4:40 P.M). Enjoy piping-hot benne dose, ghee podi idli, and masala vada brought straight to your car window.
+                Pull up outside 20381 62 Ave #301 during Thu–Sun (9:30 AM – 2:30 PM). Enjoy piping-hot benne dose, ghee podi idli, and masala vada brought straight to your car window.
               </div>
             </div>
           </button>
@@ -230,11 +231,11 @@
           <span class="kicker" id="active-mode-kicker">Selected Window Mode</span>
           <span class="badge-emerald" id="active-mode-badge">Bengaluru Car Oota Active</span>
         </div>
-        <h3 style="font-size: 1.5rem;" id="active-mode-heading">How Bengaluru Car Oota Works at #301</h3>
+        <h3 style="font-size: 1.5rem;" id="active-mode-heading">How Bengaluru Car Oota Works</h3>
         <ol class="car-oota-steps" id="active-mode-steps">
           <li><span class="step-num">1</span><span><strong>Build &amp; Submit Order:</strong> Add your dishes below, select <em>Park &amp; Dine</em> in the Cart Drawer, and include your vehicle make/color.</span></li>
           <li><span class="step-num">2</span><span><strong>Interac e-Transfer:</strong> Send total with 5% BC GST to <strong>manasagkitchen@gmail.com</strong> prior to pickup window.</span></li>
-          <li><span class="step-num">3</span><span><strong>Pull Up &amp; Dine:</strong> Arrive at 20381 62 Ave #301 (Thu–Sun, 11 A.M. - 4:40 P.M) and text or call <strong>+1 (672) 975-1664</strong> for car-window service.</span></li>
+          <li><span class="step-num">3</span><span><strong>Pull Up &amp; Dine:</strong> Arrive at 20381 62 Ave (Thu–Sun, 11 A.M. - 4:40 P.M) and text or call <strong>+1 (672) 975-1664</strong> for car-window service.</span></li>
         </ol>
         <div class="inline-notice" id="car-oota-tip">
           Tip: Your selected service mode syncs automatically with the Cart Drawer and your pre-filled Interac e-Transfer order email.
@@ -291,7 +292,7 @@
           <p class="kicker">Unified Kitchen Menu · Thu–Sun 11 A.M. - 4:40 P.M</p>
           <h2 id="menu-heading" class="section-title">Menu &amp; Culinary <em>Gallery</em></h2>
         </div>
-        <span id="menu-count-label" class="badge-emerald">Showing 23 dishes</span>
+        <span id="menu-count-label" class="badge-emerald">Showing 22 dishes</span>
       </div>
 
       <div class="menu-controls">
@@ -430,12 +431,23 @@
     </section>
 -->
     <!-- Formal Catering Service Agreement Guidelines -->
-    <section id="agreement" aria-labelledby="agreement-heading">
-      <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap;">
-        <div>
+       
+      <div id="agreement-modal" class="mgk-modal" role="dialog" aria-modal="true" aria-labelledby="agreement-modal-title" hidden>
+        <div class="mgk-modal__backdrop" data-close-modal></div>
+        <div class="mgk-modal__dialog">
+          <header class="mgk-modal__header">
+              <div>
           <p class="kicker">Formal Terms &amp; Conditions · Drop-Off Catering</p>
           <h2 id="agreement-heading" class="section-title">Catering Service <em>Agreement</em></h2>
+ 
+          <span class="badge-brass">**Non-Refundable $20 for Catering Enquiry**</span>
         </div>
+            <button type="button" class="mgk-modal__close" id="close-agreement-modal" aria-label="Close Agreement Popup">&times;</button>
+          </header>
+
+          <div class="mgk-modal__body">
+            <div style="display:flex; justify-content:space-between; align-items:end; gap:var(--space-md); flex-wrap:wrap;">
+      
         <button type="button" class="btn btn-secondary btn-sm" onclick="downloadSignedAgreement()">Download Agreement Summary (.txt)</button>
       </div>
 
@@ -472,8 +484,9 @@
           <span id="sig-status-note" style="font-size:0.875rem; color:var(--on-surface-variant);"></span>
         </div>
       </div>
-    </section>
-
+          </div>
+        </div>
+      </div>
     <!-- Delivery Partners & Social Channels (Hydrated from deliveryUrls & socialUrls) -->
     <section id="delivery" aria-labelledby="delivery-heading">
       <p class="kicker">Delivery Partners &amp; Community · Langley, BC</p>
@@ -521,7 +534,7 @@
 
       <div>
         <p class="kicker">Contact &amp; Kitchen Hours</p>
-        <p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Address:</strong> 20381 62 Ave #301, Langley, BC V3A 5E6, Canada</p>
+        <p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Address:</strong> 20381 62 Ave, Langley, BC V3A 5E6, Canada</p>
         <!--<p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Phone:</strong> +1 (672) 975-1664</p>-->
         <p style="margin:0 0 var(--space-xs); font-size:0.9rem;"><strong>Orders &amp; Interac e-Transfer:</strong> manasagkitchen@gmail.com</p>
         <p style="margin:0 0 var(--space-sm); font-size:0.9rem;"><strong>Kitchen Inquiries:</strong> manasagkitchen@gmail.com</p>
