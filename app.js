@@ -1814,9 +1814,9 @@ function setServiceMode(mode) {
                 
               </div>
               <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel}</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel}</button>
               ${partner.plainSecondDomain 
-              ? `<button type="button" class="btn btn-primary btn-sm add-to-cart-btn" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel2}</button>` 
+              ? `<button type="button" class="btn btn-primary btn-sm" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel2}</button>` 
               : ``}
 
               <button type="button" class="btn btn-secondary btn-sm add-to-cart-btn" onclick="openCartDrawer()">Direct Cart Order</button>
