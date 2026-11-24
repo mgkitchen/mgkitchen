@@ -539,6 +539,69 @@
       font-size: 0.8125rem;
     }
 
+    .add-to-cart-btn {
+      position: relative;
+      overflow: hidden; /* Keeps the shine inside the button corners */
+      /*background-color: var(--primary);  High-contrast conversion color 
+      color: #ffffff;*/
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Subtle lift on hover */
+    .add-to-cart-btn:hover {
+      background-color: #2c7e26;
+      transform: translateY(-2px);
+    }
+
+    /* Tactile press down on click */
+    .add-to-cart-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* The Shine Layer */
+    .add-to-cart-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-25deg);
+      animation: shine-sweep 3.5s infinite ease-in-out;
+    }
+
+    /* Pause animation on hover so it doesn't distract while clicking */
+    .add-to-cart-btn:hover::before {
+      animation: none;
+      left: 150%;
+      transition: left 0.6s ease;
+    }
+
+    @keyframes shine-sweep {
+      0% {
+        left: -100%;
+      }
+      25% {
+        left: 150%; /* Sweep completes in the first 25% of the cycle */
+      }
+      100% {
+        left: 150%; /* Pauses before repeating so it isn't overly distracting */
+      }
+    }
     .cart-trigger-btn {
       position: relative;
       background: var(--primary);

@@ -1036,7 +1036,7 @@ function setServiceMode(mode) {
                 <span class="qty-val">${qty}</span>
                 <button type="button" class="qty-btn" onclick="changeCartQty('${item.id}', 1)" aria-label="Increase ${item.name} quantity">+</button>
               </div>
-              <button type="button" class="btn btn-primary btn-sm" onclick="changeCartQty('${item.id}', 1)">
+              <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" onclick="changeCartQty('${item.id}', 1)">
                 ${qty > 0 ? `Add Another` : `Add to Cart`}
               </button>
             </div>
@@ -1799,12 +1799,12 @@ function setServiceMode(mode) {
                 
               </div>
               <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary btn-sm" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel}</button>
+                <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel}</button>
               ${partner.plainSecondDomain 
-              ? `<button type="button" class="btn btn-primary btn-sm" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel2}</button>` 
+              ? `<button type="button" class="btn btn-primary btn-sm add-to-cart-btn" onclick="copyPartnerUrl('delivery', '${partner.id}')">${partner.actionLabel2}</button>` 
               : ``}
 
-              <button type="button" class="btn btn-secondary btn-sm" onclick="openCartDrawer()">Direct Cart Order</button>
+              <button type="button" class="btn btn-secondary btn-sm add-to-cart-btn" onclick="openCartDrawer()">Direct Cart Order</button>
               </div>
             </article>
           `;
